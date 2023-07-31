@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --azulPrincipal: #1a689d;
+    --azulSecundario: #2886c5;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+#header{
+    background-image: linear-gradient(to bottom, var(--azulPrincipal)75%, var(--azulSecundario));
+    color: white;
+    height:95px;
+    padding: 15px;
+}
+#header-row{
+    height: 100%;
+}
+
+#header a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 12px;
+    transition: .3s;
+}
+
+.head-esq{
+    height: 100%;
+    text-align: center;
+}
+.head-dir{
+    text-align: center;
+}
+.img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#navbar a:hover{
+    text-decoration: underline;
+    color: rgb(192, 192, 192);
+}
+
+.center{
+    text-align: center;
+}
+
+#sao-filipe{
+    padding: 40px;
+}
+
+#sao-filipe p{
+    font-size: 1.3em;
+}
+
+
+#h1-sao-filipe{
+    margin: 35px 0;
+    font-size: 3em;
+}
+
+#div-sao-filipe-img{
+    width: 50%;
+}
+
+.img-sao-filipe{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+@media (max-width: 992px){
+    #div-sao-filipe-img{
+        width: 75%;
+    }
+}
+
+
+@media (max-width: 768px){
+    #header{
+        height: 150px;
+    }
+
+    .head-esq{
+        height: 50%;
+    }
+    #div-sao-filipe-img{
+        width: 100%;
+    }
+    #sao-filipe p{
+        font-size: 1.1em;
+    }
+    #h1-sao-filipe{
+        margin: 15px;
+        font-size: 2.5em;
+    }
+}
