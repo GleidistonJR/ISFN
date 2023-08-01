@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -13,10 +14,10 @@
 <body>
     <header class="container-fluid" id="header">
         <div class="row align-items-center" id="header-row">
-            <div class="col-12 col-md-4 head-esq">
+            <div class="col-8 col-md-4 head-esq">
                 <img class="img" src="img/LOGO-BRANCO-PNG.png" alt="Logo Instituto">
             </div>
-            <div class="col-12 col-md-8 head-dir">
+            <div class="col col-md-8 head-dir">
                 <nav id="navbar">
                     <a href="#">Inicio</a>
                     <a href="#">Projetos</a>
@@ -25,21 +26,50 @@
                     <a href="#">Contato</a>
                 </nav>
             </div>
+            <div class="col-2 " onclick="navbar()">
+                <i class="bi bi-list hamburguer col-1"></i>
+            </div>
         </div>
     </header>
-
+    <nav id="navbar-mobile">
+        <ul>
+            <a href="#">
+                <li>Inicio</li>
+            </a>
+            <a href="#">
+                <li>Projetos</li>
+            </a>
+            <a href="#">
+                <li>Noticias</li>
+            </a>
+            <a href="#">
+                <li>Parceiros</li>
+            </a>
+            <a href="#">
+                <li>Contato</li>
+            </a>
+        </ul>
+    </nav>
     <main class="container">
         <div class="row justify-content-center align-items-center center" id="sao-filipe">
             <div class="col-12 col-lg-6">
                 <h1 id="h1-sao-filipe">São Filipe Néri</h1>
-                <p>São Filipe Néri foi um santo italiano do século XVI conhecido como o "Apóstolo de Roma". Ele fundou um oratório em Roma para jovens e adultos, onde oferecia orientação espiritual e lições de moral cristã. Sua alegria contagiante e abordagem caridosa o tornaram amado por muitos. Faleceu em 1595 e foi canonizado em 1622. Seu legado é marcado pela caridade, serviço aos necessitados e alegria na fé cristã.</p>
+                <p class="paragrafo">São Filipe Néri foi um santo italiano do século XVI conhecido como o "Apóstolo de Roma". Ele fundou
+                    um oratório em Roma para jovens e adultos, onde oferecia orientação espiritual e lições de moral
+                    cristã. Sua alegria contagiante e abordagem caridosa o tornaram amado por muitos. Faleceu em 1595 e
+                    foi canonizado em 1622. Seu legado é marcado pela caridade, serviço aos necessitados e alegria na fé
+                    cristã.</p>
             </div>
-            
-            <div class="col-12 col-lg-6" id="div-sao-filipe-img"><img class="img-sao-filipe" src="img/FILIPE4.png" alt="Imagem de sao filipe neri"></div>
+
+            <div class="col-12 col-lg-6" id="div-sao-filipe-img"><img class="img-sao-filipe" src="img/FILIPE4.png"
+                    alt="Imagem de sao filipe neri"></div>
         </div>
 
-    </main>
 
+
+
+    </main>
+<script src="js/javascript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
