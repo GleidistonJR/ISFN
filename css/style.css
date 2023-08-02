@@ -9,6 +9,29 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.center {
+    text-align: center;
+}
+
+.btn{
+    background-image: linear-gradient(160deg, var(--azulPrincipal), var(--azulSecundario) ) ;
+    border-radius: 50px;
+    color: white;
+    padding: 10px 15px;
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    font-weight: 500;
+}
+
+.btn:hover{
+    background-image: none;
+    background-color: white;
+    color: var(--azulPrincipal);
+    padding: 10px 15px;
+    border: 2px solid var(--azulPrincipal);
+}
+
+/*header*/
+
 #header {
     background-image: linear-gradient(to bottom, var(--azulPrincipal)75%, var(--azulSecundario));
     color: white;
@@ -24,7 +47,6 @@
     color: white;
     text-decoration: none;
     padding: 5px 12px;
-    transition: .3s;
 }
 
 .head-esq {
@@ -43,12 +65,74 @@
 
 #navbar a:hover {
     text-decoration: underline;
-    color: rgb(192, 192, 192);
 }
 
-.center {
-    text-align: center;
+                                                        /*Banner*/
+
+#article-banner {
+    height: 100vh;
+    padding: 50px 20px;
+    border-radius: 10px;
 }
+
+#div-banner-txt{
+    padding: 20px;
+}
+#article-banner p {
+    text-align: justify;
+    font-size: 1.2em;
+}
+
+#article-banner h2 {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 1px rgba(32, 32, 32, 0.589);
+}
+
+                                                    /*Artigo Sobre*/
+#article-sobre{
+    background-color:var(--azulPrincipal);
+    color: white;
+    padding: 30px 50px;    
+}
+#article-sobre h2{
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.466);
+    margin-bottom: 15px;
+}
+#article-sobre p{
+    text-align: start;
+    font-size: 1.3em;
+    text-align: justify;
+}
+#article-sobre li{
+    color: rgb(216, 216, 216);
+    margin-left: 50px ;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+                                                /*article Como Funciona*/
+
+#article-como-funciona{
+    padding: 30px;
+    height: 100vh;
+}
+#article-como-funciona h2{
+    text-align: center;
+    font-size: 2.5em;
+    margin: 30px;
+    text-shadow: 1px 1px 1px rgba(32, 32, 32, 0.589);
+}
+#article-como-funciona p{
+    font-size: 1.2em;
+}
+#img-como-funciona{
+    border-radius: 10px;
+}
+
+
+                                                    /*Sao Filipe*/
 
 #sao-filipe {
     padding: 40px;
@@ -64,7 +148,7 @@
     font-size: 3em;
 }
 
-.paragrafo{
+.paragrafo {
     text-align: justify;
 }
 
@@ -79,35 +163,99 @@
 
 /*NAVBAR Mobile*/
 
-#navbar-mobile{
+#navbar-mobile {
     display: none;
 }
 
-.hamburguer{
+.hamburguer {
     display: none;
 }
 
 
 
-
+/*_________________________________________________________________________________________________*/
 @media (max-width: 992px) {
     #div-sao-filipe-img {
         width: 75%;
     }
+    #article-banner {
+        height: 100%;
+    }
 }
 
-
+/*___________________________________________________________________________________________________*/
 @media (max-width: 768px) {
     #header {
         height: 120px;
-        background-image:linear-gradient( var(--azulPrincipal), var(--azulPrincipal)) ;
+        background-image: linear-gradient(var(--azulPrincipal), var(--azulPrincipal));
         border-bottom: 1px solid #145e8f;
     }
 
     .head-esq {
         height: 70px;
     }
+    
+    
+                                             /*NavBar*/
+    #navbar {
+        display: none;
+    }
+    
+    #navbar-mobile {
+        background-image: linear-gradient(to bottom, var(--azulPrincipal), var(--azulSecundario));
+        display: none;
+        transition: 0.3s;
+    }
+    
+    #navbar-mobile ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #navbar-mobile a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.1em;
+    }
+    
+    #navbar-mobile li {
+        width: 100%;
+        list-style: none;
+        text-decoration: none;
+        padding: 8px 12px;
+    }
+    
+    #navbar-mobile li:hover {
+        background-color: white;
+        color: var(--azulPrincipal);
+    }
+    
+    .hamburguer {
+        font-size: 2.5em;
+        display: block;
+    }
+    
+                                            /*Banner*/
 
+    #article-banner p {
+        font-size: 1.1em;
+    }
+    
+    #article-banner h2 {
+        font-size: 2em;
+    }
+
+                                            /*artigo Sobre*/
+    #article-projeto h2{
+        font-size: 2em;
+    }
+    #article-projeto p{
+        text-align: start;
+        font-size: 1.1em;
+    }
+    
+                                            /*Sao filipe*/
+    
     #div-sao-filipe-img {
         width: 100%;
     }
@@ -120,43 +268,6 @@
         margin: 15px;
         font-size: 2.5em;
     }
-
-/*NavBar*/
-#navbar{
-    display: none;
-}
-#navbar-mobile {
-    background-image: linear-gradient(to bottom, var(--azulPrincipal), var(--azulSecundario));
-    display: none;
-    transition: 0.3s;
-}
-
-#navbar-mobile ul {
-    margin: 0;
-    padding: 0;
-}
-
-#navbar-mobile a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1em;
-}
-
-#navbar-mobile li {
-    width: 100%;
-    list-style: none;
-    text-decoration: none;
-    padding: 8px 12px;
-}
-
-#navbar-mobile li:hover {
-    background-color: white;
-    color: var(--azulPrincipal);
-}
-
-.hamburguer{
-    font-size: 2.5em;
-    display: block;
-}
+    
 
 }
