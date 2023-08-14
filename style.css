@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /*
+    --azulPrincipal: blue;
+    --azulSecundario: #1a689d;*/
+    --azulPrincipal: #1a689d;
+    --azulSecundario: #2886c5;
+    --azulFraco: #f7fcff;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn {
+    background-image: linear-gradient(160deg, var(--azulPrincipal), var(--azulSecundario));
+    border-radius: 50px;
+    color: white;
+    padding: 10px 15px;
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    font-weight: 400;
+    width: 200px;
+}
+
+.btn:hover {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--azulPrincipal);
+    padding: 10px 15px;
+    border: 2px solid var(--azulPrincipal);
+}
+
+/*header*/
+
+#header {
+    background-image: linear-gradient(to bottom, var(--azulPrincipal)75%, var(--azulSecundario));
+    color: white;
+    height: 95px;
+    padding: 15px;
+}
+
+#header-row {
+    height: 100%;
+}
+
+#header a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 12px;
+}
+
+.head-esq {
+    height: 100%;
+    text-align: center;
+}
+
+.head-dir {
+    text-align: center;
+}
+
+.img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#navbar a:hover {
+    text-decoration: underline;
+}
+
+/*NAVBAR Mobile*/
+
+#navbar-mobile {
+    display: none;
+}
+
+.hamburguer {
+    display: none;
+}
+
+/*Banner*/
+
+#article-banner {
+    background-image: url(../img/criancas-fazendo-robo.avif);
+    background-position: 150px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    padding: 0;
+}
+#article-banner .row{
+    height: 100%;
+    width: 100%;
+}
+
+#div-banner-txt {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to left, #000000b9 ,#000000ec , #000000 );
+    height: 100%;
+    padding: 30px;
+    color: white;
+    border-radius:0 48% 48% 0;
+    border-right: 3px solid white;
+}
+
+#article-banner h2 {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 1px rgba(32, 32, 32, 0.589);
+}
+#article-banner p {
+    font-size: 1.2em;
+    color: rgb(216, 216, 216);
+}
+
+
+/*Artigo Sobre*/
+
+#article-sobre {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 100px;
+    height: 100%;
+}
+
+
+#article-sobre h2 {
+    color: var(--azulPrincipal);
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+#article-sobre h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    width: 90%;
+    margin: 0 auto 40px auto;
+}
+
+#article-sobre h4 {
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#article-sobre p {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: black;
+}
+
+#article-sobre i {
+    color: var(--azulSecundario);
+    font-size: 3.5em;
+}
+
+#article-sobre .row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#article-sobre div {
+    background-color: var(--azulFraco);
+    border-radius: 10px;
+    height: 300px;
+    max-width: 350px;
+    padding: 30px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/*article Como Funciona*/
+
+#article-como-funciona {
+    height: 100vh;
+    background-color: var(--azulPrincipal);
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 50px 0;
+}
+
+#article-como-funciona h2 {
+    text-align: center;
+    font-size: 2.6em;
+    margin: 30px;
+    color: white
+}
+
+#article-como-funciona p {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: rgb(231, 231, 231);
+}
+
+#aside-txt-como-funciona {
+    padding: 50px;
+}
+
+#aside-img-como-funciona {
+    background-image: url("../img/img-robotica01.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/*Depoimentos*/
+#depoimentos {
+    margin-bottom: 50px;
+}
+
+#depoimentos h2 {
+    font-size: 2.6em;
+}
+
+#depoimentos aside {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.329);
+}
+
+#depoimentos-div {
+    margin-top: 50px;
+    justify-content: space-around;
+}
+
+/*Footer*/
+#footer {
+    background-color: var(--azulPrincipal);
+    color: white;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+#footer h4 {
+    margin: 0;
+}
+
+footer #redes {
+    background-color: var(--azulSecundario);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+#footer-contatos .row {
+    padding-top: 30px;
+}
+
+#footer-contatos .col-12 {
+    margin-bottom: 20px;
+}
+
+footer>article a {
+    margin-left: 15px;
+}
+
+footer i {
+    color: white;
+    font-size: 1.3em;
+}
+
+footer p {
+    font-weight: 400;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+
+
+
+/*_________________________________________________________________________________________________*/
+@media (max-width: 992px) {
+    
+    #article-banner {
+        background-image: url(../img/criancas-fazendo-robo.avif);
+        background-position: 50px 0px;
+        height: 100%;
+    }
+
+    /*Sobre o Projeto*/
+    #article-sobre {
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 30px;
+        height: 100%;
+    }
+
+    #article-sobre div {
+        padding: 15px;
+        height: 280px;
+        margin-bottom: 30px;
+    }
+
+    #article-sobre h3 {
+        width: 100%;
+        font-size: 1.4em;
+    }
+
+    /*Como Funciona*/
+    #article-como-funciona {
+        height: 100%;
+        margin-bottom: 50px;
+    }
+
+    #aside-img-como-funciona {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+/*___________________________________________________________________________________________________*/
+@media (max-width: 768px) {
+    #header {
+        height: 120px;
+        background-image: linear-gradient(var(--azulPrincipal), var(--azulPrincipal));
+        border-bottom: 1px solid #145e8f;
+    }
+
+    .head-esq {
+        height: 70px;
+    }
+
+
+    /*NavBar*/
+    #navbar {
+        display: none;
+    }
+
+    #navbar-mobile {
+        background-image: linear-gradient(to bottom, var(--azulPrincipal), var(--azulSecundario));
+        height: 0px;
+        display: block;
+        transition: 0.3s;
+    }
+
+    #navbar-mobile ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #navbar-mobile a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.1em;
+    }
+
+    #navbar-mobile li {
+        width: 100%;
+        list-style: none;
+        text-decoration: none;
+        padding: 8px 12px;
+    }
+
+    #navbar-mobile li:hover {
+        background-color: white;
+        color: var(--azulPrincipal);
+    }
+
+    .hamburguer {
+        font-size: 2.5em;
+        display: block;
+    }
+
+    /*Banner*/
+    
+    #article-banner p {
+        font-size: 0.7em;
+    }
+
+    #article-banner h2 {
+        font-size: 1em;
+    }
+    #div-banner-txt a{
+        width: 100px;
+        font-size: 0.6em;
+        padding: 4px;
+    }
+
+    /*artigo Sobre*/
+    #article-projeto h2 {
+        font-size: 2em;
+    }
+
+    #article-projeto p {
+        text-align: start;
+        font-size: 1.1em;
+    }
+
+    /*Como Funciona*/
+
+    #article-como-funciona h2 {
+        font-size: 2em;
+    }
+
+    /*Sao filipe*/
+
+    #div-sao-filipe-img {
+        width: 100%;
+    }
+
+    #sao-filipe p {
+        font-size: 1.1em;
+    }
+
+    #h1-sao-filipe {
+        margin: 15px;
+        font-size: 2.5em;
+    }
+
+
+}
