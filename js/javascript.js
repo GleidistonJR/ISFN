@@ -4,10 +4,11 @@ var hamburguer = document.querySelector('#navbar-mobile')
 function navbar(){
     cont++
     if(cont%2){
-        hamburguer.style.display = 'block'
+        hamburguer.style.height = '215px'
+        
     }
     else{
-        hamburguer.style.display = 'none'
+        hamburguer.style.height = '0px'
     }
 }
 

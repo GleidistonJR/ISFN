@@ -22,10 +22,10 @@
             <div class="col col-md-8 head-dir">
                 <nav id="navbar">
                     <a href="#">Inicio</a>
-                    <a href="#">Projetos</a>
-                    <a href="#">Noticias</a>
+                    <a href="#article-sobre">Sobre o Projeto</a>
+                    <a href="#depoimentos">Depoimentos</a>
                     <a href="#">Parceiros</a>
-                    <a href="#">Contato</a>
+                    <a href="#footer-contatos">Contato</a>
                 </nav>
             </div>
             <div class="col-2 " onclick="navbar()">
@@ -39,94 +39,144 @@
             <a href="#">
                 <li>Inicio</li>
             </a>
-            <a href="#">
-                <li>Projetos</li>
+            <a href="#article-sobre">
+                <li>Sobre o Projeto</li>
             </a>
-            <a href="#">
-                <li>Noticias</li>
+            <a href="#depoimentos">
+                <li>Depoimentos</li>
             </a>
             <a href="#">
                 <li>Parceiros</li>
             </a>
-            <a href="#">
+            <a href="#footer-contatos">
                 <li>Contato</li>
             </a>
         </ul>
     </nav>
 
-    <main class="container-fluid">
-     
-        <div class="container">
-            <article class="row align-items-center" id="article-banner">
-                <aside class="col-12 col-lg-7" id="div-banner-img">
-                    <img class="img-fluid rounded" id="banner-img" src="img/crianca-fazendo-robo.jpg"
-                        alt="Imagem relacionada à tecnologia e educação">
-                </aside>
-                <aside class="col-12 col-lg-5" id="div-banner-txt">
+    <main>
+
+        <!--Banner Principal-->
+        <article class="container-fluid" id="article-banner">
+            <aside class="row">
+                <div class="col-6" id="div-banner-txt">
                     <h2>Projeto de Formação Cristã de Futuros Líderes</h2>
                     <p>Capacitando Crianças e Adolescentes de Baixa Renda em Eletrônica, Programação, Robótica e IoT</p>
                     <a href="#" class="btn">Conheça mais</a>
-                </aside>
-            </article>
-        </div>
-
-
-        <article class="row align-items-center" id="article-sobre">
-            <h2>Sobre o Projeto</h2>
-            <p>O projeto será de cunho educativo, voltado a crianças e adolescentes de baixa renda, o projeto tem como objetivo:</p>
-
-            <ul>
-                <li>
-                    <strong>Reforço educacional:</strong> No projeto sera ofertado aulas como de ingles, matematica, eletronica, programação. 
-                </li>
-                <li>
-                    <strong>Desenvolvimento de valores:</strong> Ensino baseado em princípios cristãos para formar
-                    líderes éticos e responsáveis
-                </li>
-                <li>
-                    <strong>Formar Profissionais</strong> Área de róbotica está em completa excasses de profissionais, basicos conhecimentos são altamente aproveitados e bem remunerados.
-                </li>
-            </ul>
-
+                </div>
+            </aside>
         </article>
 
-        <div class="container">
-            <article class="row align-items-center" id="article-como-funciona">
-                <aside class="col-12 col-lg-5">
+
+        <!--Artigo Sobre o Projeto-->
+        <article class="container-fluid" id="article-sobre">
+            <h2>Sobre o Projeto</h2>
+            <h3>O projeto será de cunho educativo, voltado a crianças e adolescentes de baixa renda, o projeto tem como
+                objetivo:</h3>
+            <aside class="row align-items-center">
+                <div class="coluna">
+                    <i class="bi bi-mortarboard-fill"></i>
+                    <h4>Reforço educacional</h4>
+                    <p>No projeto será ofertado aulas como de inglês, matemática, eletrônica, programação</p>
+                </div>
+                <div class="coluna">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    <h4>Desenvolvimento de valores</h4>
+                    <p>Ensino baseado em princípios cristãos para formar líderes éticos e responsáveis</p>
+                </div>
+                <div class="coluna">
+                    <i class="bi bi-person-check"></i>
+                    <h4>Formação de Profissionais</h4>
+                    <p>Intuito em capacitar novos profissionais de róbotica</p>
+                </div>
+            </aside>
+        </article>
+
+        <!--Como funciona-->
+        <article class="container-fluid" id="article-como-funciona" >
+            <div class="row align-items-center" id="article-como-funciona">
+                <aside class="col-12 col-lg-6" id="aside-txt-como-funciona">
                     <h2>Como Funciona</h2>
-                    <p><strong>Inscrição Gratuita:</strong> Crianças e adolescentes de baixa renda podem se inscrever para participar do programa.</p>
-                    <p><strong>Formação Técnica:</strong> Aulas teóricas e práticas em eletrônica, programação, robótica e IoT</p>
-                    <p><strong>Desenvolvimento de Valores:</strong> Ensino baseado em princípios cristãos para formar líderes
+                    <p><strong>Formação Técnica:</strong> Aulas teóricas e práticas em eletrônica, programação, robótica
+                        e IoT</p>
+                    <p><strong>Desenvolvimento de Valores:</strong> Ensino baseado em princípios cristãos para formar
+                        líderes
                         éticos e responsáveis.</p>
                 </aside>
-
-                <aside class="img col-12 col-lg-7">
-                    <img src="img/alunos-sabendo-a-resposta-certa.jpg" alt="Imagem de alunos na sala de aula" class="img-fluid" id="img-como-funciona">
+                <aside class="img col-12 col-lg-6" id="aside-img-como-funciona">
+                    <!--img-->
                 </aside>
-            </article>
-
-        </div>
-
-
-
-        <!--
-        <div class="row justify-content-center align-items-center center" id="sao-filipe">
-            <div class="col-12 col-lg-6">
-                <h1 id="h1-sao-filipe">São Filipe Néri</h1>
-                <p class="paragrafo">São Filipe Néri foi um santo italiano do século XVI conhecido como o "Apóstolo de
-                    Roma". Ele fundou
-                    um oratório em Roma para jovens e adultos, onde oferecia orientação espiritual e lições de moral
-                    cristã. Sua alegria contagiante e abordagem caridosa o tornaram amado por muitos. Faleceu em 1595 e
-                    foi canonizado em 1622. Seu legado é marcado pela caridade, serviço aos necessitados e alegria na fé
-                    cristã.</p>
             </div>
+        </article>
 
-            <div class="col-12 col-lg-6" id="div-sao-filipe-img"><img class="img-sao-filipe" src="img/FILIPE4.png"
-                    alt="Imagem de sao filipe neri"></div>
-        </div>
-    -->
+        <!--Depoimentos-->
+        <article class="container align-items-center center" id="depoimentos">
+            <h2>Depoimentos</h2>
+            <div class="row" id="depoimentos-div">
+                <aside class="col-12 col-md-3">
+                    <div class="#">
+                        <img class="img-fluid rounded" src="img/adolescente.jpg" alt="">
+                    </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ducimus impedit blanditiis
+                        non vel eum fugit nulla! Deserunt itaque, optio, sed eius ipsa suscipit accusamus iure at
+                        dolorum repudiandae quam.</p>
+                </aside>
+                <aside class="col-12 col-md-3">
+                    <div class="#">
+                        <img class="img-fluid rounded" src="img/adolescente.jpg" alt="">
+                    </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ducimus impedit blanditiis
+                        non vel eum fugit nulla! Deserunt itaque, optio, sed eius ipsa suscipit accusamus iure at
+                        dolorum repudiandae quam.</p>
+                </aside>
+                <aside class="col-12 col-md-3">
+                    <div class="#">
+                        <img class="img-fluid rounded" src="img/adolescente.jpg" alt="">
+                    </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ducimus impedit blanditiis
+                        non vel eum fugit nulla! Deserunt itaque, optio, sed eius ipsa suscipit accusamus iure at
+                        dolorum repudiandae quam.</p>
+                </aside>
+            </div>
+        </article>
+
+
+
+
+
+
 
     </main>
+    <footer id="footer">
+        <article id="redes">
+            <aside>
+                <h4>Nos siga nas redes sociais!</h4>
+            </aside>
+            <aside>
+                <nav>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </nav>
+            </aside>
+        </article>
+
+        <article class="container-fluid" id="footer-contatos">
+            <div class="row justify-content-center">
+                <h4>Contatos</h4>
+
+                <div class="col-12 col-md-3">
+                    <h5>E-mail</h5>
+                    <p>isfn@isfn.com</p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5>Telefone</h5>
+                    <p>(62)9 9286-2544</p>
+                </div>
+            </div>
+        </article>
+
+        <p>&copy;2023 Copyright: Instituto São Filipe Neri</p>
+    </footer>
 
 
     <script src="js/javascript.js"></script>
