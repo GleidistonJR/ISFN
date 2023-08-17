@@ -2,138 +2,104 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/EspiritoSanto Azul.svg" type="image/x-icon">
-    <title>Instituto São Filipe Neris</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--CSS BOOTSTRAP-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <!--ICONS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <!--CSS-->
+  <link rel="stylesheet" href="css/styles.css" />
+  <!--FAVICON-->
+  <link rel="shortcut icon" href="img/img-logo/EspiritoSanto Azul.svg" type="image/x-icon" />
+  <!--FONTES-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <title>SFN</title>
 </head>
 
 <body>
-    <!--Header-->
-    <header class="container-fluid" id="header">
-        <div class="row align-items-center" id="header-row">
-            <div class="col-8 col-md-4 head-esq">
-                <img class="img" src="img/LOGO-BRANCO-PNG.png" alt="Logo Instituto">
-            </div>
-            <div class="col col-md-8 head-dir">
-                <nav id="navbar">
-                    <a href="#">Inicio</a>
-                    <a href="#">Projetos</a>
-                    <a href="#">Noticias</a>
-                    <a href="#">Parceiros</a>
-                    <a href="#">Contato</a>
-                </nav>
-            </div>
-            <div class="col-2 " onclick="navbar()">
-                <i class="bi bi-list hamburguer col-1"></i>
-            </div>
-        </div>
-    </header>
-    <!--NavBar Mobile-->
-    <nav id="navbar-mobile">
-        <ul>
-            <a href="#">
-                <li>Inicio</li>
-            </a>
-            <a href="#">
-                <li>Projetos</li>
-            </a>
-            <a href="#">
-                <li>Noticias</li>
-            </a>
-            <a href="#">
-                <li>Parceiros</li>
-            </a>
-            <a href="#">
-                <li>Contato</li>
-            </a>
-        </ul>
-    </nav>
+  <!--MENU -->
 
-    <main class="container-fluid">
-     
-        <div class="container">
-            <article class="row align-items-center" id="article-banner">
-                <aside class="col-12 col-lg-7" id="div-banner-img">
-                    <img class="img-fluid rounded" id="banner-img" src="img/crianca-fazendo-robo.jpg"
-                        alt="Imagem relacionada à tecnologia e educação">
-                </aside>
-                <aside class="col-12 col-lg-5" id="div-banner-txt">
-                    <h2>Projeto de Formação Cristã de Futuros Líderes</h2>
-                    <p>Capacitando Crianças e Adolescentes de Baixa Renda em Eletrônica, Programação, Robótica e IoT</p>
-                    <a href="#" class="btn">Conheça mais</a>
-                </aside>
-            </article>
-        </div>
+  <div class="container-fluid" id="menu">
+    <div class="row align-items-center">
+      <div class="col-4" id="logo">
+        <img class="img-logo-normal" src="img/img-logo/LOGO-BRANCO-PNG.png" />
+        <img class="img-logo-mini" src="img/img-logo/EspiritoSanto branco.png" />
+      </div>
+      <!--Logo -->
 
+      <div class="col-4" id="navbar">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre nós </a></li>
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">Projetos</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!--Navbar -->
 
-        <article class="row align-items-center" id="article-sobre">
-            <h2>Sobre o Projeto</h2>
-            <p>O projeto será de cunho educativo, voltado a crianças e adolescentes de baixa renda, o projeto tem como objetivo:</p>
+      <div class="col-1 hamburguer" id="hamburguer">
+        <i onclick="animarMenu()" class="bi bi-list" id="icone"></i>
+      </div>
 
-            <ul>
-                <li>
-                    <strong>Reforço educacional:</strong> No projeto sera ofertado aulas como de ingles, matematica, eletronica, programação. 
-                </li>
-                <li>
-                    <strong>Desenvolvimento de valores:</strong> Ensino baseado em princípios cristãos para formar
-                    líderes éticos e responsáveis
-                </li>
-                <li>
-                    <strong>Formar Profissionais</strong> Área de róbotica está em completa excasses de profissionais, basicos conhecimentos são altamente aproveitados e bem remunerados.
-                </li>
-            </ul>
+      <nav class="col-4" id="social">
 
-        </article>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-whatsapp"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
 
-        <div class="container">
-            <article class="row align-items-center" id="article-como-funciona">
-                <aside class="col-12 col-lg-5">
-                    <h2>Como Funciona</h2>
-                    <p><strong>Inscrição Gratuita:</strong> Crianças e adolescentes de baixa renda podem se inscrever para participar do programa.</p>
-                    <p><strong>Formação Técnica:</strong> Aulas teóricas e práticas em eletrônica, programação, robótica e IoT</p>
-                    <p><strong>Desenvolvimento de Valores:</strong> Ensino baseado em princípios cristãos para formar líderes
-                        éticos e responsáveis.</p>
-                </aside>
+      </nav>
+    </div>
+  </div>
+  <!--Navbar -->
 
-                <aside class="img col-12 col-lg-7">
-                    <img src="img/alunos-sabendo-a-resposta-certa.jpg" alt="Imagem de alunos na sala de aula" class="img-fluid" id="img-como-funciona">
-                </aside>
-            </article>
+  <!--row menu-->
 
-        </div>
+  <div class="container-fluid" id="menu-mobile">
+    <div class="row">
+      <div class="col-6" id="navbar-mobile">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre nós</a></li>
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">Projetos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 
+  <!-- seção 2-->
+  <div class="container-fluid sec-banner">
+    <div class="row align-middle">
+      <div class="col-4 headiline">
+        <h1 class="titulo">
+          A fé <span style="color: #1a689d;">cristã</span> 
+          e a tecologia em uma experiência <span style="color: #1a689d;">transformadora</span>
+        </h1>
+        <h2 class="descricao">
+          Capacitando Crianças e Adolescentes de Baixa Renda em 
+          Eletrônica, Programação, Robótica e IoT
+        </h2>
+      </div>
 
-
-        <!--
-        <div class="row justify-content-center align-items-center center" id="sao-filipe">
-            <div class="col-12 col-lg-6">
-                <h1 id="h1-sao-filipe">São Filipe Néri</h1>
-                <p class="paragrafo">São Filipe Néri foi um santo italiano do século XVI conhecido como o "Apóstolo de
-                    Roma". Ele fundou
-                    um oratório em Roma para jovens e adultos, onde oferecia orientação espiritual e lições de moral
-                    cristã. Sua alegria contagiante e abordagem caridosa o tornaram amado por muitos. Faleceu em 1595 e
-                    foi canonizado em 1622. Seu legado é marcado pela caridade, serviço aos necessitados e alegria na fé
-                    cristã.</p>
-            </div>
-
-            <div class="col-12 col-lg-6" id="div-sao-filipe-img"><img class="img-sao-filipe" src="img/FILIPE4.png"
-                    alt="Imagem de sao filipe neri"></div>
-        </div>
-    -->
-
-    </main>
-
-
-    <script src="js/javascript.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-
+      <div class="col-8">
+      
+      </div>
+  
+      </div>
+    </div>
+  </div>
+  <div class="espa">junin</div>
+  <script src="js/animar.js"></script>
+  <script src="js/event.js"></script>
 </body>
 
 </html>
