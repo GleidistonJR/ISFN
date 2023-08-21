@@ -4,65 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Icons BootStrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!--CSS BootStrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!--CSS Local-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/EspiritoSanto Azul.svg" type="image/x-icon">
     <title>Instituto São Filipe Neris</title>
 </head>
 
 <body>
-    <!--Header-->
-    <header class="container-fluid" id="header">
-        <div class="row align-items-center" id="header-row">
-            <div class="col-8 col-md-4 head-esq">
-                <img class="img" src="img/LOGO-BRANCO-PNG.png" alt="Logo Instituto">
-            </div>
-            <div class="col col-md-8 head-dir">
-                <nav id="navbar">
-                    <a id="home" href="index.html">Inicio</a>
-                    <a href="#article-sobre">Sobre o Projeto</a>
-                    <a href="#depoimentos">Depoimentos</a>
-                    <a href="#">Parceiros</a>
-                    <a href="#footer-contatos">Contato</a>
+    <!--MENU -->
+    <header>
+        <div class="container-fluid" id="menu">
+            <div class="row align-items-center" id="row-menu">
+                <div class="col-4" id="logo"><!--Logo -->
+                    <img class="img-logo-normal" src="img/img-logo/LOGO-BRANCO-PNG.png" />
+                    <img class="img-logo-mini" src="img/img-logo/EspiritoSanto branco.png" />
+                </div>
+
+                <!--Navbar -->
+                <div class="col-4" id="navbar">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="pgs/Sobre.html">Sobre nós </a></li>
+                            <li><a href="#">Equipe</a></li>
+                            <li><a href="#">Projetos</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <nav class="col-4" id="social">
+
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+
                 </nav>
-            </div>
-            <div class="col-2 " onclick="navbar()">
-                <i class="bi bi-list hamburguer col-1"></i>
+                <div class="col-8 hamburguer" id="hamburguer">
+                    <i onclick="animarMenu()" class="bi bi-list" id="icone"></i>
+                </div>
             </div>
         </div>
+
+        <div class="container-fluid" id="menu-mobile">
+            <div class="row">
+                <div class="col-12" id="navbar-mobile">
+                    <nav>
+                        <ul>
+
+                            <li><i onclick="animarMenu()" class="bi bi-x-circle-fill" id="icone2"></i></li>
+                            <li><a href="#">HOME</a></li>
+                            <li><a href="#">SOBRE NÓS</a></li>
+                            <li><a href="#">EQUIPE</a></li>
+                            <li><a href="#">PROJETOS</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
     </header>
-    <!--NavBar Mobile-->
-    <nav id="navbar-mobile">
-        <ul>
-            <a href="#">
-                <li>Inicio</li>
-            </a>
-            <a href="#article-sobre">
-                <li>Sobre o Projeto</li>
-            </a>
-            <a href="#depoimentos">
-                <li>Depoimentos</li>
-            </a>
-            <a href="#">
-                <li>Parceiros</li>
-            </a>
-            <a href="#footer-contatos">
-                <li>Contato</li>
-            </a>
-        </ul>
-    </nav>
 
     <main>
-
-        <!--Banner Principal-->
-        <article class="container-fluid" id="article-banner">
-            <aside class="row">
-                <div class="col-6" id="div-banner-txt">
-                    <h2>A fé Cristã e a tecnologia em uma experiência transformadora</h2>
-                    <p>Capacitando Crianças e Adolescentes de Baixa Renda em Eletrônica, Programação, Robótica e IoT</p>
-                    <a href="#" class="btn">Conheça mais</a>
+        <!--Banner-->
+        <article class="container-fluid sec-banner">
+            <aside class="row align-middle">
+                <div class="col-4 headiline">
+                    <h1 class="titulo">
+                        A fé <span style="color: var(--azulPrincipal)">cristã</span>
+                        e a tecologia em uma experiência <span style="color: var(--azulPrincipal);">transformadora</span>
+                    </h1>
+                    <h2 class="descricao">
+                        Capacitando Crianças e Adolescentes de Baixa Renda em
+                        Eletrônica, Programação, Robótica e IoT
+                    </h2>
                 </div>
             </aside>
         </article>
@@ -116,26 +135,27 @@
             <h2><i class="bi bi-quote"></i>Depoimentos</h2>
             <div class="row" id="depoimentos-div">
                 <aside class="col-12 col-md-3">
-                    <div class="#">
-                        <img class="img-fluid " src="img/male_avatar.svg" alt="">
+                    <div class="img-div">
+                        <img class="img-fluid " src="img/depoimento-12.webp" alt="foto">
                     </div>
-                    <h4>Nome'</h4>
+                    <h4>Eduardo</h4>
+
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ducimus impedit blanditiis
                         non vel eum fugit nulla! </p>
                 </aside>
                 <aside class="col-12 col-md-3">
-                    <div class="#">
-                        <img class="img-fluid " src="img/male_avatar.svg" alt="">
+                    <div class="img-div">
+                        <img class="img-fluid " src="img/depoimento-2.webp" alt="">
                     </div>
-                    <h4>Nome</h4>
+                    <h4>Gabriel</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ducimus impedit blanditiis
                         non vel eum fugit nulla! </p>
                 </aside>
                 <aside class="col-12 col-md-3">
-                    <div class="#">
-                        <img class="img-fluid " src="img/male_avatar.svg" alt="">
+                    <div class="img-div">
+                        <img class="img-fluid " src="img/depoimento-3.webp" alt="">
                     </div>
-                    <h4>Nome</h4>
+                    <h4>Julia</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ducimus impedit blanditiis
                         non vel eum fugit nulla!</p>
                 </aside>
