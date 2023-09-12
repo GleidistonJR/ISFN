@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--CSS Local-->
+    <link rel="stylesheet" href="css/setup.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/EspiritoSanto Azul.svg" type="image/x-icon">
     <title>Instituto São Filipe Neris</title>
@@ -29,7 +30,7 @@
                 <div class="col-4" id="navbar">
                     <nav>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html"> Home </a></li>
                             <li><a href="pgs/Sobre.html">Sobre nós </a></li>
                             <li><a href="#">Equipe</a></li>
                             <li><a href="#">Projetos</a></li>
@@ -57,8 +58,8 @@
                         <ul>
 
                             <li><i onclick="animarMenu()" class="bi bi-x-circle-fill" id="icone2"></i></li>
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">SOBRE NÓS</a></li>
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="pgs/Sobre.html">SOBRE NÓS</a></li>
                             <li><a href="#">EQUIPE</a></li>
                             <li><a href="#">PROJETOS</a></li>
                         </ul>
@@ -169,35 +170,56 @@
 
 
     </main>
-    <footer id="footer">
-        <article id="redes">
-            <aside>
-                <h4>Nos siga nas redes sociais!</h4>
-            </aside>
-            <aside>
-                <nav>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
+
+    <footer class="container-fluid text-white bg-dark" id="footerMaster">
+        <div class="row pt-5 pb-5">
+
+            <section class="col-6 col-md-3 primeiraColuna">
+
+                <img class="imgFooter" src="../img/LOGO-BRANCO-PNG.png" alt="LOGO-BRANCO-PNG">
+
+                <nav class="col-6 iconsFooter">
                     <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
                 </nav>
-            </aside>
-        </article>
 
-        <article class="container-fluid" id="footer-contatos">
-            <div class="row justify-content-center">
-                <h4>Contatos</h4>
+            </section>
 
-                <div class="col-12 col-md-3">
-                    <h5>E-mail</h5>
-                    <p>isfn@isfn.com</p>
-                </div>
-                <div class="col-12 col-md-3">
-                    <h5>Telefone</h5>
-                    <p>(62)9 9286-2544</p>
-                </div>
-            </div>
-        </article>
+            <section class="col-6 col-md-3  segundaColuna">
+                <nav class="navFooter titleFooter">
+                    <h1 class="linksRapidos">Links Rápidos</h1>
+                    <a href="#">Home</a>
+                    <a href="#">Sobre nós </a>
+                    <a href="#">Equipe</a>
+                    <a href="#">Projetos</a>
+                </nav>
 
-        <p>&copy;2023 Copyright: Instituto São Filipe Neri</p>
+            </section>
+
+            <section class="col-6 col-md-3  terceiraColuna">
+                <h1 class="contato">Contato</h1>
+                <nav class="contactFooter titleFooter">
+                    <a href="tel:+555998988778">tel: 9 99999 9999</a>
+                    <a href="#">isfn@isfn.com</a>
+                    <a href="#">New York, NY Sheram 113</a>
+                    <a href="#">Projetos</a>
+                    
+                </nav>
+
+            </section>
+
+            <section class="col-6 col-md-3 quartaColuna">
+                <h1 class="Cadastro">Escreva-se na News Later</h1>
+                <label for="email" class="form-label">Deixe seu e-mail para ficar por dentro de tudo</label>
+                <form class="d-flex">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail">
+                    <button class="buttonIcon">
+                        <i class="bi bi-envelope"></i>
+                    </button>
+                </form>
+            </section>
+        </div>
     </footer>
 
 

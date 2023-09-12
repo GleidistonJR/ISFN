@@ -16,23 +16,5 @@ function animarMenu(){
     menuDiv.classList.toggle('abrir')
     btnAnimar.classList.toggle('ativo')
     
-
-}
-
-
-/*JR*/
-
-var cont = 0
-var hamburguer = document.querySelector('#navbar-mobile')
-
-function navbar(){
-    cont++
-    if(cont%2){
-        hamburguer.style.height = '215px'
-        
-    }
-    else{
-        hamburguer.style.height = '0px'
-    }
 }
 
