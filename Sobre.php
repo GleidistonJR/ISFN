@@ -72,12 +72,12 @@
 
     <main class="container-fluid">
         <article class="container" id="SaoFelipe">
-            <h1 class="center">São Felipe Nerí</h1>
             <aside class="row">
                 <div class="col-12 col-md-6">
                     <img class="img-fluid rounded" src="../img/FILIPE4.png" alt="Imagem de Sao Felipe Neri">
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 col-txt">
+                    <h1 class="center">São Felipe Nerí</h1>
                     <h3>“Pippo bono”</h3>
                     <p>
                         Pertencente a uma família rica, filho de tabelião, o santo, nascido em 1515 em Florença, Itália,
@@ -266,9 +266,10 @@
         </div>
     </footer>
 
+    <?php
+    ?>
+    
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>

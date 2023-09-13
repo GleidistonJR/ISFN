@@ -20,6 +20,7 @@ main article aside {
 /*-----Sao Felipe-----*/
 #SaoFelipe h1{
     color: var(--H1);
+    margin-bottom: 10px;
 }
 #SaoFelipe .row{
     padding: 0;
@@ -41,6 +42,16 @@ main article aside {
 #SaoFelipe .row p{
     text-align: justify;
     color: var(--Paragrafo-black);
+}
+
+#SaoFelipe .col-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+#SaoFelipe .col-txt .btn-primary{
+    width: 30%;
 }
 
 #SaoFelipe #Mais{
