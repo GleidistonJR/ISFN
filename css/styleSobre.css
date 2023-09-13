@@ -18,6 +18,9 @@ main article aside {
 }
 
 /*-----Sao Felipe-----*/
+#SaoFelipe h1{
+    color: var(--H1);
+}
 #SaoFelipe .row{
     padding: 0;
     margin: 0;
@@ -35,10 +38,18 @@ main article aside {
     font-size: 1.3em;
     margin: 0;
 }
-
-.accordion-button {
-    box-shadow: none !important;
+#SaoFelipe .row p{
+    text-align: justify;
+    color: var(--Paragrafo-black);
 }
+
+#SaoFelipe #Mais{
+    height: 100%;
+    display: none;
+}
+
+
+/*Era Uma Vez*/
 
 #EraUmaVez-aside p {
     text-align: justify;
@@ -63,7 +74,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.1em;
+    font-size: 2.8em;
     font-weight: 400;
     color: var(--H2);
 }
@@ -92,7 +103,7 @@ h2 {
     }
     #SaoFelipe .row .col-12{
         height: 100%;
-        padding: 0;
+        padding: 10px 0 0 0 ;
     }
     #SaoFelipe .row h3{
         font-size: 1em;
