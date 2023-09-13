@@ -17,6 +17,29 @@ main article aside {
     padding: 20px;
 }
 
+/*-----Sao Felipe-----*/
+#SaoFelipe .row{
+    padding: 0;
+    margin: 0;
+    height: 90vh;
+    width: 100%;
+    align-items: center;
+}
+#SaoFelipe .row img{
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+#SaoFelipe .row h3{
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.accordion-button {
+    box-shadow: none !important;
+}
+
 #EraUmaVez-aside p {
     text-align: justify;
     font-size: 1.1em;
@@ -45,6 +68,7 @@ h2 {
     color: var(--H2);
 }
 
+
 /*------Carrosel-----*/
 #carrosel-div {
     margin: 50px auto
@@ -62,6 +86,23 @@ h2 {
 
 /*_________________________________________________________________________________________________*/
 @media (max-width: 992px) {
+
+    #SaoFelipe .row{
+        height: 100% !important;
+    }
+    #SaoFelipe .row .col-12{
+        height: 100%;
+        padding: 0;
+    }
+    #SaoFelipe .row h3{
+        font-size: 1em;
+    }
+    #SaoFelipe .row p{
+        font-size: 0.8em;
+    }
+    #SaoFelipe .row-2{
+        margin-top: -50px;
+    }
 
     /*------Carousel------*/
     .carousel-indicators {
