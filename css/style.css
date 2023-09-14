@@ -1,278 +1,287 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-:root {
-    --azulPrincipal: #1a689d;
-    --azulSecundario: #2886c5;
-}
+/*-----section-banner-----*/
 
-* {
-    font-family: 'Roboto', sans-serif;
-}
-
-.center {
-    text-align: center;
-}
-
-.btn{
-    background-image: linear-gradient(160deg, var(--azulPrincipal), var(--azulSecundario) ) ;
-    border-radius: 50px;
-    color: white;
-    padding: 10px 15px;
-    border: 2px solid rgba(0, 0, 0, 0.200);
-    font-weight: 500;
-}
-
-.btn:hover{
-    background-image: none;
-    background-color: white;
-    color: var(--azulPrincipal);
-    padding: 10px 15px;
-    border: 2px solid var(--azulPrincipal);
-}
-
-/*header*/
-
-#header {
-    background-image: linear-gradient(to bottom, var(--azulPrincipal)75%, var(--azulSecundario));
-    color: white;
-    height: 95px;
-    padding: 15px;
-}
-
-#header-row {
-    height: 100%;
-}
-
-#header a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 12px;
-}
-
-.head-esq {
-    height: 100%;
-    text-align: center;
-}
-
-.head-dir {
-    text-align: center;
-}
-
-.img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-#navbar a:hover {
-    text-decoration: underline;
-}
-
-                                                        /*Banner*/
-
-#article-banner {
-    height: 100vh;
-    padding: 50px 20px;
-    border-radius: 10px;
-}
-
-#div-banner-txt{
-    padding: 20px;
-}
-#article-banner p {
-    text-align: justify;
-    font-size: 1.2em;
-}
-
-#article-banner h2 {
-    font-size: 2.5em;
-    text-shadow: 1px 1px 1px rgba(32, 32, 32, 0.589);
-}
-
-                                                    /*Artigo Sobre*/
-#article-sobre{
-    background-color:var(--azulPrincipal);
-    color: white;
-    padding: 30px 50px;    
-}
-#article-sobre h2{
-    text-align: center;
-    font-size: 2.5em;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.466);
-    margin-bottom: 15px;
-}
-#article-sobre p{
-    text-align: start;
-    font-size: 1.3em;
-    text-align: justify;
-}
-#article-sobre li{
-    color: rgb(216, 216, 216);
-    margin-left: 50px ;
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-                                                /*article Como Funciona*/
-
-#article-como-funciona{
+.sec-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 30px;
     height: 100vh;
-}
-#article-como-funciona h2{
-    text-align: center;
-    font-size: 2.5em;
-    margin: 30px;
-    text-shadow: 1px 1px 1px rgba(32, 32, 32, 0.589);
-}
-#article-como-funciona p{
-    font-size: 1.2em;
-}
-#img-como-funciona{
-    border-radius: 10px;
+    background-image: url(../img/img-banner/banner-gg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-
-                                                    /*Sao Filipe*/
-
-#sao-filipe {
-    padding: 40px;
-}
-
-#sao-filipe p {
-    font-size: 1.3em;
-}
-
-
-#h1-sao-filipe {
-    margin: 35px 0;
-    font-size: 3em;
-}
-
-.paragrafo {
-    text-align: justify;
-}
-
-#div-sao-filipe-img {
+.headiline {
     width: 50%;
+    flex-direction: column;
 }
 
-.img-sao-filipe {
-    max-width: 100%;
-    max-height: 100%;
+.titulo {
+    font-size: 48px;
+    width: 90%;
+
+    color: #ffffff;
+    font-weight: 600;
 }
 
-/*NAVBAR Mobile*/
-
-#navbar-mobile {
-    display: none;
+.descricao {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 300;
 }
 
-.hamburguer {
-    display: none;
+
+/*Artigo Sobre*/
+
+#article-sobre {
+    background-color: white;
+    color: var(--Paragrafo-black);
+    text-align: center;
+    padding: 100px;
+    height: 100%;
 }
+
+
+#article-sobre h2 {
+    color: var(--H2);
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+#article-sobre h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    width: 90%;
+    margin: 0 auto 40px auto;
+}
+
+#article-sobre h4 {
+    color: var(--H3);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#article-sobre p {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--Paragrafo-black);
+}
+
+#article-sobre i {
+    color: var(--azulSecundario);
+    font-size: 3.5em;
+}
+
+#article-sobre .row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#article-sobre div {
+    background-color: var(--azulFraco);
+    border-radius: 10px;
+    height: 300px;
+    max-width: 350px;
+    padding: 30px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/*article Como Funciona*/
+
+#article-como-funciona {
+    height: 100vh;
+    background-color: var(--azulPrincipal);
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 50px 0;
+}
+
+#article-como-funciona h2 {
+    text-align: center;
+    font-size: 2.6em;
+    margin: 30px;
+    color: white
+}
+
+#article-como-funciona p {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: var(--Paragrafo-white);
+}
+
+#article-como-funciona i {
+    font-size: 1.3em;
+    margin-right: 5px;
+}
+
+#aside-txt-como-funciona {
+    padding: 50px;
+}
+
+#aside-img-como-funciona {
+    background-image: url("../img/img-robotica01.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/*Depoimentos*/
+#depoimentos {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#depoimentos h2 {
+    font-size: 2.6em;
+    color: var(--H2);
+}
+
+#depoimentos i {
+    color: #1a699da4;
+    font-size: 5em;
+    position: absolute;
+    top: -80px;
+    left: 19%;
+}
+
+#depoimentos aside {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: var(--azulFraco);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.329);
+    justify-content: center;
+}
+
+#depoimentos-div {
+    padding: 20px;
+    margin: 50px 0;
+    justify-content: space-around;
+}
+
+#depoimentos-div .img-fluid {
+    width: 150px;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+
+
+
 
 
 
 /*_________________________________________________________________________________________________*/
 @media (max-width: 992px) {
-    #div-sao-filipe-img {
-        width: 75%;
+    .hamburguer {
+        display: flex;
+        text-align: end;
     }
-    #article-banner {
+
+    .headiline {
+        width: 80%;
+        height: 60vh;
+    }
+
+    .titulo {
+        font-size: 35px;
+        width: 100%;
+    }
+
+    #navbar {
+        display: none;
+    }
+
+    #social {
+        display: none;
+    }
+
+    #menu-mobile.abrir {
+        visibility: visible;
+        height: 100vh;
+    }
+
+    .sec-banner {
+        justify-content: end;
+    background-image: url(../banner-jr.webp);
+    }
+
+    /*Sobre o Projeto*/
+    #article-sobre {
+        text-align: center;
+        padding: 30px;
         height: 100%;
+    }
+
+    #article-sobre div {
+        padding: 15px;
+        height: 280px;
+        margin-bottom: 30px;
+    }
+
+    #article-sobre h3 {
+        width: 100%;
+        font-size: 1.4em;
+    }
+
+    /*Como Funciona*/
+    #article-como-funciona {
+        height: 100%;
+        margin-bottom: 50px;
+    }
+
+    #aside-img-como-funciona {
+        width: 100%;
+        height: 400px;
+    }
+
+    /*Depoimentos*/
+    #depoimentos i {
+        font-size: 4em;
+        position: absolute;
+        top: -60px;
+        left: 9%;
     }
 }
 
 /*___________________________________________________________________________________________________*/
 @media (max-width: 768px) {
-    #header {
-        height: 120px;
-        background-image: linear-gradient(var(--azulPrincipal), var(--azulPrincipal));
-        border-bottom: 1px solid #145e8f;
-    }
-
-    .head-esq {
-        height: 70px;
-    }
-    
-    
-                                             /*NavBar*/
-    #navbar {
-        display: none;
-    }
-    
-    #navbar-mobile {
-        background-image: linear-gradient(to bottom, var(--azulPrincipal), var(--azulSecundario));
-        display: none;
-        transition: 0.3s;
-    }
-    
-    #navbar-mobile ul {
-        margin: 0;
-        padding: 0;
-    }
-    
-    #navbar-mobile a {
-        text-decoration: none;
-        color: white;
-        font-size: 1.1em;
-    }
-    
-    #navbar-mobile li {
-        width: 100%;
-        list-style: none;
-        text-decoration: none;
-        padding: 8px 12px;
-    }
-    
-    #navbar-mobile li:hover {
-        background-color: white;
-        color: var(--azulPrincipal);
-    }
-    
-    .hamburguer {
-        font-size: 2.5em;
-        display: block;
-    }
-    
-                                            /*Banner*/
-
-    #article-banner p {
-        font-size: 1.1em;
-    }
-    
-    #article-banner h2 {
+    /*artigo Sobre*/
+    #article-projeto h2 {
         font-size: 2em;
     }
 
-                                            /*artigo Sobre*/
-    #article-projeto h2{
-        font-size: 2em;
-    }
-    #article-projeto p{
+    #article-projeto p {
         text-align: start;
         font-size: 1.1em;
     }
-                                            /*Como Funciona*/
 
-    #article-como-funciona h2{
-    font-size: 2em;
-    }
-    
-                                            /*Sao filipe*/
-    
-    #div-sao-filipe-img {
-        width: 100%;
+    /*Como Funciona*/
+
+    #article-como-funciona h2 {
+        font-size: 2em;
     }
 
-    #sao-filipe p {
-        font-size: 1.1em;
+    /*Depoimentos*/
+
+    #depoimentos aside {
+        margin: 20px;
     }
 
-    #h1-sao-filipe {
-        margin: 15px;
-        font-size: 2.5em;
+    #depoimentos i {
+        font-size: 3.0em;
+        top: -40px;
+        left: 0%;
     }
-    
 
 }

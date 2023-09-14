@@ -1,13 +1,20 @@
-var cont = 0
-var hamburguer = document.querySelector('#navbar-mobile')
+/*david*/
+window.addEventListener("scroll", function(){
+    let div = document.querySelector('#menu')
+    div.classList.toggle('rolagem',window.scrollY > 0)
+})
 
-function navbar(){
-    cont++
-    if(cont%2){
-        hamburguer.style.display = 'block'
-    }
-    else{
-        hamburguer.style.display = 'none'
-    }
+const menuDiv = document.getElementById('menu-mobile')
+const btnAnimar = document.getElementById('hamburguer')
+const btnAnimar2 = document.getElementById('icone2')
+
+
+menuDiv.addEventListener('click', animarMenu)
+btnAnimar2.addEventListener('click', animarMenu)
+
+function animarMenu(){
+    menuDiv.classList.toggle('abrir')
+    btnAnimar.classList.toggle('ativo')
+    
 }
 
