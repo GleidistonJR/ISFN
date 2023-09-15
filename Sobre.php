@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Icons BootStrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!--CSS BootStrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <?php
+        include("Componentes/headBasic.html");
+    ?>
+
     <!--CSS Local-->
     <link rel="stylesheet" href="../css/styleSobre.css">
     <link rel="stylesheet" href="../css/setup.css">
@@ -215,58 +215,10 @@
 
     </main>
 
-    <footer class="container-fluid text-white bg-dark" id="footerMaster">
-        <div class="row pt-5 pb-5">
 
-            <section class="col-6 col-md-3 primeiraColuna">
-
-                <img class="imgFooter" src="../img/LOGO-BRANCO-PNG.png" alt="LOGO-BRANCO-PNG">
-
-                <nav class="col-6 iconsFooter">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                </nav>
-
-            </section>
-
-            <section class="col-6 col-md-3  segundaColuna">
-                <nav class="navFooter titleFooter">
-                    <h1 class="linksRapidos">Links Rápidos</h1>
-                    <a href="#">Home</a>
-                    <a href="#">Sobre nós </a>
-                    <a href="#">Equipe</a>
-                    <a href="#">Projetos</a>
-                </nav>
-
-            </section>
-
-            <section class="col-6 col-md-3  terceiraColuna">
-                <h1 class="contato">Contato</h1>
-                <nav class="contactFooter titleFooter">
-                    <a href="tel:+555998988778">tel: 9 99999 9999</a>
-                    <a href="#">isfn@isfn.com</a>
-                    <a href="#">New York, NY Sheram 113</a>
-                    <a href="#">Projetos</a>
-
-                </nav>
-
-            </section>
-
-            <section class="col-6 col-md-3 quartaColuna">
-                <h1 class="Cadastro">Escreva-se na News Later</h1>
-                <label for="email" class="form-label">Deixe seu e-mail para ficar por dentro de tudo</label>
-                <form class="d-flex">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail">
-                    <button class="buttonIcon">
-                        <i class="bi bi-envelope"></i>
-                    </button>
-                </form>
-            </section>
-        </div>
-    </footer>
 
     <?php
+    include("Componentes/footer.html");
     ?>
     
 
