@@ -1,0 +1,95 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    
+}
+h1,p{
+    color: #42526e;
+}
+
+
+/*---------------------*#Textos e titulos do site----------------*/
+#container-equipe{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#container-equipe h1{
+    font-size: 40px;
+}
+
+
+#titulo-concelho{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#titulo-concelho p,h1{
+    text-align: center;
+}
+/*----------------------------------------------------------------**/
+
+
+#container-pessoas .row{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
+}
+
+#container-pessoas .colImg{
+    width: 25%;
+}
+
+
+#container-pessoas h4{
+    margin-top: 4%;
+}
+
+#container-pessoas p{
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+/*Concelho Adm*/
+#ConcelhoADM .row{
+    justify-content: space-around;
+    display: flex;
+}
+#ConcelhoADM .P1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#ConcelhoADM img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+#ConcelhoADM h6{
+    text-align: center;
+    padding-top: 5%;
+    font-size: 1.20rem;
+}
+#ConcelhoADM p{
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+

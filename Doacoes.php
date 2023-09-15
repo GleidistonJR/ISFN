@@ -2,15 +2,10 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--CSS BootStrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
-    <!--Icons BootStrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <?php
+    include("Componentes/headBasic.html");
+    ?>
 
     <link rel="stylesheet" href="css/styleDonate.css">
 
@@ -20,6 +15,7 @@
 
 
 <body>
+    
     <?php
     include("Componentes/menu.html");
     include("css/includesCss.html");
@@ -56,10 +52,19 @@
                     Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
                     officia hic distinctio veniam fuga minus aliquam veritatis maiores
                     iste labore quibusdam minima.
+                    <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
+                    officia hic distinctio veniam fuga minus aliquam veritatis maiores
+                    iste labore quibusdam minima.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
+                    officia hic distinctio veniam fuga minus aliquam veritatis maiores
+                    iste labore quibusdam minima.
                 </p>
             </div>
             <div class="col-12 col-md-6">
-                
+
             </div>
 
         </div>
