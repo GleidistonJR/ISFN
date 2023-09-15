@@ -18,3 +18,28 @@ function animarMenu(){
     
 }
 
+
+/*Ler Mais*/
+
+const LerMais = document.getElementById('LerMais')
+const LerMenos = document.getElementById('LerMenos')
+
+const texto = document.getElementById('Mais')
+
+LerMais.addEventListener("click", function(){
+    texto.style = "display: block;"
+    LerMais.style = "display:none;"
+})
+
+LerMenos.addEventListener("click", function(){
+    texto.style = "display: none;"
+    LerMais.style = "display:block;"
+})
+
+/*Carrousel*/
+
+const carousel = new bootstrap.Carousel('#carouselExampleCaptions', {
+    interval: 3000,
+    ride: true,
+    touch: true,
+})
