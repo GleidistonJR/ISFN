@@ -1,3 +1,6 @@
+.marcacao{
+    color: #F6B957;
+}
 .RetiroSection2 {
     background-color: #151515;
     height: 100%;
@@ -17,7 +20,7 @@
     background-color: #1f1f23;
     border-radius: 10px;
     color: #fff;
-    padding: 15px 45px;
+    padding: 15px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +58,7 @@
 }
 
 .RetiroSection2 .texto-retiro h2 {
-    color: #fff;
+    color: #DF8E16;
     font-size: 2.8em;
     text-align: center;
     margin: 35px 0;
@@ -84,16 +87,35 @@ Footer
     padding: 30px;
 }
 
+.RetiroSection2 footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .RetiroSection2 footer .col h3 {
     text-align: center;
-    color: #fff;
+    color: #F6B957;
 }
 
 .RetiroSection2 footer .col p {
     text-align: center;
     color: #eee;
 }
-
+.RetiroSection2 footer .col a {
+    text-decoration: none;
+    color: #eee;
+    display: block;
+}
+.RetiroSection2 .row.copy {
+    width: 100%;
+    background-color: #151515;
+    color: #fff ;
+    text-align: center;
+    padding: 5px 0;
+}
+.RetiroSection2 .row.copy p{
+    margin: 0;
+}
 @media (max-width:900px) {
 
     .RetiroSection2 .row {
