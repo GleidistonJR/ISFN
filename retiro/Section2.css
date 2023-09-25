@@ -1,37 +1,125 @@
-
 .RetiroSection2 {
-    background-color: #151515 ;
-    height: 100vh;
+    background-color: #151515;
+    height: 100%;
     padding: 0;
 }
-.RetiroSection2 .row{
-    width: 85%;
+
+.RetiroSection2 .row {
+    width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-around;
     padding: 0
 }
-.RetiroSection2 .col-4{
+
+.RetiroSection2 .dataLocal .col-12 {
     height: 50vh;
     background-color: #1f1f23;
-    border-radius: 10px ;
+    border-radius: 10px;
     color: #fff;
-    padding: 25px;
+    padding: 15px 45px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     border: 3px solid #F6B957;
+    text-align: center;
+    margin-bottom: 20px;
 }
-.RetiroSection2 .col-4 i{
+
+.RetiroSection2 .dataLocal .col-12 i {
     color: #F6B957;
     font-size: 3em;
     display: block;
     text-align: center;
 }
-.RetiroSection2 .col-4 h3{
+
+.RetiroSection2 .dataLocal .col-12 h3 {
     font-size: 2.5em;
 }
-.RetiroSection2 .col-4 p{
-    font-size: 1.2em;
+
+.RetiroSection2 .dataLocal .col-12 p {
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.RetiroSection2 .dataLocal .col-12 p.cid {
+    font-size: 1em;
+}
+
+.RetiroSection2 .texto-retiro .col-12 {
+    background-image: url(./cruz.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 250px;
+}
+
+.RetiroSection2 .texto-retiro h2 {
+    color: #fff;
+    font-size: 2.8em;
+    text-align: center;
+    margin: 35px 0;
+}
+
+.RetiroSection2 .texto-retiro p {
+    font-size: 1.3em;
+    color: #eee;
+    text-align: justify;
+}
+
+/*-------------------------------
+Mapa
+--------------------------------*/
+.RetiroSection2 .row.mapa {
+    margin: 50px auto ;
+}
+/*-------------------------------
+Footer
+--------------------------------*/
+
+.RetiroSection2 footer {
+    margin-top: 30px;
+    border-top: 1px solid #F6B957;
+    background-color: #000;
+    padding: 30px;
+}
+
+.RetiroSection2 footer .col h3 {
+    text-align: center;
+    color: #fff;
+}
+
+.RetiroSection2 footer .col p {
+    text-align: center;
+    color: #eee;
+}
+
+@media (max-width:900px) {
+
+    .RetiroSection2 .row {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        padding: 0
+    }
+
+    .RetiroSection2 .dataLocal .col-12 {
+        padding: 30px 0;
+        height: 100%;
+    }
+
+    .RetiroSection2 .texto-retiro .col-12 {
+        padding: 0;
+    }
+
+    .RetiroSection2 .texto-retiro h2 {
+        font-size: 2.4em;
+    }
+
+    .RetiroSection2 .texto-retiro p {
+        font-size: 1.1em;
+        text-align: start;
+    }
+
 }
