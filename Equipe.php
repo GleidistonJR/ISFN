@@ -103,17 +103,11 @@
 
 
 
-        
 
 
-
-
-
-
-
-
-
-
+    <?php
+    include("Componentes/footer.html");
+    ?>
 
         <script src="js/javascript.js"></script>
 </body>
