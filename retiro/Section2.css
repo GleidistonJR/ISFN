@@ -105,6 +105,7 @@ Footer
     text-decoration: none;
     color: #eee;
     display: block;
+    margin-bottom: 16px;
 }
 .RetiroSection2 .row.copy {
     width: 100%;
@@ -142,6 +143,11 @@ Footer
     .RetiroSection2 .texto-retiro p {
         font-size: 1.1em;
         text-align: start;
+    }
+
+
+    .RetiroSection2 footer .col {
+        padding: 5px 0;
     }
 
 }
