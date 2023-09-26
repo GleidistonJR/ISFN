@@ -1,21 +1,67 @@
 <body>
+    <div class="container-fluid" id="SecCoração">
+        <div class="row">
+            <!-- Button trigger modal -->
+            <img src="img-carrouseu/coracao (1).svg" class="coracao" data-bs-toggle="modal" data-bs-target="#staticBackdropA">
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropA" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="retiro/img/TEXTO DOE (1).svg" class="img-modal" alt="">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid" id="SecHero">
+
         <div class="row">
             <div class="col-12 col-md-6 colSEC1">
                 <img src="retiro/img/titulo.svg" class="img-logo" alt="">
-                <h4>Permita-se ser transformado pela experiência do silêncio sagrado. Uma jornada de autodescoberta e renovação espiritual.</h4>
-                <form id="FORM">
-                    <h5 class="Tform">Inscreva-se</h5>
-                    
+                <img src="retiro/img/cruzmaisfelipe.webp" class="heroMB" alt="">
+                <h4>Permita-se ser transformado pela experiência do silêncio sagrado. Uma jornada de autodescoberta e
+                    renovação espiritual.</h4>
+
+                <!--FORM-->
+                <form action="https://formsubmit.co/info@isfn.org.br" method="POST" id="FORM">
+                    <h5 class="Tform">Pré Inscrição</h5>
+
                     <div class="row">
-                        <div class="col"><input type="text" name="FNAME" class="form-control" id="form-text" placeholder="Nome Completo"></div>
-                        <div class="col"><input type="email" name="EMAIL" class="form-control" id="form-email" placeholder="E-mail"></div>
+                        <div class="col">
+                            <input type="text" name="FNAME" class="form-control" id="form-text"
+                                placeholder="Nome Completo">
+                        </div>
+                        <div class="col">
+                            <input type="email" name="EMAIL" class="form-control" id="form-email" placeholder="E-mail">
+                        </div>
                     </div>
+
                     <div class="row">
-                        <div class="col"><input type="tel" name="PHONE" class="form-control" id="form-telefone" placeholder="Tel: 999999999"></div>
-                        <div class="col"><input type="text" class="form-control" name="cpf" name="CPF" id="form-cpf" placeholder="Cpf: 000.000.000-00 " pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"></div> 
+                        <div class="col">
+                            <input type="tel" name="PHONE" class="form-control" id="form-telefone"
+                                placeholder="Tel: 999999999">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="cpf" name="CPF" id="form-cpf"
+                                placeholder="Cpf: 000.000.000-00 "
+                                pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})">
+                        </div>
                     </div>
-                    
+
 
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
@@ -25,9 +71,9 @@
             <div class="col-12 col-md-6 colSEC2">
 
             </div>
-            
 
-            </div>
+
         </div>
+    </div>
     </div>
 </body>

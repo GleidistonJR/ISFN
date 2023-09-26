@@ -109,6 +109,7 @@
         </div>
     </article>
 
+
     <?php
     include("Componentes/footer.html");
     ?>
