@@ -1,4 +1,163 @@
+:root{
+    --Cmaster: #f6b957;
+    --Cmarking1: #000;
+    --Cmarking2: #f6b9578e;
+}
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Oxanium', cursive;
 }
+
+
+
+
+#SecHero{
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#SecHero .row{
+  width: 85%;
+}
+
+
+
+#SecHero h1{
+    color: var(--Cmaster);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding-top: 20px;
+}
+#SecHero p{
+    color: #fff;
+    text-align: center;
+    font-size: 16;
+}
+
+#FORM h5{
+    color: #ffffff84;
+    font-size: 16px;
+}
+
+
+
+#SecHero .colSEC1{
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+#SecHero .img-logo{
+width: 30%;
+}
+
+#SecHero .colSEC2{
+    background-image: url("img/heroS.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+/*FORM*/
+#FORM input, #FORM textarea{
+    padding: 10px;
+    margin: 10px;
+    background-color: #00000000;
+    border: none;
+    border-bottom: 1px solid #f6b9578e;
+    border-radius: 0px;
+  }
+
+  #FORM{
+    width: 100%;
+  }
+
+
+  #FORM{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-control {
+    font-size: 14px;
+  }
+  
+  #form-text::placeholder,
+  #form-email::placeholder,
+  #form-telefone::placeholder,
+  #form-cpf::placeholder {
+    color: #9494949d;
+   
+  }
+  
+  #form-text,
+  #form-email,
+  #form-telefone,
+  #form-cpf:focus {
+    box-shadow: none;
+
+  }
+  
+  #form-text,
+  #form-email,
+  #form-telefone,
+  #form-cpf {
+    color: var(--Cmaster);
+   
+    
+  }
+  
+  #FORM button {
+    margin: 10px;
+  }
+  
+  #sectionForm {
+  padding: 9% auto;
+  }
+  
+  #FORM .btn{
+      background-color: var(--Cmaster);
+      border: none;
+      padding: 10px 50px;
+      color: #000;
+      text-transform: uppercase;
+      font-weight: 500;
+  }
+  .Tform{
+    font-size: 20px;
+    color: #fff;
+    padding-top: 10%;
+    text-transform: uppercase;
+  }
+  
+  #sectionForm iframe{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  @media(max-width : 992px){
+    #sectionForm iframe{
+      height: 400px;
+    }
+    .EtreContato{
+      padding-top: 20px;
+    }
+    
+  }
