@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="retiro/Section.css">
     <link rel="stylesheet" href="Section2.css">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
 </head>
 
 <body>
