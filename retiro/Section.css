@@ -2,6 +2,7 @@
     --Cmaster: #f6b957;
     --Cmarking1: #000;
     --Cmarking2: #f6b9578e;
+    --branco: #fff;
 }
 
 *{
@@ -21,6 +22,12 @@
 }
 #SecHero .row{
   width: 85%;
+}
+
+#SecHero h4{
+  color: var(--branco);
+  text-align: center;
+  padding-top: 30px;
 }
 
 
@@ -58,13 +65,15 @@
 
 
 #SecHero .img-logo{
-width: 30%;
+width: 80%;
 }
 
 #SecHero .colSEC2{
     background-image: url("img/heroS.webp");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    
 }
 
 
@@ -160,4 +169,24 @@ width: 30%;
       padding-top: 20px;
     }
     
+  }
+
+  @media(max-width : 992px){
+    #SecHero .row{
+      width: 90%;
+    }
+  }
+
+  @media(max-width : 992px){
+    #SecHero .colSEC2{
+      height: 60vh;
+      background-size: cover;
+    }
+
+    #SecHero .img-logo{
+      width: 100%;
+      }
+
+    
+
   }
