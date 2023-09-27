@@ -25,17 +25,17 @@
 
     <title>ISFN | Retiro </title>
 
-    <link rel="stylesheet" href="retiro/Section.css">
-    <link rel="stylesheet" href="retiro/Section2.css">
-    <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="Section.css">
+    <link rel="stylesheet" href="Section2a.css">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 
 </head>
 
 <body>
 
     <?php
-    include_once("./section.html");
-    include_once("section2.html");
+    include_once("section.html");
+    include_once("section2a.html");
     ?>
 
 
