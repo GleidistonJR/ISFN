@@ -1,4 +1,74 @@
+<head>
+    <link rel="stylesheet" href="retiro/Section.css">
+</head>
+
+
 <body>
+    <div class="container-fluid" id="menu">
+        <div class="row align-items-center" id="row-menu">
+             <!--Navbar -->
+        <div class="col-6" id="navbar">
+            <nav>
+                <ul>
+                    <li><a href="#SecFormMobile">Pré Inscrição</a></li>
+                        <li><a href="#Regras">Regras e Avisos</a></li>
+                        <li><a href="#DATE">Data</a></li>
+                        <li><a href="#LOCAL">Local</a></li>
+                </ul>
+            </nav>
+        </div>
+             <!--Navbar -->
+             <div class="col-12 col-md-12 hamburguer" id="hamburguer">
+                <i onclick="animarMenu()" class="bi bi-list" id="icone"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <!--MENU MOBILE-->
+    <div class="container" id="menu-mobile">
+        <div class="row">
+            <div class="col-12" id="navbar-mobile">
+                <nav>
+                    <ul>
+    
+                        <li><i onclick="animarMenu()" class="bi bi-x-circle-fill" id="icone2"></i></li>
+                        <li><a href="#SecFormMobile">Pré Inscrição</a></li>
+                        <li><a href="#Regras">Regras e Avisos</a></li>
+                        
+                        <li><a href="#DATE">Data</a></li>
+                        <li><a href="#LOCAL">Local</a></li>
+    
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="container-fluid" id="SecCoração">
         <div class="row">
             <!-- Button trigger modal -->
@@ -66,7 +136,7 @@
 
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
-
+                
             </div>
             
             <div class="col-12 col-md-6 colSEC2">
@@ -77,4 +147,9 @@
         </div>
     </div>
     </div>
+
+    <script src="js/js-app.js" defer></script>
+    <script src="js/javascript.js" defer></script>
+    <script src="js/animar.js" defer></script>
+
 </body>

@@ -4,6 +4,34 @@
     --Cmarking2: #f6b9578e;
     --branco: #fff;
   }
+*ol{
+  margin: 0;
+  padding:0;
+}
+
+
+#Regras .col{
+  border: 1px solid #F6B957;
+  border-radius:10px ;
+  padding: 30px 5px ;
+}
+#Regras h3 , #Regras li {
+  color: #fff;
+  margin-bottom: 20px;
+}
+#Regras ul{
+  margin-top: 30px;
+}
+#Regras{
+  width: 70%;
+  margin-bottom: 50px;
+}
+
+
+
+
+
+
 
   /*FORM*/
 #FORMmobile input,
@@ -288,6 +316,9 @@ Footer
 
     .RetiroSection2 footer .col {
         padding: 5px 0;
+    }
+    #Regras{
+      width: 100%;
     }
   
 

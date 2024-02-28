@@ -10,77 +10,81 @@
     <link rel="stylesheet" href="css/styleDonate.css">
 
     <title>Doações</title>
+
 </head>
 
 
 
 <body>
-    
+
     <?php
     include("Componentes/menu.html");
-    include("css/includesCss.html");
+    include("Componentes/headBasic.html");
     ?>
 
 
 
 
-    <!--sec2-->
-    <div class="container-fluid" id="secFirst">
-        <div class="row">
+    <section class="doacao container-fluid">
+        <article class="row banner">
+            <aside class="col col-12 col-md-5">
+                <h1>Com o seu apoio, formaremos líderes com <mark>valores inegociáveis</mark></h1>
+                <p>Juntos vamos proporcionar, a cada criança e adolescente que alcançarmos, um aprendizado de valores cristãos e pensamentos lógicos</p>
+                <a href="#row-doacao">Faça sua contribuição</a>
+            </aside>
 
-            <div class="col-12 col-md-6 colTitle">
-                <h1>Apoie o ISFN</h1>
-                <button class="btn btn-primary">DOE agora</button>
-            </div>
-            <div class="col-12 col-md-6 colHero">
-            </div>
+        </article>
 
-        </div>
-    </div>
+        <article class="row row-doacao" id="row-doacao">
+            <h2>Faça sua doação</h2>
+            <aside class="col col-12">
+                <div class="col-11 col-md-5">
+                    <h3>Selecione o valor da sua contribuição:</h3>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            R$50
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            R$100
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            R$200
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                        <label class="form-check-label" for="flexRadioDefault4">
+                            Outro Valor
+                        </label>
+                    </div>
+                </div>
 
-    <div class="container-fluid" id="secHis">
-        <div class="row">
+                <div class="col-11 col-md-5 qrcode">
+                    <h4>Seja a mão que auxilia a formação de novos líderes</h4>
 
-            <div class="col-12 col-md-6">
-                <h2>Lorem ipsum dolor</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
-                    officia hic distinctio veniam fuga minus aliquam veritatis maiores
-                    iste labore quibusdam minima.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
-                    officia hic distinctio veniam fuga minus aliquam veritatis maiores
-                    iste labore quibusdam minima.
-                    <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
-                    officia hic distinctio veniam fuga minus aliquam veritatis maiores
-                    iste labore quibusdam minima.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis ea ratione voluptatem quas corrupti aut, enim necessitatibus
-                    officia hic distinctio veniam fuga minus aliquam veritatis maiores
-                    iste labore quibusdam minima.
-                </p>
-            </div>
-            <div class="col-12 col-md-6">
+                    <img id="img_qrcode" src="./img/img-doacoes/QR/100.png" alt="QrCode pix">
+                    
+                    <div class="div-copiar">
+                        <p>PIX COPIA/COLA</p>
+                        <input type="text" name="url-txt" id="url_txt" value="00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865406100.005802BR5904ISFN6007Goiania62070503***6304A866">
+                        <button id="btn_copiar"> Copiar</button>
+                    </div>
 
-            </div>
+                    <p>51.177.366/0001-71</p>
+                    <p>PIX CNPJ INSTITUTO SÃO FILIPE NÉRI</p>
+                </div>
+            </aside>
 
-        </div>
-    </div>
+        </article>
 
-
-
-
-
-
-
-
-
-
-
-
+    </section>
 
 
 
@@ -93,11 +97,44 @@
 
     ?>
 
-    <script src="js/javascript.js"></script>
-    <script src="js/event.js"></script>
-    <script src="animar.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
 </body>
+
+<script>
+    const radio50 = document.querySelector('#flexRadioDefault1')
+    const radio100 = document.querySelector('#flexRadioDefault2')
+    const radio200 = document.querySelector('#flexRadioDefault3')
+    const radio_outro = document.querySelector('#flexRadioDefault4')
+    const img_qrcode = document.querySelector('#img_qrcode')
+    const btn_copiar = document.querySelector('#btn_copiar')
+
+
+    radio50.addEventListener("click", function() {
+        img_qrcode.setAttribute("src", "./img/img-doacoes/QR/50.png")
+        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX011451177366000171520400005303986540650.005802BR5904ISFN6007Goiania62070503***6304A866")
+
+    })
+    radio100.addEventListener("click", function() {
+        img_qrcode.setAttribute("src", "./img/img-doacoes/QR/100.png")
+        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865406100.005802BR5904ISFN6007Goiania62070503***6304A866")
+    })
+    radio200.addEventListener("click", function() {
+        img_qrcode.setAttribute("src", "./img/img-doacoes/QR/200.png")
+        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865406200.005802BR5904ISFN6007Goiania62070503***6304414C")
+    })
+    radio_outro.addEventListener("click", function() {
+        img_qrcode.setAttribute("src", "./img/img-doacoes/QR/outro.png")
+        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865802BR5904ISFN6007Goiania62070503***63048F56")
+    })
+
+    btn_copiar.addEventListener("click", function() {
+        let textoCopiado = document.getElementById("url_txt");
+        textoCopiado.select();
+        textoCopiado.setSelectionRange(0, 999);
+
+        document.execCommand("copy")
+        alert('Copiado')
+    })
+</script>
+
+</html>

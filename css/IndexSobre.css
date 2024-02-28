@@ -1,0 +1,87 @@
+/*Artigo Sobre*/
+
+#article-sobre {
+    background-color: white;
+    color: var(--Paragrafo-black);
+    text-align: center;
+    padding: 100px;
+    height: 100%;
+}
+
+
+#article-sobre h2 {
+    color: var(--H2);
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+#article-sobre h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    width: 90%;
+    margin: 0 auto 40px auto;
+}
+
+#article-sobre h4 {
+    color: var(--H3);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#article-sobre p {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--Paragrafo-black);
+}
+
+#article-sobre i {
+    color: var(--azulSecundario);
+    font-size: 3.5em;
+}
+
+#article-sobre .row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#article-sobre div {
+    background-color: var(--azulFraco);
+    border-radius: 10px;
+    height: 300px;
+    max-width: 350px;
+    padding: 30px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 992px) {
+    
+    /*Sobre o Projeto*/
+    #article-sobre {
+        text-align: center;
+        padding: 50px 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #article-sobre .row {
+        width: 100%;
+        gap: 0px;
+    }
+
+    #article-sobre div {
+        padding: 15px;
+        height: 280px;
+        margin-bottom: 30px;
+    }
+
+    #article-sobre h3 {
+        width: 95%;
+        font-size: 1.4em;
+    }
+}

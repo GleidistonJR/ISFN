@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
     <?php
     include("Componentes/headBasic.html");
     ?>
     <link rel="stylesheet" href="css/styleEquipe.css">
     <title>Equipe</title>
-</head>
+
 
 <body>
-
-
     <?php
-
-    include("css/includesCss.html");
+    include("Componentes/menu.html");
     ?>
+
 
 
 

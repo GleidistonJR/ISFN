@@ -25,8 +25,8 @@
 
     <title>ISFN | Retiro </title>
 
-    <link rel="stylesheet" href="Section.css">
-    <link rel="stylesheet" href="Section2a.css">
+    <link rel="stylesheet" href="Section.css?0">
+    <link rel="stylesheet" href="Section2a.css?0">
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 
 </head>
