@@ -2,6 +2,8 @@
 
 :root {
     --cor2: #00c7d6;
+    --verdePrincipal: #0f8819;
+    --verdeSecundario: #3bcf48;
     --azulPrincipal: #1a689d;
     --azulSecundario: #2886c5;
     --azulFraco: #fbfdff;
@@ -53,7 +55,7 @@ gap: 30px;
 
 }
 .iconsFooter a{
-    color: #1a689d;
+    color: var(--verdePrincipal);
     font-size: 20px;
 }
 .titleFooter{
@@ -103,8 +105,7 @@ gap: 30px;
     box-shadow: none;
 }
 .bi-envelope{
-    color: rgb(3, 101, 186);
-    
+    color: var(--verdePrincipal);    
     border: none;
     display: flex;
     align-items: center;
@@ -114,7 +115,7 @@ gap: 30px;
 
 }
 .buttonIcon{
-    background-color: #13131396;
+    background-color: #000;
     border: none;
     border-radius: 0px 5px 5px 0px;
 }

@@ -11,10 +11,12 @@
     width: 100%;
     align-items: center;
     z-index: 20;
-    background-color: #0f8819;    
+    background-color: var(--verdePrincipal);    
     border-bottom: 5px solid #ecdd06;
     padding: 10px 0 15px 0;
 }
+
+/* 
 #menu::after {
     content: '';
     position: absolute;
@@ -25,7 +27,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-}
+} */
 
 #menu .row {
     width: 100%;
@@ -98,7 +100,7 @@ ul {
 
 /* SCROLL*/
 div.rolagem {
-    background-color: #0f881934;
+    background-color: var(--verdePrincipal);
     backdrop-filter: blur(10px);
     height: 70px;
 }

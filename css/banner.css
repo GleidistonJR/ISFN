@@ -17,7 +17,7 @@
     position: absolute;
     bottom: -50px;
     left: 33%;
-    background-color: #0f8819;
+    background-color: var(--verdePrincipal);
     height: 3px;
     width: 33%;
     margin: 0;
@@ -56,14 +56,14 @@
 }
 .sec-banner mark{
     background-color: #ffffff00 ;
-    color: #0f8819;
+    color: var(--verdePrincipal);
     padding: 0;
 }
 
 @media (max-width: 992px) {
 
     .sec-banner {
-        background-image: url(../img/img-banner/BannerMob.jpg);
+        height: 100vh;
         padding: 0; 
         justify-content: start;
         align-items: center;
@@ -73,7 +73,8 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        margin-top: 100px;
+        height: 100%;
+        padding-top: 30px;
     }
     .sec-banner .headiline {
         width: 85%;
@@ -81,14 +82,20 @@
     }
 
     .sec-banner .titulo {
-        font-size: 2.1em;
-        width: 90%;
+        font-size: 1.8em;
+        width: 100%;
         padding: 0px;
-        color: #ffffff;
         font-weight: 600;
     }
     .sec-banner .descricao {
         font-size: 1.2em;
         padding: 0px;
     }
+    .sec-banner .col-img img{
+        width: 100%;
+    }
+    .sec-banner::after {
+        bottom: 0px;
+    }
+    
 }

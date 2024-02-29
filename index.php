@@ -20,9 +20,9 @@
 
         include_once("Componentes/banner.html");
 
-        include_once("Componentes/IndexSobre.html");
+        include_once("Componentes/IndexSobre.html"); 
 
-        include_once("Componentes/IndexValores.html");
+        include_once("Componentes/IndexApoiar.html");
 
         include_once("Componentes/IndexDepoimentos.html");
         ?>
