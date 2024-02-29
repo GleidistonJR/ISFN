@@ -91,6 +91,8 @@
 
     <?php
 
+    include("Componentes/formularioDoador.html");
+
     include("Componentes/footer.html");
 
     ?>

@@ -1,0 +1,20 @@
+
+.formulario-colaborador {
+    padding: 80px 0;
+}
+.formulario-colaborador .row{
+    margin: auto;
+}
+.formulario-colaborador .row h2{
+    text-align: center;
+}
+.formulario-colaborador .row .col-md-8{
+    box-shadow: 1px 1px 10px #777;
+    border-radius: 25px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.formulario-colaborador .btn-enviar{
+    margin-left: 40%;
+    width: 20%;
+}
