@@ -7,8 +7,6 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/styleDonate.css">
-
     <title>Doações</title>
 
 </head>
@@ -16,11 +14,11 @@
 
 
 <body>
-
+<div class="pg-doacao">
     <?php
-    include("Componentes/menu.html");
-    include("Componentes/headBasic.html");
+        include("Componentes/menu.html");
     ?>
+</div>
 
 
 
@@ -47,7 +45,7 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                             R$100
                         </label>
@@ -59,7 +57,7 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
                         <label class="form-check-label" for="flexRadioDefault4">
                             Outro Valor
                         </label>
@@ -69,11 +67,11 @@
                 <div class="col-11 col-md-5 qrcode">
                     <h4>Seja a mão que auxilia a formação de novos líderes</h4>
 
-                    <img id="img_qrcode" src="./img/img-doacoes/QR/100.png" alt="QrCode pix">
+                    <img id="img_qrcode" src="./img/img-doacoes/QR/outro.png" alt="QrCode pix">
                     
                     <div class="div-copiar">
                         <p>PIX COPIA/COLA</p>
-                        <input type="text" name="url-txt" id="url_txt" value="00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865406100.005802BR5904ISFN6007Goiania62070503***6304A866">
+                        <input type="text" name="url-txt" id="url_txt" value="00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865802BR5904ISFN6007Goiania62070503***63048F56">
                         <button id="btn_copiar"> Copiar</button>
                     </div>
 
@@ -111,7 +109,7 @@
 
     radio50.addEventListener("click", function() {
         img_qrcode.setAttribute("src", "./img/img-doacoes/QR/50.png")
-        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX011451177366000171520400005303986540650.005802BR5904ISFN6007Goiania62070503***6304A866")
+        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX011451177366000171520400005303986540550.005802BR5904ISFN6007Goiania62070503***6304FE0B")
 
     })
     radio100.addEventListener("click", function() {

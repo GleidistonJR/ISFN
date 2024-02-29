@@ -4,14 +4,27 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
-    height: 100vh;
-    background-image: url(../img/img-banner/banner-gg.webp);
+    padding-top: 100px;
+    position: relative;
+    /* background-image: url(../img/img-banner/banner-gg.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
 }
 
-.headiline {
+.sec-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 33%;
+    background-color: #0f8819;
+    height: 3px;
+    width: 33%;
+    margin: 0;
+    padding: 0;
+}
+
+.sec-banner .headiline {
     width: 50%;
     padding-right: 40px;
     flex-direction: column;
@@ -19,20 +32,32 @@
     justify-content: center;
 }
 
-.titulo {
+.sec-banner .titulo {
     font-size: 48px;
     width: 90%;
     padding-left: 20px;
-    color: #ffffff;
+    color: #555;
     font-weight: 600;
 }
 
-.descricao {
+.sec-banner .descricao {
     margin-top: 7px;
     font-size: 22px;
-    color: #ffffff;
+    color: #555;
     padding-left: 20px;
     font-weight: 300;
+}
+
+.sec-banner .col-img{
+    text-align: center;
+}
+.sec-banner .col-img img{
+    width: 80%;
+}
+.sec-banner mark{
+    background-color: #ffffff00 ;
+    color: #0f8819;
+    padding: 0;
 }
 
 @media (max-width: 992px) {
@@ -43,26 +68,26 @@
         justify-content: start;
         align-items: center;
     }
-    .row-banner{
+    .sec-banner .row-banner{
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         margin-top: 100px;
     }
-    .headiline {
+    .sec-banner .headiline {
         width: 85%;
         padding: 0px;
     }
 
-    .titulo {
+    .sec-banner .titulo {
         font-size: 2.1em;
         width: 90%;
         padding: 0px;
         color: #ffffff;
         font-weight: 600;
     }
-    .descricao {
+    .sec-banner .descricao {
         font-size: 1.2em;
         padding: 0px;
     }

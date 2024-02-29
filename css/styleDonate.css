@@ -48,7 +48,7 @@
 }
 
 .doacao .banner .col a:hover {
-    background-image: linear-gradient(130deg, var(--azulSecundario), var(--azulSecundario))
+    background-image: linear-gradient(130deg, #0f8819, #0f8819);
 }
 
 
@@ -68,6 +68,7 @@
     margin-bottom: 50px;
     position: relative;
 }
+
 .doacao .row-doacao h2::before {
     content: '';
     position: absolute;
@@ -103,6 +104,18 @@
     margin-top: 2em;
     background-color: #fefefe;
     border: 1px solid #7e7e7e;
+}
+
+.doacao .form-check-input:checked[type=radio] {
+    background-color: #0c6313;
+    border-color: #0c6313;
+}
+
+
+.doacao .form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #2bcf395b;
 }
 
 .doacao .row-doacao .col-12 .qrcode {
@@ -197,17 +210,20 @@
     .doacao .row-doacao h2::before {
         bottom: -15px;
     }
-    
+
 
     .doacao .row-doacao .col-12 h3 {
         font-size: 1.2em;
     }
+
     .doacao .row-doacao .col-12 label {
         font-size: 1.8em;
     }
+
     .form-check .form-check-input {
         margin-top: 1.5em;
     }
+
     .doacao .row-doacao .col-12 {
         display: flex;
         flex-direction: column;
