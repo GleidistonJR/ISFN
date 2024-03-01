@@ -6,6 +6,8 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
+    <link rel="stylesheet" href="css/styleDonate.css?3">
+    <link rel="stylesheet" href="css/formularioDoador.css?3">
 
     <title>Doações</title>
 

@@ -6,9 +6,13 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
+    <link rel="stylesheet" href="css/banner.css?3">
+    <link rel="stylesheet" href="css/IndexSobre.css?3">
+    <link rel="stylesheet" href="css/IndexApoiar.css?3">
+    <link rel="stylesheet" href="css/IndexDepoimentos.css?3">
 
     <title>Instituto São Filipe Neris</title>
-    
+
 </head>
 
 <body>
@@ -20,7 +24,7 @@
 
         include_once("Componentes/banner.html");
 
-        include_once("Componentes/IndexSobre.html"); 
+        include_once("Componentes/IndexSobre.html");
 
         include_once("Componentes/IndexApoiar.html");
 
