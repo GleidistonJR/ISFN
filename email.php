@@ -1,4 +1,8 @@
 <?php
+
+
+if(isset($_POST['name']) && isset($_POST['cpf']) && !empty($_POST['name'])){
+
 $nome = addslashes($_POST['name']);
 $dataNascimento = addslashes($_POST['data-nascimento']);
 $cpf = addslashes($_POST['cpf']);
@@ -14,7 +18,6 @@ $lote = addslashes($_POST['lote']);
 $setor = addslashes($_POST['setor']);
 $complemento = addslashes($_POST['complemento']);
 $numero = addslashes($_POST['numero']);
-
 
 $to = "info@isfn.org.br";
 $subjet = "Formulario Colaborador";
@@ -37,16 +40,18 @@ $body =
     "Complemento: " . $complemento . " \n".
     "Numero: " . $numero . " \n";
 
-$header = "From: financeiro@isfn.org.br"."\n"
-    ."Reply-To:".$email."\n"
-    ."X=Mailer:PHP/".phpversion();
+$header = "From: $email"."\n"."Reply-To:".$email."\n"."X=Mailer:PHP/".phpversion();
 
 
 if(mail($to,$subjet,$body,$header)){
-    echo("Email Enviado");
+    echo("<html><h2>Inscrição realizada com sucesso! Logo entraremos em contato</h2>
+    <a href='index.php'>Voltar para o Inicio</a></html>");
+    
 }
 else{
     echo("Ocorreu um erro");
 }
- 
+     
+}
+
 ?>
