@@ -7,7 +7,6 @@
     include("Componentes/headBasic.html");
     ?>
     <link rel="stylesheet" href="css/styleDonate.css?4">
-    <link rel="stylesheet" href="css/formularioDoador.css?4">
 
     <title>Doações</title>
 
@@ -16,11 +15,11 @@
 
 
 <body>
-<div class="pg-doacao">
-    <?php
+    <div class="pg-doacao">
+        <?php
         include("Componentes/menu.html");
-    ?>
-</div>
+        ?>
+    </div>
 
 
 
@@ -70,7 +69,7 @@
                     <h4>Seja a mão que auxilia a formação de novos líderes</h4>
 
                     <img id="img_qrcode" src="./img/img-doacoes/QR/outro.png" alt="QrCode pix">
-                    
+
                     <div class="div-copiar">
                         <p>PIX COPIA/COLA</p>
                         <input type="text" name="url-txt" id="url_txt" value="00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865802BR5904ISFN6007Goiania62070503***63048F56">
@@ -86,14 +85,12 @@
 
     </section>
 
-
+    <a class="btn btn-padrinho" href="formularioDoador.php">Seja um colaborador mensal</a>
 
 
 
 
     <?php
-
-    include("Componentes/formularioDoador.html");
 
     include("Componentes/footer.html");
 

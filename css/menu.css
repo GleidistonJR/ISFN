@@ -11,9 +11,11 @@
     width: 100%;
     align-items: center;
     z-index: 20;
-    background-color: var(--verdePrincipal);    
-    border-bottom: 5px solid #ecdd06;
+    background-color: #fff;    
+    border-bottom: 3px solid var(--azulPrincipal) ;
     padding: 10px 0 15px 0;
+
+    /* #ecdd06 */
 }
 
 /* 
@@ -81,7 +83,7 @@ ul {
 
 
 #navbar ul li a {
-    color: white;
+    color: var(--menu-color);
     text-decoration: none;
     font-size: 1.2em;
 }
@@ -93,7 +95,7 @@ ul {
 }
 
 #social i {
-    color: white;
+    color: var(--menu-color);
     font-size: 20px;
     font-weight: 400;
 }

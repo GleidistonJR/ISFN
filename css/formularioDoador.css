@@ -1,5 +1,5 @@
 .formulario-colaborador {
-    padding: 80px 0;
+    padding: 150px 0 80px 0;
     width: 100%;
 }
 
@@ -22,8 +22,13 @@
 }
 
 .formulario-colaborador .btn-enviar {
+    background-color: var(--azulPrincipal);
+    color: #fff;
     margin-left: 40%;
     width: 20%;
+}
+.formulario-colaborador .btn-enviar:hover {
+    background-color: var(--azulSecundario);
 }
 
 .formulario-colaborador .row .col-img img {
