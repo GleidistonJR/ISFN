@@ -4,27 +4,14 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
-    padding-top: 100px;
-    position: relative;
-    /* background-image: url(../img/img-banner/banner-gg.webp);
+    height: 100vh;
+    background-image: url(../img/img-banner/banner-gg.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; */
+    background-position: center;
 }
 
-.sec-banner::after {
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    left: 33%;
-    background-color: var(--verdePrincipal);
-    height: 3px;
-    width: 33%;
-    margin: 0;
-    padding: 0;
-}
-
-.sec-banner .headiline {
+.headiline {
     width: 50%;
     padding-right: 40px;
     flex-direction: column;
@@ -32,30 +19,24 @@
     justify-content: center;
 }
 
-.sec-banner .titulo {
+.titulo {
     font-size: 48px;
     width: 90%;
     padding-left: 20px;
-    color: #555;
+    color: #ffffff;
     font-weight: 600;
 }
 
-.sec-banner .descricao {
+.descricao {
     margin-top: 7px;
     font-size: 22px;
-    color: #555;
+    color: #ffffff;
     padding-left: 20px;
     font-weight: 300;
 }
-
-.sec-banner .col-img{
-    text-align: center;
-}
-.sec-banner .col-img img{
-    width: 80%;
-}
 .sec-banner mark{
     background-color: #ffffff00 ;
+    color: var(--verdePrincipal);
     color: var(--azulPrincipal);
     padding: 0;
 }
@@ -63,39 +44,32 @@
 @media (max-width: 992px) {
 
     .sec-banner {
-        height: 100vh;
+        background-image: url(../img/img-banner/BannerMob.jpg);
         padding: 0; 
         justify-content: start;
         align-items: center;
     }
-    .sec-banner .row-banner{
+    .row-banner{
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100%;
-        padding-top: 30px;
+        margin-top: 100px;
     }
-    .sec-banner .headiline {
+    .headiline {
         width: 85%;
         padding: 0px;
     }
 
-    .sec-banner .titulo {
-        font-size: 1.8em;
-        width: 100%;
+    .titulo {
+        font-size: 2.1em;
+        width: 90%;
         padding: 0px;
+        color: #ffffff;
         font-weight: 600;
     }
-    .sec-banner .descricao {
+    .descricao {
         font-size: 1.2em;
         padding: 0px;
     }
-    .sec-banner .col-img img{
-        width: 100%;
-    }
-    .sec-banner::after {
-        bottom: 0px;
-    }
-    
 }

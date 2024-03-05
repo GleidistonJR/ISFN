@@ -8,7 +8,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?5">
+    <link rel="stylesheet" href="css/formularioDoador.css?6">
 </head>
 
 <body>
