@@ -5,12 +5,26 @@
     <?php include("Componentes/headBasic.html") ?>
     <title>ISFN | Formulario</title>
     <style>
-        h2{
+        h2 {
+            padding-top: 150px;
             font-size: 2em;
+            text-align: center;
         }
-        a{
+
+        a.voltar {
+            display: block;
+            font-size: 1.3em;
+            padding: 10px 25px;
+            border-radius: 25px;
+            background-image: linear-gradient(180deg, var(--azulPrincipal), var(--azulSecundario));
+            color: #fff;
+            width: 33%;
+            margin: 50px 0 330px 0;
+            margin-left: 33%;
+            transition: .3s;
+            border: none;
             text-decoration: none;
-            background-color: var(--azulPrincipal);
+            text-align: center;
         }
     </style>
 </head>
@@ -19,8 +33,7 @@
 
     <?php
     include('Componentes/menu.html');
-    if (true) { 
-    //(isset($_POST['name']) && isset($_POST['cpf']) && !empty($_POST['name'])) {
+    if (isset($_POST['name']) && isset($_POST['cpf']) && !empty($_POST['name'])) {
 
         $nome = addslashes($_POST['name']);
         $dataNascimento = addslashes($_POST['data-nascimento']);
@@ -64,19 +77,21 @@
 
         if (mail($to, $subjet, $body, $header)) {
             echo ('<h2>Inscrição realizada com sucesso! Logo entraremos em contato</h2>
-                    <a href="index.php">Voltar para o Inicio</a>
+                    <a class="voltar" href="index.php">Voltar para o Inicio</a>
+                    <meta http-equiv="refresh" content="2; url=Doacoes.php">
                     ');
-                } else {
-                    echo ('<h2>Ocorreu um erro</h2>
-                    ');
-                }
-            }
-            
-            ?>
+        } else {
+            echo ('<h2>Ocorreu um erro</h2>
+    <meta http-equiv="refresh" content="2; url=formularioDoador.php">
+            ');
+        }
+    }
+
+    include('Componentes/footer.html');
+    ?>
 
 </body>
+
 </html>
 <!--
-<meta http-equiv="refresh" content="3; url=Doacoes.php">
-<meta http-equiv="refresh" content="5; url=formularioDoador.php">
 -->

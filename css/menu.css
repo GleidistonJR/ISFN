@@ -146,7 +146,7 @@ div.rolagem .img-logo-normal {
 
 .hamburguer {
     display: none;
-    color: white;
+    color: var(--azulPrincipal);
     font-size: 26px;
 }
 
