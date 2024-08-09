@@ -11,11 +11,7 @@
     <link rel="stylesheet" href="css/IndexApoiar.css?6">
     <link rel="stylesheet" href="css/IndexDepoimentos.css?6">
 
-<<<<<<< HEAD
-    <title>Instituto São Filipe Neris</title>
-=======
     <title>Instituto São Filipe Neri</title>
->>>>>>> master
 
 </head>
 
