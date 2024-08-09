@@ -1,0 +1,155 @@
+<head>
+    <link rel="stylesheet" href="retiro/Section.css">
+</head>
+
+
+<body>
+    <div class="container-fluid" id="menu">
+        <div class="row align-items-center" id="row-menu">
+             <!--Navbar -->
+        <div class="col-6" id="navbar">
+            <nav>
+                <ul>
+                    <li><a href="#SecFormMobile">Pré Inscrição</a></li>
+                        <li><a href="#Regras">Regras e Avisos</a></li>
+                        <li><a href="#DATE">Data</a></li>
+                        <li><a href="#LOCAL">Local</a></li>
+                </ul>
+            </nav>
+        </div>
+             <!--Navbar -->
+             <div class="col-12 col-md-12 hamburguer" id="hamburguer">
+                <i onclick="animarMenu()" class="bi bi-list" id="icone"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <!--MENU MOBILE-->
+    <div class="container" id="menu-mobile">
+        <div class="row">
+            <div class="col-12" id="navbar-mobile">
+                <nav>
+                    <ul>
+    
+                        <li><i onclick="animarMenu()" class="bi bi-x-circle-fill" id="icone2"></i></li>
+                        <li><a href="#SecFormMobile">Pré Inscrição</a></li>
+                        <li><a href="#Regras">Regras e Avisos</a></li>
+                        
+                        <li><a href="#DATE">Data</a></li>
+                        <li><a href="#LOCAL">Local</a></li>
+    
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid" id="SecCoração">
+        <div class="row">
+            <!-- Button trigger modal -->
+            <img src="img/coracao1.svg" class="coracao" data-bs-toggle="modal" data-bs-target="#staticBackdropA">
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropA" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/TEXTODOE.svg" class="img-modal" alt="">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">FECHAR</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="SecHero">
+
+        <div class="row">
+            <div class="col-12 col-md-6 colSEC1">
+                <img src="img/titulo.svg" class="img-logo" alt="">
+                <img src="img/cruzmaisfelipe.webp" class="heroMB" alt="">
+                <h4>Permita-se ser transformado pela experiência do silêncio sagrado. Uma jornada de autodescoberta e
+                    renovação espiritual.</h4>
+
+                <!--FORM-->
+                <form action="https://formsubmit.co/info@isfn.org.br" method="POST" id="FORM">
+                    <h5 class="Tform">Pré Inscrição</h5>
+
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="FNAME" class="form-control" id="form-text"
+                                placeholder="Nome Completo"required>
+                        </div>
+                        <div class="col">
+                            <input type="email" name="EMAIL" class="form-control" id="form-email" placeholder="E-mail"required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <input type="tel" name="PHONE" class="form-control" id="form-telefone"
+                                placeholder="Tel: 999999999"required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="cpf" name="CPF" id="form-cpf"
+                                placeholder="Cpf: 000.000.000-00 "
+                                pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"required>
+                                <input type="hidden" name="_captcha" value="false">
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+                
+            </div>
+            
+            <div class="col-12 col-md-6 colSEC2">
+
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    <script src="js/js-app.js" defer></script>
+    <script src="js/javascript.js" defer></script>
+    <script src="js/animar.js" defer></script>
+
+</body>

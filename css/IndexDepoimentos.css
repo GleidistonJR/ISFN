@@ -1,0 +1,70 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Depoimentos*/
+#depoimentos {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#depoimentos h2 {
+    font-size: 2.6em;
+    color: var(--H2);
+}
+
+
+
+#depoimentos aside {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: var(--azulFraco);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.329);
+    justify-content: center;
+}
+
+#depoimentos-div {
+    padding: 20px;
+    margin: 50px 0;
+    justify-content: space-around;
+}
+
+#depoimentos-div .img-fluid {
+    width: 150px;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+
+
+
+/*--------------------------
+Mobile
+---------------------------*/
+
+@media (max-width: 768px) {
+    /*artigo Sobre*/
+    #article-projeto h2 {
+        font-size: 2em;
+    }
+
+    #article-projeto p {
+        text-align: start;
+        font-size: 1.1em;
+    }
+
+    /*Como Funciona*/
+
+    #article-como-funciona h2 {
+        font-size: 2em;
+    }
+
+    /*Depoimentos*/
+
+    #depoimentos aside {
+        margin: 20px;
+    }
+
+}

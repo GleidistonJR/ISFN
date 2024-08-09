@@ -1,0 +1,264 @@
+.doacao {
+    padding: 0 !important;
+    margin: 0;
+}
+
+.doacao .banner {
+    background-image: url(../img/img-doacoes/alunos4.jpeg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    padding-top: 90px;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.doacao .banner .col {
+    margin: auto 50px;
+}
+
+.doacao .banner .col h1 {
+    font-size: 2.8em;
+    color: #fff;
+    text-shadow: 1px 1px 2px #3a3a3a;
+}
+
+.doacao .banner .col h1 mark {
+    background-color: #ffffff00;
+    color: var(--verdeSecundario);
+}
+
+.doacao .banner .col p {
+    font-size: 1.2em;
+    text-shadow: 1px 1px 1px #2e2e2e;
+    color: #fff
+}
+
+.doacao .banner .col a {
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #fff;
+    background-image: linear-gradient(130deg, var(--verdeSecundario), var(--verdePrincipal));
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+.doacao .banner .col a:hover {
+    background-image: linear-gradient(130deg, var(--verdePrincipal), var(--verdePrincipal));
+}
+
+
+.doacao .row-doacao {
+    background-image: url(../img/img-doacoes/brasil_alunos.jpeg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 27%;
+    width: 100%;
+    padding: 120px 0 50px 0;
+}
+
+.doacao .row-doacao h2 {
+    font-size: 2.5em;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.doacao .row-doacao h2::before {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 33%;
+    width: 33%;
+    height: 3px;
+    border-radius: 30px;
+    background-color: var(--verdePrincipal);
+}
+
+.doacao .row-doacao .col-12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doacao .row-doacao .col-12 h3 {
+    font-size: 2em;
+}
+
+.doacao .row-doacao .col-12 label {
+    font-size: 2.5em;
+    color: var(--verdePrincipal);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #c4c4c4;
+    margin: 10px;
+    padding: 0 15px;
+    width: 300px;
+}
+
+.form-check .form-check-input {
+    margin-top: 2em;
+    background-color: #fefefe;
+    border: 1px solid #7e7e7e;
+}
+
+.doacao .form-check-input:checked[type=radio] {
+    background-color: #0c6313;
+    border-color: #0c6313;
+}
+
+
+.doacao .form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #2bcf395b;
+}
+
+.doacao .row-doacao .col-12 .qrcode {
+    width: 25%;
+    height: 100%;
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.doacao .row-doacao .col-12 .qrcode h4 {
+    margin-bottom: 30px;
+}
+
+.doacao .row-doacao .col-12 .qrcode img {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.doacao .row-doacao .col-12 .qrcode .div-copiar {
+    margin-bottom: 10px;
+}
+
+.doacao .row-doacao .col-12 .qrcode .div-copiar input {
+    border-radius: 5px;
+    height: 37px;
+    background-color: #e9e9e9;
+    border: none;
+    box-shadow: 1px 1px 5px #c4c4c4;
+}
+
+.doacao .row-doacao .col-12 .qrcode .div-copiar button {
+    margin: 6px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    background-color: var(--verdePrincipal);
+    color: #fff;
+    border: none;
+}
+
+.doacao .row-doacao .col-12 .qrcode .div-copiar button:hover {
+    background-color: #0c6313;
+}
+
+.btn-padrinho {
+    font-size: 1.3em;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background-image: linear-gradient(180deg, var(--verdeSecundario), var(--verdePrincipal));
+    color: #fff;
+    width: 33%;
+    margin: 50px 0 ;
+    margin-left: 33%;
+    transition: .3s;
+    border: none;
+}
+
+.btn-padrinho:hover {
+    background-image: linear-gradient(130deg, var(--verdePrincipal), var(--verdePrincipal));
+    color: #fff;
+}
+
+
+
+
+@media (max-width:720px) {
+
+
+    .doacao .banner {
+        background-image: url(../img/img-doacoes/alunos4mob.jpg);
+    }
+
+    .doacao .banner {
+        height: 40vh;
+    }
+
+    .doacao .banner .col {
+        margin: 0px;
+    }
+
+    .doacao .banner .col h1 {
+        font-size: 1.5em;
+    }
+
+    .doacao .banner .col p {
+        font-size: 0.8em;
+    }
+
+    .doacao .banner .col a {
+        font-size: 0.8em;
+        padding: 8px 20px;
+    }
+
+    .doacao .row-doacao {
+        background-image: url(../img/img-doacoes/brasil_alunos.jpeg);
+        background-position: bottom;
+        background-size: 70%;
+        width: 100%;
+        padding: 50px 0 200px 0;
+        margin: auto;
+    }
+
+    .doacao .row-doacao h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .doacao .row-doacao h2::before {
+        bottom: -15px;
+    }
+
+
+    .doacao .row-doacao .col-12 h3 {
+        font-size: 1.2em;
+    }
+
+    .doacao .row-doacao .col-12 label {
+        font-size: 1.8em;
+    }
+
+    .form-check .form-check-input {
+        margin-top: 1.5em;
+    }
+
+    .doacao .row-doacao .col-12 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0;
+        height: 100%;
+    }
+
+    .doacao .row-doacao .col-12 .qrcode {
+        width: 95%;
+        height: 50%;
+        padding: 20px;
+    }
+    .btn-padrinho {    
+        width: 80%;
+        margin-left: 10%;
+    }
+}
