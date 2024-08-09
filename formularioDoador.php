@@ -2,7 +2,8 @@
 <html lang="pt-br">
 
 <head>
-    <title>padrinho</title>
+    
+    <title>ISFN | Cadastro Colaborador</title>
 
     <?php
     include("Componentes/headBasic.html");
@@ -27,7 +28,7 @@
                     </div>
                     <div class="col-5 col-md-4">
                         <label for="data-nascimento" class="form-label">Data Nascimento:</label>
-                        <input type="number" class="form-control" placeholder="data Nascimento" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento">
+                        <input type="date" class="form-control" placeholder="data Nascimento" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento">
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label">CPF:</label>

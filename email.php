@@ -51,8 +51,13 @@
         $complemento = addslashes($_POST['complemento']);
         $numero = addslashes($_POST['numero']);
 
+<<<<<<< HEAD
         $to = "info@isfn.org.br";
         $subjet = "Formulario Colaborador";
+=======
+        $to = "info@isfn.org.br, gleidistonjunior@gmail.com, abenaziojunior@gmail.com";
+        $subjet = "Formulario Colaborador ISFN";
+>>>>>>> master
 
         $body =
             "Nome: " . $nome . " \n" .

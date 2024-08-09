@@ -8,7 +8,11 @@
     ?>
     <link rel="stylesheet" href="css/styleDonate.css?6">
 
+<<<<<<< HEAD
     <title>Doações</title>
+=======
+    <title>ISFN | Doações</title>
+>>>>>>> master
 
 </head>
 
