@@ -58,6 +58,12 @@
                         </label>
                     </div>
                     <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                        <label class="form-check-label" for="flexRadioDefault5">
+                            R$500
+                        </label>
+                    </div>
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
                         <label class="form-check-label" for="flexRadioDefault4">
                             Outro Valor
@@ -103,6 +109,7 @@
     const radio50 = document.querySelector('#flexRadioDefault1')
     const radio100 = document.querySelector('#flexRadioDefault2')
     const radio200 = document.querySelector('#flexRadioDefault3')
+    const radio500 = document.querySelector('#flexRadioDefault5')
     const radio_outro = document.querySelector('#flexRadioDefault4')
     const img_qrcode = document.querySelector('#img_qrcode')
     const btn_copiar = document.querySelector('#btn_copiar')
@@ -111,7 +118,6 @@
     radio50.addEventListener("click", function() {
         img_qrcode.setAttribute("src", "./img/img-doacoes/QR/50.png")
         url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX011451177366000171520400005303986540550.005802BR5904ISFN6007Goiania62070503***6304FE0B")
-
     })
     radio100.addEventListener("click", function() {
         img_qrcode.setAttribute("src", "./img/img-doacoes/QR/100.png")
@@ -120,6 +126,10 @@
     radio200.addEventListener("click", function() {
         img_qrcode.setAttribute("src", "./img/img-doacoes/QR/200.png")
         url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865406200.005802BR5904ISFN6007Goiania62070503***6304414C")
+    })
+    radio500.addEventListener("click", function() {
+        img_qrcode.setAttribute("src", "./img/img-doacoes/QR/500.png")
+        url_txt.setAttribute("value", "00020126360014BR.GOV.BCB.PIX0114511773660001715204000053039865406500.005802BR5904ISFN6007Goiania62070503***63042BC0")
     })
     radio_outro.addEventListener("click", function() {
         img_qrcode.setAttribute("src", "./img/img-doacoes/QR/outro.png")
