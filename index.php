@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/banner.css?6">
     <link rel="stylesheet" href="css/IndexSobre.css?6">
     <link rel="stylesheet" href="css/IndexApoiar.css?6">
-    <link rel="stylesheet" href="css/IndexDepoimentos.css?6">
+<!--    <link rel="stylesheet" href="css/IndexDepoimentos.css?6">   -->
 
     <title>Instituto São Filipe Neri</title>
 
@@ -28,7 +28,7 @@
 
         include_once("Componentes/IndexApoiar.html");
 
-        include_once("Componentes/IndexDepoimentos.html");
+        //include_once("Componentes/IndexDepoimentos.html");
         ?>
 
     </main>
