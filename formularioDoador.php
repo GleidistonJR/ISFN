@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" id="cpf" >CPF:</label>
-                        <input type="number" class="form-control" placeholder="CPF" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
+                        <input type="number" class="form-control" id="cpfInp" placeholder="CPF" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
                     </div>
 
                     <div class="col-6 col-md-3">
@@ -324,6 +324,7 @@
     const tipoRadios = document.querySelectorAll('input[name="tipo"]');
     const campNome = document.querySelector('#nome');
     const campCPF = document.querySelector('#cpf');
+    const campCPFInp = document.querySelector('#cpfInp');
 
 
     const atualizarFormulario = () => {
@@ -332,9 +333,12 @@
         if (tipoSelecionado === 'fisico') {
             campNome.innerText = 'Nome';
             campCPF.innerText = 'CPF';
+            campCPFInp.setAttribute('placeholder', 'CPF');
+
         } else if (tipoSelecionado === 'juridico') {
             campNome.innerText = 'Nome do Responsável';
             campCPF.innerText = 'CNPJ';
+            campCPFInp.setAttribute('placeholder', 'CNPJ');
         }
     };
 
