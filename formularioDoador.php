@@ -18,20 +18,27 @@
     ?>
     <section class="formulario-colaborador container-fluid" id="formulario-colaborador">
         <article class="row">
-            <h2>Cadastro colaborador mensal</h2>
+            <h2>Cadastro Colaborador Mensal</h2>
             <form class="col-12 col-md-5 col-form" method="POST" action="./email.php">
+
+                <div class="col-12 mb-3">
+                    <input class="form-check-input" type="radio" name="tipo" value="fisico" id="PessoaFisica" checked>
+                    <label class="form-check-label PessoaFisica" for="PessoaFisica">Pessoa Física</label>
+                    <input class="form-check-input" type="radio" name="tipo" value="juridico" id="PessoaJuridica">
+                    <label class="form-check-label" for="PessoaJuridica">Pessoa Jurídica</label>
+                </div>
 
                 <div class="input-group mb-3">
                     <div class="col-12 col-md-8">
-                        <label for="nome" class="form-label">Nome:</label>
+                        <label for="nome" class="form-label" id="nome" name="nome">Nome:</label>
                         <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Nome" aria-describedby="basic-addon1" name="name" id="nome" required>
                     </div>
                     <div class="col-5 col-md-4">
-                        <label for="data-nascimento" class="form-label">Data Nascimento:</label>
+                        <label for="data-nascimento" class="form-label">Data de Nascimento:</label>
                         <input type="date" class="form-control" placeholder="data Nascimento" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento">
                     </div>
                     <div class="col-7 col-md-3">
-                        <label for="cpf" class="form-label">CPF:</label>
+                        <label for="cpf" class="form-label" id="cpf" >CPF:</label>
                         <input type="number" class="form-control" placeholder="CPF" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
                     </div>
 
@@ -305,9 +312,39 @@
         </article>
 
     </section>
+      
     <?php
+    
     include("Componentes/footer.html");
+    
     ?>
 </body>
 
+<script>
+    const tipoRadios = document.querySelectorAll('input[name="tipo"]');
+    const campNome = document.querySelector('#nome');
+    const campCPF = document.querySelector('#cpf');
+
+
+    const atualizarFormulario = () => {
+        const tipoSelecionado = document.querySelector('input[name="tipo"]:checked').value;
+
+        if (tipoSelecionado === 'fisico') {
+            campNome.innerText = 'Nome';
+            campCPF.innerText = 'CPF';
+        } else if (tipoSelecionado === 'juridico') {
+            campNome.innerText = 'Nome do Responsável';
+            campCPF.innerText = 'CNPJ';
+        }
+    };
+
+    // Adiciona event listeners aos radios
+    tipoRadios.forEach(radio => {
+        radio.addEventListener('change', atualizarFormulario);
+    });
+
+    // Inicializa o estado do formulário
+    atualizarFormulario();
+</script>
 </html>
+

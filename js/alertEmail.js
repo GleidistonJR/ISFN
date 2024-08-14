@@ -1,1 +1,0 @@
-alert('Enviado com sucesso!')
