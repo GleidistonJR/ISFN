@@ -9,7 +9,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?6">
+    <link rel="stylesheet" href="css/formularioDoador.css?7">
 </head>
 
 <body>
@@ -21,33 +21,42 @@
             <h2>Cadastro Colaborador Mensal</h2>
             <form class="col-12 col-md-5 col-form" method="POST" action="./email.php">
 
-                <div class="col-12 mb-3">
-                    <input class="form-check-input" type="radio" name="tipo" value="fisico" id="PessoaFisica" checked>
-                    <label class="form-check-label PessoaFisica" for="PessoaFisica">Pessoa Física</label>
-                    <input class="form-check-input" type="radio" name="tipo" value="juridico" id="PessoaJuridica">
-                    <label class="form-check-label" for="PessoaJuridica">Pessoa Jurídica</label>
+                <div class="col-12 mb-2 mb-md-4 radio-pessoas">
+                    <div class="col-6 col-md-5 mb-2 mb-md-4">
+                        <input class="form-check-input" type="radio" name="tipo" value="fisico" id="PessoaFisica" checked>
+                        <label class="form-check-label PessoaFisica" for="PessoaFisica">Pessoa Física</label>
+                    </div>
+                    <div class="col-6 col-md-5 mb-2 mb-md-4">
+                        <input class="form-check-input" type="radio" name="tipo" value="juridico" id="PessoaJuridica">
+                        <label class="form-check-label" for="PessoaJuridica">Pessoa Jurídica</label>
+                    </div>
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="col-12 col-md-8">
-                        <label for="nome" class="form-label" id="nome" name="nome">Nome:</label>
+                <div class="col-12 razao_social mb-3">
+                    <label for="razao" class="form-label" id="razaosocial" >Razão Social:</label>
+                    <input type="text" class="form-control" placeholder="Razão Social" aria-label="Nome" aria-describedby="basic-addon1" name="razaosocial" id="razaosocial" >
+                </div>
+
+                <div class="input-group mb-4">
+                    <div class="col-12 col-md-8 mb-2 mb-md-4">
+                        <label for="nome" class="form-label" id="nome" name="nomeLabel">Nome:</label>
                         <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Nome" aria-describedby="basic-addon1" name="name" id="nome" required>
                     </div>
-                    <div class="col-5 col-md-4">
-                        <label for="data-nascimento" class="form-label">Data de Nascimento:</label>
-                        <input type="date" class="form-control" placeholder="data Nascimento" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento">
+                    <div class="col-5 col-md-4 mb-2 mb-md-4">
+                        <label for="data-nascimento" class="form-label">Nascimento:</label>
+                        <input type="number_format" class="form-control" placeholder="00/00/0000" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento" required>
                     </div>
-                    <div class="col-7 col-md-3">
+                    <div class="col-7 col-md-4">
                         <label for="cpf" class="form-label" id="cpf" >CPF:</label>
-                        <input type="number" class="form-control" id="cpfInp" placeholder="CPF" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
+                        <input type="number_format" class="form-control" id="cpfInp" placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
                     </div>
 
                     <div class="col-6 col-md-3">
                         <label for="telefone" class="form-label">Telefone:</label>
-                        <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="+55 (99)9 9999-9999" required>
+                        <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="(00)0 0000-0000" required>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-5">
                         <label for="email-inp" class="form-label">E-mail</label>
                         <input type="email" class="form-control" name="email" id="email-inp" placeholder="nome@exemplo.com" required>
                     </div>
@@ -57,7 +66,7 @@
 
 
                 <label for="endereco" class="form-label">Endereço</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-2">
                     <div class="input-group mb-3">
                         <div class="col-3 ">
                             <input type="number" class="form-control" name="cep" id="cep" placeholder="CEP" required>
@@ -242,44 +251,14 @@
                             <i class="fa fa-chevron-down select_after" aria-hidden="true"></i>
                         </div>
                         <div class="col-3 ">
-                            <select class="form-control" name="uf" id="uf" required>
-                                <option>UF</option>
-                                <option value="AC">AC</option>
-                                <option value="AL">AL</option>
-                                <option value="AP">AP</option>
-                                <option value="AM">AM</option>
-                                <option value="BA">BA</option>
-                                <option value="CE">CE</option>
-                                <option value="DF">DF</option>
-                                <option value="ES">ES</option>
-                                <option value="GO">GO</option>
-                                <option value="MA">MA</option>
-                                <option value="MT">MT</option>
-                                <option value="MS">MS</option>
-                                <option value="MG">MG</option>
-                                <option value="PA">PA</option>
-                                <option value="PB">PB</option>
-                                <option value="PR">PR</option>
-                                <option value="PE">PE</option>
-                                <option value="PI">PI</option>
-                                <option value="RJ">RJ</option>
-                                <option value="RN">RN</option>
-                                <option value="RS">RS</option>
-                                <option value="RO">RO</option>
-                                <option value="RR">RR</option>
-                                <option value="SC">SC</option>
-                                <option value="SP">SP</option>
-                                <option value="SE">SE</option>
-                                <option value="TO">TO</option>
-                            </select>
-                            <i class="fa fa-chevron-down select_after" aria-hidden="true"></i>
+                            <input type="text" class="form-control" name="uf" id="uf" placeholder="Estado" required>
                         </div>
                         <div class="col-3 ">
                             <input type="text" class="form-control" name="cidade" id="endereco" placeholder="Cidade" required>
                         </div>
 
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-0">
                         <div class="col-4 col-md-3 mb-3">
                             <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua" required>
                         </div>
@@ -325,6 +304,7 @@
     const campNome = document.querySelector('#nome');
     const campCPF = document.querySelector('#cpf');
     const campCPFInp = document.querySelector('#cpfInp');
+    const campRazao = document.querySelector('.razao_social');
 
 
     const atualizarFormulario = () => {
@@ -333,12 +313,14 @@
         if (tipoSelecionado === 'fisico') {
             campNome.innerText = 'Nome';
             campCPF.innerText = 'CPF';
-            campCPFInp.setAttribute('placeholder', 'CPF');
+            campCPFInp.setAttribute('placeholder', '000.000.000-00');
+            campRazao.style = 'display:none;';
 
         } else if (tipoSelecionado === 'juridico') {
             campNome.innerText = 'Nome do Responsável';
             campCPF.innerText = 'CNPJ';
-            campCPFInp.setAttribute('placeholder', 'CNPJ');
+            campCPFInp.setAttribute('placeholder', '00.000.000/0000-00');
+            campRazao.style = 'display:block;';
         }
     };
 

@@ -2,8 +2,16 @@
     padding: 150px 0 80px 0;
     width: 100%;
 }
-.formulario-colaborador .PessoaFisica {
-    margin-right: 25px;
+.formulario-colaborador .form-label  {
+    margin-bottom:  2px ;
+}
+.formulario-colaborador .radio-pessoas  {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.formulario-colaborador .radio-pessoas label  {
+    font-size: 1.2em;
 }
 
 .formulario-colaborador .row {
@@ -41,10 +49,10 @@
 
 @media (max-width:720px) {
     .formulario-colaborador {
-        padding-top: 60px;
+        padding-top: 100px;
     }
-    .formulario-colaborador .PessoaFisica {
-        margin-right: 25px !important;
+    .formulario-colaborador .radio-pessoas label  {
+        font-size: 1.1em;
     }
     .formulario-colaborador .row {
         margin: auto;
