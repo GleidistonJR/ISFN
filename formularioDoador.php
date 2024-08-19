@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/formularioDoador.css?7">
 </head>
 
+
 <body>
     <?php
     include("Componentes/menu.html");
@@ -44,21 +45,21 @@
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">
                         <label for="data-nascimento" class="form-label">Nascimento:</label>
-                        <input type="number_format" class="form-control" placeholder="00/00/0000" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento" required>
+                        <input type="text" class="form-control" placeholder="00/00/0000" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento" required>
                     </div>
                     <div class="col-7 col-md-4">
                         <label for="cpf" class="form-label" id="cpf" >CPF:</label>
-                        <input type="number_format" class="form-control" id="cpfInp" placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
+                        <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
                     </div>
 
                     <div class="col-6 col-md-3">
                         <label for="telefone" class="form-label">Telefone:</label>
-                        <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="(00)0 0000-0000" required>
+                        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00)0 0000-0000" required>
                     </div>
 
                     <div class="col-5">
                         <label for="email-inp" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" id="email-inp" placeholder="nome@exemplo.com" required>
+                        <input type="email" class="form-control" name="email" id="email-inp" placeholder="nome@exemplo.com" >
                     </div>
                 </div>
 
@@ -69,7 +70,7 @@
                 <div class="input-group mb-2">
                     <div class="input-group mb-3">
                         <div class="col-3 ">
-                            <input type="number" class="form-control" name="cep" id="cep" placeholder="CEP" required>
+                            <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required>
                         </div>
                         <div class="col-3">
                             <select class="form-control" name="pais" id="pais" required>
@@ -263,10 +264,10 @@
                             <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua" required>
                         </div>
                         <div class="col-4 col-md-3 mb-3">
-                            <input type="text" class="form-control" name="quadra" id="quadra" placeholder="Quadra" required>
+                            <input type="text" class="form-control" name="quadra" id="quadra" placeholder="Quadra" >
                         </div>
                         <div class="col-4 col-md-3 mb-3">
-                            <input type="text" class="form-control" name="lote" id="lote" placeholder="Lote" required>
+                            <input type="text" class="form-control" name="lote" id="lote" placeholder="Lote" >
                         </div>
                         <div class="col-9 col-md-3 mb-3">
                             <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor" required>
@@ -300,6 +301,22 @@
 </body>
 
 <script>
+    $("#data-nascimento").mask("00/00/0000");
+    $("#telefone").mask("(00)0 0000-0000");
+    $("#cep").mask("00000-000");
+    $("#cpfInp").mask("000.000.000-00");
+    $("#cnpjInp").mask("00.000.000/0000-00");
+</script>
+
+<script>
+
+    const atualizarCnpj = () => {
+        $("#cnpjInp").mask("00.000.000/0000-00");
+    }
+    const atualizarCpf = () => {
+        $("#cpfInp").mask("000.000.000-00");
+    }
+
     const tipoRadios = document.querySelectorAll('input[name="tipo"]');
     const campNome = document.querySelector('#nome');
     const campCPF = document.querySelector('#cpf');
@@ -313,14 +330,18 @@
         if (tipoSelecionado === 'fisico') {
             campNome.innerText = 'Nome';
             campCPF.innerText = 'CPF';
+            campCPFInp.setAttribute('id', 'cpfInp');
             campCPFInp.setAttribute('placeholder', '000.000.000-00');
             campRazao.style = 'display:none;';
-
+            atualizarCpf();
+            
         } else if (tipoSelecionado === 'juridico') {
             campNome.innerText = 'Nome do Responsável';
             campCPF.innerText = 'CNPJ';
+            campCPFInp.setAttribute('id', 'cnpjInp');
             campCPFInp.setAttribute('placeholder', '00.000.000/0000-00');
             campRazao.style = 'display:block;';
+            atualizarCnpj();
         }
     };
 
