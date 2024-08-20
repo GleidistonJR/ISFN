@@ -9,7 +9,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?7">
+    <link rel="stylesheet" href="css/formularioDoador.css?8">
 </head>
 
 
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="col-6 col-md-3">
-                        <label for="telefone" class="form-label">Telefone:</label>
+                        <label for="telefone" class="form-label">Celular:</label>
                         <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00)0 0000-0000" required>
                     </div>
 
@@ -289,7 +289,12 @@
             <div class="col-12 col-md-5 col-img">
                 <img src="./img/img-banner/criancas-fazendo-robo.webp" alt="">
             </div>
+            
+            <div class="col-10 dificuldade-cadastro">
+                <h5><a href="https://wa.me//5562992862544" target="_blank">Dificuldades com cadastro?</a></h5>
+            </div>
         </article>
+
 
     </section>
       

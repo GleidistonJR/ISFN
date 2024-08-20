@@ -6,7 +6,7 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
-    <link rel="stylesheet" href="css/styleDoacoes.css?7">
+    <link rel="stylesheet" href="css/styleDoacoes.css?8">
 
     <title>ISFN | Doações</title>
 
