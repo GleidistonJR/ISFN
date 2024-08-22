@@ -3,13 +3,13 @@
 
 <head>
     
-    <title>ISFN | Cadastro Colaborador</title>
+    <title>ISFN | Cadastro Doador</title>
 
     <?php
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?8">
+    <link rel="stylesheet" href="css/formularioDoador.css?9">
 </head>
 
 
@@ -19,7 +19,7 @@
     ?>
     <section class="formulario-colaborador container-fluid" id="formulario-colaborador">
         <article class="row">
-            <h2>Cadastro Colaborador Mensal</h2>
+            <h2>Cadastro Doador Mensal</h2>
             <form class="col-12 col-md-5 col-form" method="POST" action="./email.php">
 
                 <div class="col-12 mb-2 mb-md-4 radio-pessoas">
@@ -57,7 +57,7 @@
                         <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00)0 0000-0000" required>
                     </div>
 
-                    <div class="col-5">
+                    <div class="col-6 col-md-5">
                         <label for="email-inp" class="form-label">E-mail</label>
                         <input type="email" class="form-control" name="email" id="email-inp" placeholder="nome@exemplo.com" >
                     </div>

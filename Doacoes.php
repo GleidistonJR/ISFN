@@ -6,7 +6,7 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
-    <link rel="stylesheet" href="css/styleDoacoes.css?8">
+    <link rel="stylesheet" href="css/styleDoacoes.css?9">
 
     <title>ISFN | Doações</title>
 
@@ -91,7 +91,7 @@
 
     </section>
 
-    <a class="btn btn-padrinho" href="formularioDoador.php">Seja um colaborador mensal</a>
+    <a class="btn btn-padrinho" href="formularioDoador.php">Seja um doador mensal</a>
 
 
 

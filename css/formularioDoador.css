@@ -62,6 +62,11 @@ margin-top: 15px;
     .formulario-colaborador .radio-pessoas label  {
         font-size: 1.1em;
     }
+    .formulario-colaborador .radio-pessoas .col-6  {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .formulario-colaborador .row {
         margin: auto;
         padding: 10px;
