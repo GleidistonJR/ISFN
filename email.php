@@ -108,16 +108,15 @@
 
 
         if (mail($to, $subjet, $body, $header)) {
-            echo ('<h2>Inscrição realizada com sucesso! Logo entraremos em contato</h2>
-                    <a class="voltar" href="index.php">Voltar para o Inicio</a>
-                    <meta http-equiv="refresh" content="2; url=Doacoes.php">
-                    ');
+            echo ('<h2>Cadastro realizado com sucesso!</h2>
+                    <a class="voltar" href="Doacoes.php">Voltar</a>
+            ');
         } else {
             echo ('<h2>Ocorreu um erro</h2>
-    <meta http-equiv="refresh" content="2; url=formularioDoador.php">
+            <meta http-equiv="refresh" content="2; url=formularioDoador.php">
             ');
+            }
         }
-    }
 
     include('Componentes/footer.html');
     ?>
