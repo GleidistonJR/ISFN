@@ -22,22 +22,6 @@
             <h2>Cadastro Doador Mensal</h2>
             <form class="col-12 col-md-5 col-form" method="POST" action="./email.php">
 
-                <div class="col-12 mb-2 mb-md-4 radio-pessoas">
-                    <div class="col-6 col-md-5 mb-2 mb-md-4">
-                        <input class="form-check-input" type="radio" name="tipo" value="fisico" id="PessoaFisica" checked>
-                        <label class="form-check-label PessoaFisica" for="PessoaFisica">Pessoa Física</label>
-                    </div>
-                    <div class="col-6 col-md-5 mb-2 mb-md-4">
-                        <input class="form-check-input" type="radio" name="tipo" value="juridico" id="PessoaJuridica">
-                        <label class="form-check-label" for="PessoaJuridica">Pessoa Jurídica</label>
-                    </div>
-                </div>
-
-                <div class="col-12 razao_social mb-3">
-                    <label for="razao" class="form-label" id="razaosocial" >Razão Social:</label>
-                    <input type="text" class="form-control" placeholder="Razão Social" aria-label="Nome" aria-describedby="basic-addon1" name="razaosocial" id="razaosocial" >
-                </div>
-
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label" id="nome" name="nomeLabel">Nome:</label>
@@ -47,14 +31,14 @@
                         <label for="data-nascimento" class="form-label">Nascimento:</label>
                         <input type="text" class="form-control" placeholder="00/00/0000" aria-label="data-nascimento" aria-describedby="basic-addon1" name="data-nascimento" id="data-nascimento" required>
                     </div>
-                    <div class="col-7 col-md-4">
+                    <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" id="cpf" >CPF:</label>
                         <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="cpf" id="cpf" required>
                     </div>
 
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-4">
                         <label for="telefone" class="form-label">Celular:</label>
-                        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00)0 0000-0000" required>
+                        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00)00000-0000" required>
                     </div>
 
                     <div class="col-6 col-md-5">
@@ -260,22 +244,17 @@
 
                     </div>
                     <div class="input-group mb-0">
-                        <div class="col-4 col-md-3 mb-3">
+                        <div class="col-4 col-md-4 mb-3">
                             <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua" required>
                         </div>
-                        <div class="col-4 col-md-3 mb-3">
-                            <input type="text" class="form-control" name="quadra" id="quadra" placeholder="Quadra" >
-                        </div>
-                        <div class="col-4 col-md-3 mb-3">
-                            <input type="text" class="form-control" name="lote" id="lote" placeholder="Lote" >
-                        </div>
-                        <div class="col-9 col-md-3 mb-3">
+                        
+                        <div class="col-9 col-md-5 mb-3">
                             <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor" required>
                         </div>
                         <div class="col-3 col-md-3 mb-3">
                             <input type="number" class="form-control" name="numero" id="numero" placeholder="Numero">
                         </div>
-                        <div class="col-12 col-md-9 mb-3">
+                        <div class="col-12 col-md-12 mb-3">
                             <input type="text" class="form-control" name="complemento" id="complemento" placeholder="Complemento">
                         </div>
                     </div>
@@ -307,56 +286,10 @@
 
 <script>
     $("#data-nascimento").mask("00/00/0000");
-    $("#telefone").mask("(00)0 0000-0000");
+    $("#telefone").mask("(00)00000-0000");
     $("#cep").mask("00000-000");
     $("#cpfInp").mask("000.000.000-00");
-    $("#cnpjInp").mask("00.000.000/0000-00");
 </script>
 
-<script>
-
-    const atualizarCnpj = () => {
-        $("#cnpjInp").mask("00.000.000/0000-00");
-    }
-    const atualizarCpf = () => {
-        $("#cpfInp").mask("000.000.000-00");
-    }
-
-    const tipoRadios = document.querySelectorAll('input[name="tipo"]');
-    const campNome = document.querySelector('#nome');
-    const campCPF = document.querySelector('#cpf');
-    const campCPFInp = document.querySelector('#cpfInp');
-    const campRazao = document.querySelector('.razao_social');
-
-
-    const atualizarFormulario = () => {
-        const tipoSelecionado = document.querySelector('input[name="tipo"]:checked').value;
-
-        if (tipoSelecionado === 'fisico') {
-            campNome.innerText = 'Nome';
-            campCPF.innerText = 'CPF';
-            campCPFInp.setAttribute('id', 'cpfInp');
-            campCPFInp.setAttribute('placeholder', '000.000.000-00');
-            campRazao.style = 'display:none;';
-            atualizarCpf();
-            
-        } else if (tipoSelecionado === 'juridico') {
-            campNome.innerText = 'Nome do Responsável';
-            campCPF.innerText = 'CNPJ';
-            campCPFInp.setAttribute('id', 'cnpjInp');
-            campCPFInp.setAttribute('placeholder', '00.000.000/0000-00');
-            campRazao.style = 'display:block;';
-            atualizarCnpj();
-        }
-    };
-
-    // Adiciona event listeners aos radios
-    tipoRadios.forEach(radio => {
-        radio.addEventListener('change', atualizarFormulario);
-    });
-
-    // Inicializa o estado do formulário
-    atualizarFormulario();
-</script>
 </html>
 
