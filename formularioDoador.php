@@ -239,7 +239,7 @@
                             <input type="text" class="form-control" name="uf" id="uf" placeholder="Estado" required>
                         </div>
                         <div class="col-3 ">
-                            <input type="text" class="form-control" name="cidade" id="endereco" placeholder="Cidade" required>
+                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade" required>
                         </div>
 
                     </div>
@@ -290,6 +290,7 @@
     $("#cep").mask("00000-000");
     $("#cpfInp").mask("000.000.000-00");
 </script>
+<script type="text/javascript" src="js/cep.js"></script>
 
 </html>
 
