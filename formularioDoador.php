@@ -25,7 +25,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?9">
+    <link rel="stylesheet" href="css/formularioDoador.css?10">
 </head>
 
 
@@ -52,24 +52,18 @@
                         <input type="text" class="form-control"  placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="doc" id="cpf" required>
                     </div>
 
-                    <div class="col-6 col-md-4">
+                    <div class="col-5 col-md-4">
                         <label for="telefone" class="form-label">Celular</label>
                         <input type="text" class="form-control" name="fone" id="telefone" placeholder="(00)00000-0000" required>
                     </div>
 
-                    <div class="col-6 col-md-5">
+                    <div class="col-7 col-md-5">
                         <label for="email-inp" class="form-label">E-mail</label>
                         <input type="email" class="form-control" name="email" id="email-inp" placeholder="nome@exemplo.com" >
                     </div>
                 </div>
-                
-                <div class="input-group mb-3">
-                    <div class="col-6 col-md-5">
-                        <label for="naturalidade" class="form-label">Naturalidade</label>
-                        <input type="text" class="form-control" name="naturalidade" id="naturalidade" placeholder="Naturalidade" >
-                    </div>
-                    
-                    <div class="col-6 mx-4">
+                                    
+                    <div class="col-6 mb-4">
                         <label class="form-label" for="sexo">Sexo</label>
                         <div class="form-check col-6">
                             <input class="form-check-input" type="radio" name="sexo" value="M" id="masculino" checked>
@@ -87,10 +81,10 @@
                 <label for="endereco" class="form-label">Endereço</label>
                 <div class="input-group mb-2">
                     <div class="input-group mb-3">
-                        <div class="col-3 ">
-                            <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP">
+                        <div class="col-4 col-md-3 mb-1">
+                            <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required>
                         </div>
-                        <div class="col-3">
+                        <div class="col-8 col-md-3 mb-1">
                             <select class="form-control" name="pais" id="pais">
                                 <option value="África do Sul">África do Sul</option>
                                 <option value="Albânia">Albânia</option>
@@ -269,37 +263,37 @@
                             </select>
                             <i class="fa fa-chevron-down select_after" aria-hidden="true"></i>
                         </div>
-                        <div class="col-3 ">
-                            <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
+                        <div class="col-3 col-md-3 mb-1">
+                            <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado" required>
                         </div>
-                        <div class="col-3 ">
-                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
+                        <div class="col-9 col-md-3 mb-1">
+                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade" required>
                         </div>
 
                     </div>
                     <div class="input-group mb-0">
-                        <div class="col-4 col-md-4 mb-3">
-                            <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+                        <div class="col-5 col-md-4 mb-1 mb-mb-3">
+                            <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua" required>
                         </div>
                         
-                        <div class="col-9 col-md-5 mb-3">
-                            <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor">
+                        <div class="col-7 col-md-5 mb-1 mb-mb-3">
+                            <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor" required>
                         </div>
-                        <div class="col-3 col-md-3 mb-3">
-                            <input type="text" class="form-control" name="numero" id="numero" placeholder="Numero">
+                        <div class="col-2 col-md-3 mb-1 mb-mb-3">
+                            <input type="text" class="form-control" name="numero" id="numero" placeholder="N°">
                         </div>
-                        <div class="col-12 col-md-12 mb-3">
+                        <div class="col-10 col-md-12 mb-1 mb-mb-3">
                             <input type="text" class="form-control" name="complemento" id="complemento" placeholder="Complemento">
                         </div>
                     </div>
 
                 </div>
 
-                <input class="btn btn-enviar" type="submit" name="submit" value="Enviar">
+                <input class="btn btn-enviar mt-2" type="submit" name="submit" value="Enviar">
 
             </form>
 
-            <div class="col-12 col-md-5 col-img">
+            <div class="col-12 p-0 col-md-5 col-img">
                 <img src="./img/img-banner/criancas-fazendo-robo.webp" alt="">
             </div>
             

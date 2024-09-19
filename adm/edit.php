@@ -91,8 +91,11 @@ if(!isset($_SESSION['login'])){
     ?>
 
 <style>
-    #formulario-colaborador{
+    #edit-formulario-colaborador{
         padding-top: 150px;
+    }
+    #edit-formulario-colaborador .row{
+        max-width: 100%;
     }
     .btn-enviar{
         margin-left: 10%;
@@ -106,11 +109,11 @@ if(!isset($_SESSION['login'])){
         .btn-enviar{
         margin-left: 0%;
         width: 45%;
-    }
-    .btn-voltar{
-        margin-left: 0%;
-        width: 45%;
-    }
+        }
+        .btn-voltar{
+            margin-left: 0%;
+            width: 45%;
+        }
     }
 </style>
 </head>
@@ -121,7 +124,7 @@ if(!isset($_SESSION['login'])){
     <?php include("Componentes/menu.php"); ?>
 
 
-    <section class="container" id="formulario-colaborador">
+    <section class="container" id="edit-formulario-colaborador">
         <article class="row d-flex flex-column jusify-content-center align-items-center">
             <h2 class="text-center">Editar Doador</h2>
             <form class="col-10 col-form m-5" method="POST" action="saveEdit.php">
@@ -167,12 +170,7 @@ if(!isset($_SESSION['login'])){
                 </div>
                 
                 <div class="input-group mb-3">
-                    <div class="col-8 col-md-5">
-                        <label for="naturalidade" class="form-label">Naturalidade</label>
-                        <input type="text" class="form-control" name="naturalidade" value="<?php echo $naturalidade?>" id="naturalidade" placeholder="Naturalidade" >
-                    </div>
-                    
-                    <div class="col-6 ms-1 mx-md-4">
+                    <div class="col-6 mb-4">
                         <label class="form-label" for="sexo">Sexo</label>
                         <div class="form-check col-6">
                             <input class="form-check-input" type="radio" name="sexo" value="M" <?php echo($sexo == 'M') ? 'checked' : '' ?> id="masculino">
@@ -188,10 +186,10 @@ if(!isset($_SESSION['login'])){
                 <label for="endereco" class="form-label">Endereço</label>
                 <div class="input-group mb-2">
                     <div class="input-group mb-3">
-                        <div class="col-5 col-md-3">
+                        <div class="col-4 col-md-3 mb-1">
                             <input type="text" class="form-control" name="cep" id="cep" value="<?php echo $cep?>" placeholder="CEP">
                         </div>
-                        <div class="col-4 col-md-3">
+                        <div class="col-8 col-md-3 mb-1">
                             <select class="form-control" name="pais" value="<?php echo $pais?>" id="pais">
                                 <option value="África do Sul">África do Sul</option>
                                 <option value="Albânia">Albânia</option>
@@ -370,26 +368,26 @@ if(!isset($_SESSION['login'])){
                             </select>
                             <i class="fa fa-chevron-down select_after" aria-hidden="true"></i>
                         </div>
-                        <div class="col-3 ">
+                        <div class="col-4 col-md-3 mb-1">
                             <input type="text" class="form-control" name="estado" id="estado" value="<?php echo $estado?>" placeholder="Estado">
                         </div>
-                        <div class="col-5 col-md-3 ">
+                        <div class="col-8 col-md-3 mb-1">
                             <input type="text" class="form-control" name="cidade" id="cidade" value="<?php echo $cidade?>" placeholder="Cidade">
                         </div>
 
                     </div>
                     <div class="input-group mb-0">
-                        <div class="col-4 col-md-4 mb-3">
+                        <div class="col-4 col-md-4 mb-1">
                             <input type="text" class="form-control" name="rua" id="rua" value="<?php echo $rua?>" placeholder="Rua">
                         </div>
                         
-                        <div class="col-8 col-md-5 mb-3">
+                        <div class="col-8 col-md-5 mb-1">
                             <input type="text" class="form-control" name="setor" id="setor" value="<?php echo $setor?>" placeholder="Setor">
                         </div>
-                        <div class="col-3 col-md-3 mb-3">
+                        <div class="col-3 col-md-3 mb-1">
                             <input type="text" class="form-control" name="numero" id="numero" value="<?php echo $numero?>" placeholder="Numero">
                         </div>
-                        <div class="col-9 col-md-12 mb-3">
+                        <div class="col-9 col-md-12 mb-1">
                             <input type="text" class="form-control" name="complemento" id="complemento" value="<?php echo $complemento?>" placeholder="Complemento">
                         </div>
                     </div>

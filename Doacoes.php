@@ -22,7 +22,7 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
-    <link rel="stylesheet" href="css/styleDoacoes.css?9">
+    <link rel="stylesheet" href="css/styleDoacoes.css?10">
 
     <title>ISFN | Doações</title>
 

@@ -7,7 +7,6 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
     $doc = $_POST['doc'];
     $fone = $_POST['fone'];
     $email = $_POST['email'];
-    $naturalidade = $_POST['naturalidade'];
     $sexo = $_POST['sexo'];
 
     // Capturando dados do endereço (adicionando)
@@ -24,54 +23,66 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
     $nome = trim($nome);
     $doc = trim($doc);
     $fone = trim($fone);
-    $naturalidade = trim($naturalidade);
     $sexo = trim($sexo);
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
     // Incluindo conexão
     include_once("DAO.php");
 
-    // Iniciando uma transação
-    $conexao->begin_transaction();
+    // Prepara a consulta para verificar se o CPF já está cadastrado
+    $stmt = $conexao->prepare("SELECT id FROM pessoa WHERE doc = ?");
+    $stmt->bind_param("s", $doc); // Vinculando o CPF
+    $stmt->execute();
+    $stmt->store_result(); // Armazena o resultado
 
-    try {
-        // Inserir na tabela pessoa
-        $stmt = $conexao->prepare("INSERT INTO pessoa (doc, nome, nasc, fone, email, naturalidade, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt === false) {
-            throw new Exception("Erro na preparação da consulta: " . $conexao->error);
+    // Verifica se o CPF já existe
+    if ($stmt->num_rows > 0) {
+    // CPF já cadastrado
+    echo "<script>alert('Este CPF já está cadastrado!'); window.history.back();</script>";
+    }else {
+
+        // Iniciando uma transação
+        $conexao->begin_transaction();
+
+        try {
+            // Inserir na tabela pessoa
+            $stmt = $conexao->prepare("INSERT INTO pessoa (doc, nome, nasc, fone, email, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            if ($stmt === false) {
+                throw new Exception("Erro na preparação da consulta: " . $conexao->error);
+            }
+            $stmt->bind_param("ssssss", $doc, $nome, $nasc, $fone, $email, $sexo);
+
+            if (!$stmt->execute()) {
+                throw new Exception("Erro ao inserir na tabela pessoa: " . $stmt->error);
+            }
+
+            // Obter o ID da pessoa inserida
+            $id_pessoa = $conexao->insert_id;
+
+            // Inserir na tabela endereco
+            $stmt = $conexao->prepare("INSERT INTO endereco (id_pessoa, cep, pais, estado, cidade, rua, setor, numero, complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            if ($stmt === false) {
+                throw new Exception("Erro na preparação da consulta: " . $conexao->error);
+            }
+            $stmt->bind_param("issssssss", $id_pessoa, $cep, $pais, $estado, $cidade, $rua, $setor, $numero, $complemento);
+
+            if (!$stmt->execute()) {
+                throw new Exception("Erro ao inserir na tabela endereco: " . $stmt->error);
+            }
+
+            // Commit da transação
+            $conexao->commit();
+
+            echo "<script>alert('Doador e endereço cadastrados com sucesso!'); window.location.href = 'Doacoes.php';</script>";
+
+            $stmt->close();
+            $conexao->close();
+        } catch (Exception $e) {
+            // Rollback em caso de erro
+            $conexao->rollback();
+            echo "Erro: " . $e->getMessage();
+            $conexao->close();
         }
-        $stmt->bind_param("sssssss", $doc, $nome, $nasc, $fone, $email, $naturalidade, $sexo);
-
-        if (!$stmt->execute()) {
-            throw new Exception("Erro ao inserir na tabela pessoa: " . $stmt->error);
-        }
-
-        // Obter o ID da pessoa inserida
-        $id_pessoa = $conexao->insert_id;
-
-        // Inserir na tabela endereco
-        $stmt = $conexao->prepare("INSERT INTO endereco (id_pessoa, cep, pais, estado, cidade, rua, setor, numero, complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt === false) {
-            throw new Exception("Erro na preparação da consulta: " . $conexao->error);
-        }
-        $stmt->bind_param("issssssss", $id_pessoa, $cep, $pais, $estado, $cidade, $rua, $setor, $numero, $complemento);
-
-        if (!$stmt->execute()) {
-            throw new Exception("Erro ao inserir na tabela endereco: " . $stmt->error);
-        }
-
-        // Commit da transação
-        $conexao->commit();
-
-        echo "<script>alert('Doador e endereço cadastrados com sucesso!'); window.location.href = 'Doacoes.php';</script>";
-
-        $stmt->close();
-        $conexao->close();
-    } catch (Exception $e) {
-        // Rollback em caso de erro
-        $conexao->rollback();
-        echo "Erro: " . $e->getMessage();
-        $conexao->close();
     }
 } else {
     retornarCadastro();

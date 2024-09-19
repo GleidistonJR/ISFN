@@ -29,7 +29,6 @@ if(!isset($_SESSION['login'])){
         $doc = $_POST['doc'];
         $fone = $_POST['fone'];
         $email = $_POST['email'];
-        $naturalidade = $_POST['naturalidade'];
         $sexo = $_POST['sexo'];
         
         // Dados do endereço
@@ -46,7 +45,6 @@ if(!isset($_SESSION['login'])){
         $nome = trim($nome); // Remove espaços em branco no início e no fim
         $doc = trim($doc); 
         $fone = trim($fone); 
-        $naturalidade = trim($naturalidade); 
         $sexo = trim($sexo); 
         $email = filter_var($email, FILTER_SANITIZE_EMAIL); // Sanitiza o email (Remove caracteres não permitidos no e-mail.)
         if(!isset($senha)){
@@ -56,7 +54,7 @@ if(!isset($_SESSION['login'])){
         }
 
         
-        $stmt = $conexao->prepare("UPDATE pessoa SET login = ?, senha = ?, nivel = ?, doc = ?, nome = ?, nasc = ?, fone = ?, email = ?, naturalidade = ?, sexo = ? 
+        $stmt = $conexao->prepare("UPDATE pessoa SET login = ?, senha = ?, nivel = ?, doc = ?, nome = ?, nasc = ?, fone = ?, email = ?, sexo = ? 
         WHERE id = ?");
 
 // Verifica se a preparação da consulta foi bem-sucedida
@@ -65,7 +63,7 @@ if ($stmt === false) {
 }
 
         // Vincula os parâmetros e executa a consulta
-        $stmt->bind_param("ssisssssssi", $login, $senhaSegura, $nivel, $doc, $nome, $nasc, $fone, $email, $naturalidade, $sexo, $id);
+        $stmt->bind_param("ssissssssi", $login, $senhaSegura, $nivel, $doc, $nome, $nasc, $fone, $email, $sexo, $id);
 
         
         if (!$stmt->execute()) {

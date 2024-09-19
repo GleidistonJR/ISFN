@@ -81,11 +81,8 @@
                     <th scope="col">Email</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Nascimento</th>
-                    <th scope="col">Naturalidade</th>
                     <th scope="col">Sexo</th>
-                    <th scope="col">Login</th>
                     <!--<th scope="col">Senha</th>-->
-                    <th scope="col">Nivel</th>
                     <th scope="col">Edição</th>
                 </tr>
             </thead>
@@ -102,11 +99,8 @@
                         echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['fone']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['nasc']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['naturalidade']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['sexo']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['login']) . "</td>";
                         //echo "<td>" . htmlspecialchars($row['senha']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['nivel']) . "</td>";
                         echo '<td>
                         <a class="btn btn-primary btn-sm" href="edit.php?id='.$row['id'].'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
