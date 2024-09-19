@@ -47,7 +47,7 @@ if(!isset($_SESSION['login'])){
         $fone = trim($fone); 
         $sexo = trim($sexo); 
         $email = filter_var($email, FILTER_SANITIZE_EMAIL); // Sanitiza o email (Remove caracteres não permitidos no e-mail.)
-        if(!isset($senha)){
+        if(isset($senha)){
             $senhaSegura = password_hash($senha, PASSWORD_DEFAULT ); // Criptografa a senha 
         }else{
             $senhaSegura = ''; 

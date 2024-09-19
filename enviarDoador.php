@@ -46,7 +46,7 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
 
         try {
             // Inserir na tabela pessoa
-            $stmt = $conexao->prepare("INSERT INTO pessoa (doc, nome, nasc, fone, email, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $conexao->prepare("INSERT INTO pessoa (doc, nome, nasc, fone, email, sexo) VALUES (?, ?, ?, ?, ?, ?)");
             if ($stmt === false) {
                 throw new Exception("Erro na preparação da consulta: " . $conexao->error);
             }
