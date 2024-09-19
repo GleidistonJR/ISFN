@@ -1,3 +1,18 @@
+<?php
+    session_set_cookie_params([
+        'lifetime' => 3600,
+        'path'     => '/',
+        'domain'   => 'isfn.org.br',
+        'secure'   => false,
+        'httponly' => true
+    ]);
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        unset($_SESSION['login']);
+        session_destroy();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,7 +35,7 @@
 
 
         <?php
-        include_once("Componentes/menu.html");
+        include_once("Componentes/menu.php");
 
         include_once("Componentes/banner.html");
 
@@ -38,8 +53,5 @@
     ?>
 
 
-
-    <script src="js/javascript.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>

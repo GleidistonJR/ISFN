@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor2: #00c7d6;
+    --verdePrincipal: #0f8819;
+    --verdeSecundario: #3bcf48;
+    --azulPrincipal: #1a689d;
+    --azulSecundario: #2886c5;
+    --azulFraco: #fbfdff;
+    --menu-color: #333;
+
+    --h1: #000;
+    --h1-white: #fff;
+    --H2: rgb(35, 35, 35);
+    --H2-white: rgb(216, 216, 216);
+    --H3: rgb(50, 50, 50);
+    --H3-white: rgb(185, 185, 185);
+    --Paragrafo-black: rgb(26, 26, 26);
+    --Paragrafo-white: rgb(245, 245, 245);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+::selection {
+    background-color: var(--azulPrincipal);
+    color: var(--verdeSecundario);
+}
+
+/*FOOTER*/
+#footerMaster{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.primeiraColuna{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+.segundaColuna{
+    padding-bottom: 20px;
+}
+
+
+
+.imgFooter{
+    width: 75%;
+}
+.iconsFooter {
+padding-top: 15px;
+display: flex;
+gap: 35px;
+
+}
+.iconsFooter a{
+    color: var(--azulPrincipal);
+    font-size: 22px;
+}
+.titleFooter{
+    flex-direction:column; 
+    display: flex;
+    gap: 10px;
+    
+}
+.titleFooter a{
+    text-decoration: none;
+    color: #787577;
+}
+.linksRapidos, .contato, .Cadastro{
+    font-size: 15px;
+    color: white;
+}
+
+
+.form-label{
+    font-size: 15px;
+    text-decoration: none;
+    color: #787577;
+}
+.formulario-email{
+    background-color: #000;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#email{
+    display: flex;
+    align-items: center;
+    background-color: #13131396;
+    border-color: #13131396;
+    color: #ffffffb0;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+}
+
+#email::placeholder{
+    color: #787577;
+    font-size: 15px;
+    
+}
+#email:focus{
+    box-shadow: none;
+}
+.bi-envelope{
+    color: var(--azulPrincipal);    
+    border: none;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    
+    
+
+}
+.buttonIcon{
+    background-color: #000;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+}

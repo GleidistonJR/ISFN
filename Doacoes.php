@@ -1,3 +1,19 @@
+<?php
+    session_set_cookie_params([
+        'lifetime' => 3600,
+        'path'     => '/',
+        'domain'   => 'isfn.org.br',
+        'secure'   => false,
+        'httponly' => true
+    ]);
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        unset($_SESSION['login']);
+        session_destroy();
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +33,7 @@
 <body>
     <div class="pg-doacao">
         <?php
-        include("Componentes/menu.html");
+        include("Componentes/menu.php");
         ?>
     </div>
 

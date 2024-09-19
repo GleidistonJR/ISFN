@@ -8,11 +8,76 @@
     ]);
     session_start();
 
-    if(!isset($_SESSION['login'])){
-        unset($_SESSION['login']);
-        session_destroy();
+if(!isset($_SESSION['login'])){
+    unset($_SESSION['login']);
+    session_destroy();
+    header('Location: login.php');
+    exit();
+}else{
 
+    // Verifica se os parâmetros foram enviados na URL
+    if (isset($_GET['id'])) {
+        include_once('../DAO.php');
+        
+        // Captura o valor do parâmetro 'id'
+        $id = $_GET['id'];
+        
+        $stmt = $conexao->prepare("SELECT * FROM pessoa WHERE id=?");
+        
+        // Vinculando o parâmetro à consulta (número inteiro)
+        $stmt->bind_param("i", $id);
+        
+        // Executando a consulta
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+        
+        
+        if($result->num_rows > 0){
+            
+            while ($row = $result->fetch_assoc()) {
+                $login = $row['login'];
+                $senha = $row['senha'];
+                $nivel = $row['nivel'];
+                $nome = $row['nome'];
+                $nasc = $row['nasc'];
+                $doc = $row['doc'];
+                $fone = $row['fone'];
+                $email = $row['email'];
+                $naturalidade = $row['naturalidade'];
+                $sexo = $row['sexo'];
+            }
+            
+            
+            // Prepara e executa a consulta para obter o endereço associado à pessoa
+            $stmt_endereco = $conexao->prepare("SELECT * FROM endereco WHERE id_pessoa=?");
+            $stmt_endereco->bind_param("i", $id);
+            $stmt_endereco->execute();
+            $result_endereco = $stmt_endereco->get_result();
+
+            if ($result_endereco->num_rows > 0) {
+                // Recupera os dados do endereço
+                while ($row_endereco = $result_endereco->fetch_assoc()) {
+                    $cep = $row_endereco['cep'];
+                    $pais = $row_endereco['pais'];
+                    $estado = $row_endereco['estado'];
+                    $cidade = $row_endereco['cidade'];
+                    $rua = $row_endereco['rua'];
+                    $setor = $row_endereco['setor'];
+                    $numero = $row_endereco['numero'];
+                    $complemento = $row_endereco['complemento'];
+                }
+            } else {
+                // Se não encontrar o endereço, você pode definir valores padrão ou lidar com o caso como preferir
+                $cep = $pais = $estado = $cidade = $rua = $setor = $numero = $complemento = '';
+            }
+        }
+        else{
+            echo "<script>alert('ID não encontrado para edição!'); window.location.href = 'admDoadores.php';</script>";
+        }
+    
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,73 +90,109 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?9">
+<style>
+    #formulario-colaborador{
+        padding-top: 150px;
+    }
+    .btn-enviar{
+        margin-left: 10%;
+        width: 20%;
+    }
+    .btn-voltar{
+        margin-left: 25%;
+        width: 20%;
+    }
+    @media (max-width: 992px) {
+        .btn-enviar{
+        margin-left: 0%;
+        width: 45%;
+    }
+    .btn-voltar{
+        margin-left: 0%;
+        width: 45%;
+    }
+    }
+</style>
 </head>
 
 
 <body>
-    <?php
-    include("Componentes/menu.php");
-    ?>
-    <section class="formulario-colaborador container-fluid" id="formulario-colaborador">
-        <article class="row">
-            <h2>Cadastro Doador Mensal</h2>
-            <form class="col-12 col-md-5 col-form" method="POST" action="enviarDoador.php" onsubmit="return validarFormulario()">
+
+    <?php include("Componentes/menu.php"); ?>
+
+
+    <section class="container" id="formulario-colaborador">
+        <article class="row d-flex flex-column jusify-content-center align-items-center">
+            <h2 class="text-center">Editar Doador</h2>
+            <form class="col-10 col-form m-5" method="POST" action="saveEdit.php">
+                
+                <div class="input-group justify-content-around mb-4">
+                    <div class="col-12 col-md-4 mb-2 mb-md-4">
+                        <label for="login" class="form-label">login:</label>
+                        <input type="text" class="form-control" placeholder="login" value="<?php echo $login?>" name="login" id="login">
+                    </div>
+                    <div class="col-10 col-md-4 mb-2 mb-md-4">
+                        <label for="senha" class="form-label">nova senha:</label>
+                        <input type="text" class="form-control" placeholder="senha" name="senha" id="senha">
+                    </div>
+                    <div class="col-2 col-md-1 mb-2 mb-md-4">
+                        <label for="nivel" class="form-label">nivel:</label>
+                        <input type="text" class="form-control" placeholder="nivel" value="<?php echo $nivel?>" name="nivel" id="nivel" >
+                    </div>
+                </div>
 
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
-                        <label for="nome" class="form-label" id="nome">Nome</label>
-                        <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Nome" aria-describedby="basic-addon1" name="nome" id="nome" required>
+                        <label for="nome" class="form-label" id="nome">Nome:</label>
+                        <input type="text" class="form-control" placeholder="Nome Completo" value="<?php echo $nome?>" name="nome" id="nome" required>
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">
-                        <label for="data-nascimento" class="form-label">Nascimento</label>
-                        <input type="text" class="form-control" placeholder="00/00/0000" aria-label="data-nascimento" aria-describedby="basic-addon1" name="nasc" id="data-nascimento" required>
+                        <label for="data-nascimento" class="form-label">Nascimento:</label>
+                        <input type="text" class="form-control" placeholder="00/00/0000" value="<?php echo $nasc?>" name="nasc" id="data-nascimento">
                     </div>
                     <div class="col-7 col-md-3">
-                        <label for="cpf" class="form-label" >CPF</label>
-                        <input type="text" class="form-control"  placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="doc" id="cpf" required>
+                        <label for="cpf" class="form-label" id="cpf" >CPF:</label>
+                        <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00" value="<?php echo $doc?>" name="doc" id="cpf" required>
                     </div>
 
                     <div class="col-6 col-md-4">
-                        <label for="telefone" class="form-label">Celular</label>
-                        <input type="text" class="form-control" name="fone" id="telefone" placeholder="(00)00000-0000" required>
+                        <label for="telefone" class="form-label">Celular:</label>
+                        <input type="text" class="form-control" name="fone" value="<?php echo $fone?>" id="telefone" placeholder="(00)00000-0000" >
                     </div>
 
                     <div class="col-6 col-md-5">
                         <label for="email-inp" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" id="email-inp" placeholder="nome@exemplo.com" >
+                        <input type="email" class="form-control" name="email" value="<?php echo $email?>" id="email-inp" placeholder="nome@exemplo.com" >
                     </div>
                 </div>
                 
                 <div class="input-group mb-3">
-                    <div class="col-6 col-md-5">
+                    <div class="col-8 col-md-5">
                         <label for="naturalidade" class="form-label">Naturalidade</label>
-                        <input type="text" class="form-control" name="naturalidade" id="naturalidade" placeholder="Naturalidade" >
+                        <input type="text" class="form-control" name="naturalidade" value="<?php echo $naturalidade?>" id="naturalidade" placeholder="Naturalidade" >
                     </div>
                     
-                    <div class="col-6 mx-4">
+                    <div class="col-6 ms-1 mx-md-4">
                         <label class="form-label" for="sexo">Sexo</label>
                         <div class="form-check col-6">
-                            <input class="form-check-input" type="radio" name="sexo" value="M" id="masculino" checked>
+                            <input class="form-check-input" type="radio" name="sexo" value="M" <?php echo($sexo == 'M') ? 'checked' : '' ?> id="masculino">
                             <label class="form-check-label" for="masculino">Masculino</label>
                         </div>
                         <div class="form-check  col-6">
-                            <input class="form-check-input" type="radio" name="sexo" value="F" id="feminino">
+                            <input class="form-check-input" type="radio" name="sexo" value="F" <?php echo($sexo == 'F') ? 'checked' : '' ?> id="feminino">
                             <label class="form-check-label" for="feminino">Feminino</label>
                         </div>
                     </div>      
                 </div>
 
-
-
                 <label for="endereco" class="form-label">Endereço</label>
                 <div class="input-group mb-2">
                     <div class="input-group mb-3">
-                        <div class="col-3 ">
-                            <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP">
+                        <div class="col-5 col-md-3">
+                            <input type="text" class="form-control" name="cep" id="cep" value="<?php echo $cep?>" placeholder="CEP">
                         </div>
-                        <div class="col-3">
-                            <select class="form-control" name="pais" id="pais">
+                        <div class="col-4 col-md-3">
+                            <select class="form-control" name="pais" value="<?php echo $pais?>" id="pais">
                                 <option value="África do Sul">África do Sul</option>
                                 <option value="Albânia">Albânia</option>
                                 <option value="Alemanha">Alemanha</option>
@@ -270,42 +371,37 @@
                             <i class="fa fa-chevron-down select_after" aria-hidden="true"></i>
                         </div>
                         <div class="col-3 ">
-                            <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
+                            <input type="text" class="form-control" name="estado" id="estado" value="<?php echo $estado?>" placeholder="Estado">
                         </div>
-                        <div class="col-3 ">
-                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
+                        <div class="col-5 col-md-3 ">
+                            <input type="text" class="form-control" name="cidade" id="cidade" value="<?php echo $cidade?>" placeholder="Cidade">
                         </div>
 
                     </div>
                     <div class="input-group mb-0">
                         <div class="col-4 col-md-4 mb-3">
-                            <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+                            <input type="text" class="form-control" name="rua" id="rua" value="<?php echo $rua?>" placeholder="Rua">
                         </div>
                         
-                        <div class="col-9 col-md-5 mb-3">
-                            <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor">
+                        <div class="col-8 col-md-5 mb-3">
+                            <input type="text" class="form-control" name="setor" id="setor" value="<?php echo $setor?>" placeholder="Setor">
                         </div>
                         <div class="col-3 col-md-3 mb-3">
-                            <input type="text" class="form-control" name="numero" id="numero" placeholder="Numero">
+                            <input type="text" class="form-control" name="numero" id="numero" value="<?php echo $numero?>" placeholder="Numero">
                         </div>
-                        <div class="col-12 col-md-12 mb-3">
-                            <input type="text" class="form-control" name="complemento" id="complemento" placeholder="Complemento">
+                        <div class="col-9 col-md-12 mb-3">
+                            <input type="text" class="form-control" name="complemento" id="complemento" value="<?php echo $complemento?>" placeholder="Complemento">
                         </div>
                     </div>
 
                 </div>
 
-                <input class="btn btn-enviar" type="submit" name="submit" value="Enviar">
+                <input type="hidden" name="id" value="<?php echo $id?>">
+
+                <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
+                <input class="btn btn-primary btn-enviar px-5 mt-4" type="submit" name="update" value="Editar">
 
             </form>
-
-            <div class="col-12 col-md-5 col-img">
-                <img src="./img/img-banner/criancas-fazendo-robo.webp" alt="">
-            </div>
-            
-            <div class="col-10 dificuldade-cadastro">
-                <h5><a href="https://wa.me//5562992862544" target="_blank">Dificuldades com cadastro?</a></h5>
-            </div>
         </article>
 
 
@@ -316,58 +412,11 @@
     include("Componentes/footer.html");
     
     ?>
+    <script>
+        $("#data-nascimento").mask("00/00/0000");
+        $("#telefone").mask("(00)00000-0000");
+        $("#cep").mask("00000-000");
+        $("#cpfInp").mask("000.000.000-00");
+    </script>
+    <script type="text/javascript" src="js/cep.js"></script>
 </body>
-
-
-<script>
-    $("#data-nascimento").mask("00/00/0000");
-    $("#telefone").mask("(00)00000-0000");
-    $("#cep").mask("00000-000");
-    $("#cpf").mask("000.000.000-00");
-
-    function validarCPF(cpf) {
-        cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
-        if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
-            return false; // Verifica se todos os números são iguais (caso inválido)
-        }
-
-        let soma = 0;
-        let resto;
-
-        // Validação do primeiro dígito verificador
-        for (let i = 1; i <= 9; i++) {
-            soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
-        }
-        resto = (soma * 10) % 11;
-        if ((resto === 10) || (resto === 11)) resto = 0;
-        if (resto !== parseInt(cpf.substring(9, 10))) {
-            return false;
-        }
-
-        soma = 0;
-
-        // Validação do segundo dígito verificador
-        for (let i = 1; i <= 10; i++) {
-            soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
-        }
-        resto = (soma * 10) % 11;
-        if ((resto === 10) || (resto === 11)) resto = 0;
-        if (resto !== parseInt(cpf.substring(10, 11))) {
-            return false;
-        }
-
-        return true;
-    }
-
-    function validarFormulario() {
-        const cpf = document.getElementById('cpf').value;
-        if (!validarCPF(cpf)) {
-            alert('CPF inválido!');
-            return false; // Impede o envio do formulário
-        }
-        return true; // Permite o envio do formulário
-    }
-</script>
-<script type="text/javascript" src="js/cep.js"></script>
-</html>
-
