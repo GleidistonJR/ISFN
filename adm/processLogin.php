@@ -8,6 +8,7 @@
     ]);
     session_start();
 
+
     if (isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])) {
         // Acessa o banco de dados
         include_once('../DAO.php');
@@ -40,7 +41,8 @@
             // Verifica a senha
             $row = $result->fetch_assoc();
             if (password_verify($senha, $row['senha'])) {
-                $_SESSION['login'] = $login;
+                $_SESSION['login'] = $row['login'];
+                $_SESSION['nivel'] = $row['nivel'];
                 echo "<script>alert('Login bem-sucedido!'); window.location.href = 'admDoadores.php';</script>";
             } else {
                 unset($_SESSION['login']);

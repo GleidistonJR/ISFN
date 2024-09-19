@@ -1,30 +1,15 @@
 <?php
-    session_set_cookie_params([
-        'lifetime' => 3600,
-        'path'     => '/',
-        'domain'   => 'isfn.org.br',
-        'secure'   => false,
-        'httponly' => true
-    ]);
-    session_start();
+    
+    include_once("session_login_nivel5.php");
+    include_once("../DAO.php");
+    
+    // Preparando e executando a consulta para listar os dados
+    $stmt = $conexao->prepare("SELECT * FROM pessoa ORDER BY nome ASC");
+    $stmt->execute();
+    
+    // Pegando o resultado da consulta
+    $result = $stmt->get_result();
 
-    if(!isset($_SESSION['login'])){
-        unset($_SESSION['login']);
-        session_destroy();
-        header('Location: login.php');
-        exit();
-
-    }else{
-
-        include_once("../DAO.php");
-        
-        // Preparando e executando a consulta para listar os dados
-        $stmt = $conexao->prepare("SELECT * FROM pessoa");
-        $stmt->execute();
-        
-        // Pegando o resultado da consulta
-        $result = $stmt->get_result();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +53,7 @@
 <body>
     <?php include_once("Componentes/menu.php"); ?>
 
-    <section class="admDoadores table-responsive">
+    <section class="admDoadores mb-5 table-responsive">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
 
 
@@ -126,6 +111,7 @@
         </table>
         
     </section>
+    <?php include_once('Componentes/footer.html')?>
 </body>
 
 <script>

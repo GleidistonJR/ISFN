@@ -1,19 +1,5 @@
 <?php
-session_set_cookie_params([
-    'lifetime' => 3600,
-    'path'     => '/',
-    'domain'   => 'isfn.org.br',
-    'secure'   => false,
-    'httponly' => true
-]);
-session_start();
-
-if(!isset($_SESSION['login'])){
-    unset($_SESSION['login']);
-    session_destroy();
-    header('Location: login.php');
-    exit();
-}else{
+    include_once("session_login_nivel5.php");
 
     //Incluindo conexão
     
@@ -57,10 +43,10 @@ if(!isset($_SESSION['login'])){
         $stmt = $conexao->prepare("UPDATE pessoa SET login = ?, senha = ?, nivel = ?, doc = ?, nome = ?, nasc = ?, fone = ?, email = ?, sexo = ? 
         WHERE id = ?");
 
-// Verifica se a preparação da consulta foi bem-sucedida
-if ($stmt === false) {
-    die("Erro na preparação da consulta: " . $conexao->error);
-}
+        // Verifica se a preparação da consulta foi bem-sucedida
+        if ($stmt === false) {
+            die("Erro na preparação da consulta: " . $conexao->error);
+        }
 
         // Vincula os parâmetros e executa a consulta
         $stmt->bind_param("ssissssssi", $login, $senhaSegura, $nivel, $doc, $nome, $nasc, $fone, $email, $sexo, $id);
@@ -103,5 +89,5 @@ if ($stmt === false) {
         exit();
     }
     
-}
+
     ?>

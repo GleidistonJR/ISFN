@@ -1,18 +1,5 @@
 <?php
-    session_set_cookie_params([
-        'lifetime' => 3600,
-        'path'     => '/',
-        'domain'   => 'isfn.org.br',
-        'secure'   => false,
-        'httponly' => true
-    ]);
-    session_start();
-
-    if(!isset($_SESSION['login'])){
-        unset($_SESSION['login']);
-        session_destroy();
-
-    }
+    include_once("adm/session_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

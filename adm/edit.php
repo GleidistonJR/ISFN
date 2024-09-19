@@ -1,19 +1,5 @@
 <?php
-    session_set_cookie_params([
-        'lifetime' => 3600,
-        'path'     => '/',
-        'domain'   => 'isfn.org.br',
-        'secure'   => false,
-        'httponly' => true
-    ]);
-    session_start();
-
-if(!isset($_SESSION['login'])){
-    unset($_SESSION['login']);
-    session_destroy();
-    header('Location: login.php');
-    exit();
-}else{
+    include_once("session_login_nivel5.php");
 
     // Verifica se os parâmetros foram enviados na URL
     if (isset($_GET['id'])) {
@@ -77,7 +63,7 @@ if(!isset($_SESSION['login'])){
         }
     
     }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
