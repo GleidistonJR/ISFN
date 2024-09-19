@@ -25,28 +25,8 @@
             padding-top:150px;
         }
         @media (max-width: 992px) {
-            /* Estilo para a tabela responsiva */
-            .table-responsive {
-                width: 100%;
-                overflow-x: auto;  /* Ativa o scroll horizontal */
-                -webkit-overflow-scrolling: touch; /* Suaviza o scroll em dispositivos móveis */
-            }
-
-            table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-            th, td {
-                padding: 10px;
-                text-align: left;
-                border: 1px solid #ddd;
-                white-space: nowrap; /* Garante que o conteúdo não quebre */
-            }
-
-            /* Adiciona uma sombra para indicar que há mais conteúdo ao lado */
-            .table-responsive::-webkit-scrollbar {
-                display: none; /* Oculta a barra de rolagem em navegadores baseados no WebKit (opcional) */
+            .col-nome{
+                width: 80%;
             }
         }
 
@@ -62,12 +42,12 @@
         <table class="table table-striped table-hover tabela">
             <thead class='table-info'>
                 <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Documento</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Nascimento</th>
-                    <th scope="col">Sexo</th>
+                    <th class='col-nome' scope="col">Nome</th>
+                    <th class="d-none d-md-table-cell" scope="col">Documento</th>
+                    <th class="d-none d-md-table-cell" scope="col">Email</th>
+                    <th class="d-none d-md-table-cell" scope="col">Telefone</th>
+                    <th class="d-none d-md-table-cell" scope="col">Nascimento</th>
+                    <th class="" scope="col">Sexo</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,11 +58,11 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['doc']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['fone']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['nasc']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sexo']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>*****</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['nasc']) . "</td>";
+                        echo "<td >" . htmlspecialchars($row['sexo']) . "</td>";
                     }
                 } else {
                     echo "<tr><td colspan='3'>Nenhum doador encontrado</td></tr>";

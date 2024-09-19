@@ -26,28 +26,10 @@
         .admDoadores{
             padding-top:150px;
         }
-        /* Estilo para a tabela responsiva */
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;  /* Ativa o scroll horizontal */
-            -webkit-overflow-scrolling: touch; /* Suaviza o scroll em dispositivos móveis */
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-            white-space: nowrap; /* Garante que o conteúdo não quebre */
-        }
-
-        /* Adiciona uma sombra para indicar que há mais conteúdo ao lado */
-        .table-responsive::-webkit-scrollbar {
-            display: none; /* Oculta a barra de rolagem em navegadores baseados no WebKit (opcional) */
+        @media (max-width: 992px) {
+            .col-nome{
+                width: 70%;
+            }
         }
 
     </style>
@@ -55,7 +37,7 @@
 <body>
     <?php include_once("Componentes/menu.php"); ?>
 
-    <section class="admDoadores mb-5 table-responsive">
+    <section class="admDoadores mb-5">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
 
 
@@ -63,13 +45,12 @@
             <thead class='table-info'>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Documento</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Nascimento</th>
-                    <th scope="col">Sexo</th>
-                    <!--<th scope="col">Senha</th>-->
+                    <th class="col-nome " scope="col">Nome</th>
+                    <th class="d-none d-md-table-cell" scope="col">Documento</th>
+                    <th class="d-none d-md-table-cell" scope="col">Email</th>
+                    <th class="d-none d-md-table-cell" scope="col">Telefone</th>
+                    <th class="d-none d-md-table-cell" scope="col">Nascimento</th>
+                    <th class="d-none d-md-table-cell" scope="col">Sexo</th>
                     <th scope="col">Edição</th>
                 </tr>
             </thead>
@@ -82,12 +63,11 @@
                         echo "<tr>";
                         echo "<th scope='row'><input class='form-check-input' type='checkbox' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['doc']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['fone']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['nasc']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sexo']) . "</td>";
-                        //echo "<td>" . htmlspecialchars($row['senha']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['doc']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['nasc']) . "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['sexo']) . "</td>";
                         echo '<td>
                         <a class="btn btn-primary btn-sm" href="#" onclick="confirmarSenha('.$row['id'].', \'edit.php\')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
