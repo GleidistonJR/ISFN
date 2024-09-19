@@ -43,10 +43,18 @@
                             <li><a class="dropdown-item" href="adm/login.php">Entrar</a></li>
                             ';
                             
-                        }else{
-                            //esta logado
+                        }if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
+                            //esta logado nivel 5 
                             echo '
-                            <li><a class="dropdown-item" href="adm/admDoadores.php">Lista de Doadores</a></li>
+                            <li><a class="dropdown-item" href="adm/admDoadores.php">Lista de Doadores ADM</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger text-center" href="sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            ';
+
+                        }else{
+                            //esta logado nivel baixo
+                            echo '
+                            <li><a class="dropdown-item" href="adm/Doadores.php">Lista de Doadores</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-danger text-center" href="adm/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
@@ -86,10 +94,18 @@
                             <li><a href="adm/login.php">Entrar</a></li>
                             ';
                             
-                        }else{
-                            //esta logado
+                        }if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
+                            //esta logado nivel 5
                             echo '
-                            <li><a href="adm/admDoadores.php">Lista de Doadores</a></li>
+                            <li><a href="adm/admDoadores.php">Lista de Doadores ADM</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="text-danger" href="adm/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            ';
+
+                        }else{
+                            //esta logado nivel baixo
+                            echo '
+                            <li><a href="adm/Doadores.php">Lista de Doadores</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="text-danger" href="adm/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';

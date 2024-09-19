@@ -1,21 +1,14 @@
 <?php
-    session_set_cookie_params([
-        'lifetime' => 3600,
-        'path'     => '/',
-        'domain'   => 'isfn.org.br',
-        'secure'   => false,
-        'httponly' => true
-    ]);
-    session_start();
+    include_once("session_login_nivel5.php");
 
 
-    if (isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])) {
-        // Acessa o banco de dados
-        include_once('../DAO.php');
-
-        $login = $_POST['login'];
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $senha = $_POST['senha'];
+        $id = $_POST['id'];
+        $arquivo = $_POST['arquivo'];
 
+        include_once("../DAO.php");
         // Busca no banco de dados
         $stmt = $conexao->prepare("SELECT * FROM pessoa WHERE login = ?");
 
@@ -25,7 +18,7 @@
         }
 
         // Vincula os parâmetros e executa a consulta
-        $stmt->bind_param("s", $login);
+        $stmt->bind_param("s", $_SESSION['login']);
 
         if (!$stmt->execute()) {
             echo "<script>alert('Erro ao verificar se existe login: " . $stmt->error . "'); window.location.href = 'login.php';</script>";
@@ -41,23 +34,16 @@
             // Verifica a senha
             $row = $result->fetch_assoc();
             if (password_verify($senha, $row['senha'])) {
-                //armazenando na seção dados
-                $_SESSION['login'] = $row['login'];
-                $_SESSION['nivel'] = $row['nivel'];
-                
-                if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
-                    //logado com nivel 5
-                    header('Location: admDoadores.php');
-                }else{
-                    //logado com nivel baixo
-                    header('Location: Doadores.php');
-                }
+                // Redireciona para a página de alteração de dados
+                header('Location: '. $arquivo .'?id=' .$id. '');
+                exit();
                 
             } else {
                 //senha incorreta
-                unset($_SESSION['login']);
-                session_destroy();
-                echo "<script>alert('Senha incorreta!'); window.location.href = 'login.php';</script>";
+                echo "<script>
+                alert('Senha incorreta!'); 
+                window.history.back();
+                </script>";
                 exit();
             }
         } else {
@@ -67,8 +53,5 @@
         // Fecha a declaração e a conexão
         $stmt->close();
         $conexao->close();
-    } else {
-        // Se não tiver acessado a página enviando dados do formulário
-        header('Location: login.php');
     }
 ?>
