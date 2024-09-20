@@ -1,5 +1,5 @@
 <?php
-    include_once("adm/session_login.php");
+    include_once("adm/process/sessionLogin.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,10 +9,10 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
-    <link rel="stylesheet" href="css/banner.css?11">
-    <link rel="stylesheet" href="css/IndexSobre.css?11">
-    <link rel="stylesheet" href="css/IndexApoiar.css?11">
-<!--    <link rel="stylesheet" href="css/IndexDepoimentos.css?11">   -->
+    <link rel="stylesheet" href="css/banner.css?12">
+    <link rel="stylesheet" href="css/IndexSobre.css?12">
+    <link rel="stylesheet" href="css/IndexApoiar.css?12">
+<!--    <link rel="stylesheet" href="css/IndexDepoimentos.css?12">   -->
 
     <title>Instituto São Filipe Neri</title>
 

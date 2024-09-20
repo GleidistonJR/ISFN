@@ -1,6 +1,8 @@
 <?php
     
-    include_once("session_login_nivel5.php");
+    include_once("process/sessionLogin.php");
+    verificarNivel($_SESSION['nivel'], [7]);
+    
     include_once("../DAO.php");
     
     // Preparando e executando a consulta para listar os dados

@@ -45,12 +45,18 @@
                 $_SESSION['login'] = $row['login'];
                 $_SESSION['nivel'] = $row['nivel'];
                 
-                if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
-                    //logado com nivel 5
-                    header('Location: ../admDoadores.php');
-                }else{
+                if(isset($_SESSION['login']) && $_SESSION['nivel'] == 0){
+                    //logado nivel 0
+                    header('Location: ../../index.php');
+                }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
+                    //logado nivel 1
+                    header('Location: ../../index.php');
+                }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                     //logado com nivel baixo
                     header('Location: ../Doadores.php');
+                }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
+                    //logado com nivel 7
+                    header('Location: ../admDoadores.php');
                 }
                 
             } else {

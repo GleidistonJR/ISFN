@@ -1,5 +1,6 @@
 <?php
-    include_once("session_login_nivel5.php");
+    include_once("process/sessionLogin.php");
+    verificarNivel($_SESSION['nivel'], [7]);
 
     // Verifica se os parâmetros foram enviados na URL
     if (isset($_GET['id'])) {
@@ -91,13 +92,18 @@
                         <label for="login" class="form-label">login:</label>
                         <input type="text" class="form-control" placeholder="login" value="<?php echo $login?>" name="login" id="login">
                     </div>
-                    <div class="col-10 col-md-4 mb-2 mb-md-4">
+                    <div class="col-12 col-md-4 mb-2 mb-md-4">
                         <label for="senha" class="form-label">nova senha:</label>
                         <input type="text" class="form-control" placeholder="senha" name="senha" id="senha">
                     </div>
-                    <div class="col-2 col-md-1 mb-2 mb-md-4">
-                        <label for="nivel" class="form-label">nivel:</label>
-                        <input type="text" class="form-control" placeholder="nivel" value="<?php echo $nivel?>" name="nivel" id="nivel" >
+                    <div class="col-12 col-md-2 mb-2 mb-md-4">
+                        <label for="nivel" class="form-label">nivel:</label>                    
+                        <select class="form-control" name="nivel" value="<?php echo $nivel?>" id="nivel">
+                            <option value="0" <?php echo($nivel == '0') ? 'selected=""' : '' ?>>0</option>
+                            <option value="1" <?php echo($nivel == '1') ? 'selected=""' : '' ?>>1 Doador</option>
+                            <option value="2" <?php echo($nivel == '2') ? 'selected=""' : '' ?>>2 Colaborador</option>                                
+                            <option value="7" <?php echo($nivel == '7') ? 'selected=""' : '' ?>>7 Adiministrador</option>                                
+                        </select>                    
                     </div>
                 </div>
 

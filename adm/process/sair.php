@@ -1,5 +1,6 @@
 <?php
-    include_once("../session_login.php");
+    include_once("sessionLogin.php");
+    verificarNivel($_SESSION['nivel'], [1,2,7]);
    
     // Remove todas as variáveis de sessão
     unset($_SESSION['login']);
