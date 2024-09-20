@@ -119,7 +119,7 @@
         <article class="row d-flex flex-column jusify-content-center align-items-center">
             <h2 class="text-center">Editar Doador</h2>
             
-            <form class="col-10 col-form m-5" method="POST" action="saveEdit.php">
+            <form class="col-10 col-form m-5" method="POST" action="process/saveEdit.php">
                 
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">

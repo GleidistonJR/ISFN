@@ -48,7 +48,7 @@
                             echo '
                             <li><a class="dropdown-item" href="adm/admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger text-center" href="sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
 
                         }else{
@@ -56,7 +56,7 @@
                             echo '
                             <li><a class="dropdown-item" href="adm/Doadores.php">Lista de Doadores</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger text-center" href="adm/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }
                     ?>
@@ -99,7 +99,7 @@
                             echo '
                             <li><a href="adm/admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="text-danger" href="adm/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            <li><a class="text-danger" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
 
                         }else{
@@ -107,7 +107,7 @@
                             echo '
                             <li><a href="adm/Doadores.php">Lista de Doadores</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="text-danger" href="adm/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            <li><a class="text-danger" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }
                     ?>

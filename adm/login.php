@@ -54,7 +54,7 @@
     <section class="container" id="formulario-login">
         <article class="row d-flex flex-column jusify-content-center align-items-center">
             <h2 class="text-center">Login</h2>
-            <form class="col-10 col-form m-5" method="POST" action="processLogin.php">
+            <form class="col-10 col-form m-5" method="POST" action="process/processLogin.php">
 
                 <div class="d-flex flex-column jusify-content-center align-items-center mb-5">
                     <div class="col-10 col-md-5 mb-4">

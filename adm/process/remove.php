@@ -1,10 +1,10 @@
 <?php
-    include_once("session_login_nivel5.php");
+    include_once("../session_login_nivel5.php");
 
 
     // Verifica se os parâmetros foram enviados na URL
     if (isset($_GET['id'])) {
-        include_once("../DAO.php");
+        include_once("../../DAO.php");
     // Captura o valor do parâmetro 'id'
     $id = $_GET['id'];
 
@@ -21,9 +21,9 @@
     
     // Executa a consulta
     if ($stmt->execute()) {
-        echo "<script>alert('Registro deletado com sucesso!'); window.location.href = 'admDoadores.php';</script>";
+        echo "<script>alert('Registro deletado com sucesso!'); window.location.href = '../admDoadores.php';</script>";
     } else {
-        echo "<script>alert('Erro ao deletar registro! ". $stmt->erro ."'); window.location.href = 'admDoadores.php';</script>";
+        echo "<script>alert('Erro ao deletar registro! ". $stmt->erro ."'); window.location.href = '../admDoadores.php';</script>";
     }
     
     

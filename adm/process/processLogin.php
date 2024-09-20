@@ -11,7 +11,7 @@
 
     if (isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])) {
         // Acessa o banco de dados
-        include_once('../DAO.php');
+        include_once('../../DAO.php');
 
         $login = $_POST['login'];
         $senha = $_POST['senha'];
@@ -28,7 +28,7 @@
         $stmt->bind_param("s", $login);
 
         if (!$stmt->execute()) {
-            echo "<script>alert('Erro ao verificar se existe login: " . $stmt->error . "'); window.location.href = 'login.php';</script>";
+            echo "<script>alert('Erro ao verificar se existe login: " . $stmt->error . "'); window.location.href = '../login.php';</script>";
             $stmt->close();
             $conexao->close();
             exit();
@@ -47,21 +47,21 @@
                 
                 if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
                     //logado com nivel 5
-                    header('Location: admDoadores.php');
+                    header('Location: ../admDoadores.php');
                 }else{
                     //logado com nivel baixo
-                    header('Location: Doadores.php');
+                    header('Location: ../Doadores.php');
                 }
                 
             } else {
                 //senha incorreta
                 unset($_SESSION['login']);
                 session_destroy();
-                echo "<script>alert('Senha incorreta!'); window.location.href = 'login.php';</script>";
+                echo "<script>alert('Senha incorreta!'); window.location.href = '../login.php';</script>";
                 exit();
             }
         } else {
-            echo "<script>alert('Login não encontrado!'); window.location.href = 'login.php';</script>";
+            echo "<script>alert('Login não encontrado!'); window.location.href = '../login.php';</script>";
         }
 
         // Fecha a declaração e a conexão
@@ -69,6 +69,6 @@
         $conexao->close();
     } else {
         // Se não tiver acessado a página enviando dados do formulário
-        header('Location: login.php');
+        header('Location: ../login.php');
     }
 ?>

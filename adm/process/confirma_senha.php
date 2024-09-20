@@ -1,5 +1,5 @@
 <?php
-    include_once("session_login_nivel5.php");
+    include_once("../session_login_nivel5.php");
 
 
     
@@ -8,7 +8,7 @@
         $id = $_POST['id'];
         $arquivo = $_POST['arquivo'];
 
-        include_once("../DAO.php");
+        include_once("../../DAO.php");
         // Busca no banco de dados
         $stmt = $conexao->prepare("SELECT * FROM pessoa WHERE login = ?");
 
@@ -21,7 +21,7 @@
         $stmt->bind_param("s", $_SESSION['login']);
 
         if (!$stmt->execute()) {
-            echo "<script>alert('Erro ao verificar se existe login: " . $stmt->error . "'); window.location.href = 'login.php';</script>";
+            echo "<script>alert('Erro ao verificar se existe login: " . $stmt->error . "'); window.location.href = '../login.php';</script>";
             $stmt->close();
             $conexao->close();
             exit();
@@ -35,7 +35,7 @@
             $row = $result->fetch_assoc();
             if (password_verify($senha, $row['senha'])) {
                 // Redireciona para a página de alteração de dados
-                header('Location: '. $arquivo .'?id=' .$id. '');
+                header('Location: ../'. $arquivo .'?id=' .$id. '');
                 exit();
                 
             } else {
@@ -47,7 +47,7 @@
                 exit();
             }
         } else {
-            echo "<script>alert('Login não encontrado!'); window.location.href = 'login.php';</script>";
+            echo "<script>alert('Login não encontrado!'); window.location.href = '../login.php';</script>";
         }
 
         // Fecha a declaração e a conexão

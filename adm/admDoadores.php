@@ -61,7 +61,7 @@
                     // Exibindo cada linha de resultado em uma nova linha da tabela
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<th scope='row'><input class='form-check-input' type='checkbox' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
+                        echo "<th scope='row'><input class='form-check-input' type='radio' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['doc']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
@@ -105,7 +105,7 @@
             // Enviar a senha via POST para a página de confirmação em PHP
             var form = document.createElement("form");
             form.method = "POST";
-            form.action = "confirma_senha.php";  // Página que processa a senha
+            form.action = "process/confirma_senha.php";  // Página que processa a senha
 
             var input = document.createElement("input");
             input.type = "hidden";
@@ -149,8 +149,8 @@
             // Confirmação da exclusão
             const confirmAction = confirm("Você tem certeza que deseja deletar este registro?");
             if (confirmAction) {
-                confirmarSenha(id, "remove.php" )
-                window.location.href = 'remove.php?id=' + id; // Redireciona para remover o registro
+                confirmarSenha(id, "process/remove.php" )
+                window.location.href = 'process/remove.php?id=' + id; // Redireciona para remover o registro
             } else {
                 event.preventDefault(); // Impede a exclusão se o usuário cancelar
             }

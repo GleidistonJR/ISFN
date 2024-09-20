@@ -1,10 +1,10 @@
 <?php
-    include_once("session_login_nivel5.php");
+    include_once("../session_login_nivel5.php");
 
     //Incluindo conexão
     
     if(isset($_POST['update']) && isset($_POST['doc'])){
-        include_once("../DAO.php");
+        include_once("../../DAO.php");
         // Capturando dados do formulário
         $id = $_POST['id'];
         $nome = $_POST['nome'];
@@ -46,7 +46,7 @@
 
         
         if (!$stmt->execute()) {
-            echo "<script>alert('Erro ao atualizar dados da pessoa: " . $stmt->error . "'); window.location.href = 'admDoadores.php';</script>";
+            echo "<script>alert('Erro ao atualizar dados da pessoa: " . $stmt->error . "'); window.location.href = '../admDoadores.php';</script>";
             $stmt->close();
             $conexao->close();
             exit();
@@ -60,7 +60,7 @@
         }
         $stmt->bind_param("ssssssssi", $cep, $pais, $estado, $cidade, $rua, $setor, $numero, $complemento, $id);
         if (!$stmt->execute()) {
-            echo "<script>alert('Erro ao atualizar dados do endereço: " . $stmt->error . "'); window.location.href = 'admDoadores.php';</script>";
+            echo "<script>alert('Erro ao atualizar dados do endereço: " . $stmt->error . "'); window.location.href = '../admDoadores.php';</script>";
             $stmt->close();
             $conexao->close();
             exit();
@@ -70,7 +70,7 @@
         // Fecha a conexão
         $conexao->close();
         
-        echo "<script>alert('Doador e endereço atualizados com sucesso!'); window.location.href = 'admDoadores.php';</script>";
+        echo "<script>alert('Doador e endereço atualizados com sucesso!'); window.location.href = '../admDoadores.php';</script>";
     } else {
         // Se não tiver acessado a página enviando dados do formulário
         retornarAdm();
@@ -78,7 +78,7 @@
     
     
     function retornarAdm(){
-        echo "<script>alert('Houve algo de errado ao acesar a pagina!'); window.location.href = 'admDoadores.php';</script>";
+        echo "<script>alert('Houve algo de errado ao acesar a pagina!'); window.location.href = '../admDoadores.php';</script>";
         exit();
     }
     
