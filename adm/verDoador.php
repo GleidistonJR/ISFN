@@ -67,7 +67,7 @@
 
 <head>
     
-    <title>ISFN | Editar Cadastro Doador</title>
+    <title>ISFN | Visualizar Doador</title>
 
     <?php
     include("Componentes/headBasic.html");
@@ -81,29 +81,13 @@
         max-width: 100%;
     }
     .btn-voltar{
-        margin-left: 5%;
-        width: 25%;
-    }
-    .btn-cadastro{
-        margin-left: 5%;
-        width: 25%;
-    }
-    .btn-enviar{
-        margin-left: 5%;
-        width: 25%;
+        margin-left: 33%;
+        width: 33%;
     }
     @media (max-width: 992px) {
         .btn-voltar{
             margin-left: 0%;
             width: 100%;
-        }
-        .btn-cadastro{
-            margin-left: 0%;
-            width: 100%;
-        }
-        .btn-enviar{
-        margin-left: 0%;
-        width: 100%;
         }
     }
 </style>
@@ -117,32 +101,32 @@
 
     <section class="container" id="edit-formulario-colaborador">
         <article class="row d-flex flex-column jusify-content-center align-items-center">
-            <h2 class="text-center">Editar Cadastro Doador</h2>
+            <h2 class="text-center">Dados Doador <?php echo $nome?></h2>
             
             <form class="col-10 col-form m-5" method="POST" action="process/saveEdit.php">
                 
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label" id="nome">Nome:</label>
-                        <input type="text" class="form-control" placeholder="Nome Completo" value="<?php echo $nome?>" name="nome" id="nome" required>
+                        <input type="text" class="form-control" placeholder="Nome Completo" value="<?php echo $nome?>" name="nome" id="nome" disabled>
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">
                         <label for="data-nascimento" class="form-label">Nascimento:</label>
-                        <input type="text" class="form-control" placeholder="00/00/0000" value="<?php echo $nasc?>" name="nasc" id="data-nascimento">
+                        <input type="text" class="form-control" placeholder="00/00/0000" value="<?php echo $nasc?>" name="nasc" id="data-nascimento" disabled>
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" id="cpf" >CPF:</label>
-                        <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00" value="<?php echo $doc?>" name="doc" id="cpf" required>
+                        <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00" value="<?php echo $doc?>" name="doc" id="cpf" disabled>
                     </div>
 
                     <div class="col-6 col-md-4">
                         <label for="telefone" class="form-label">Celular:</label>
-                        <input type="text" class="form-control" name="fone" value="<?php echo $fone?>" id="telefone" placeholder="(00)00000-0000" >
+                        <input type="text" class="form-control" name="fone" value="<?php echo $fone?>" id="telefone" placeholder="(00)00000-0000" disabled>
                     </div>
 
                     <div class="col-6 col-md-5">
                         <label for="email-inp" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" value="<?php echo $email?>" id="email-inp" placeholder="nome@exemplo.com" >
+                        <input type="email" class="form-control" name="email" value="<?php echo $email?>" id="email-inp" placeholder="nome@exemplo.com" disabled>
                     </div>
                 </div>
                 
@@ -164,10 +148,10 @@
                 <div class="input-group mb-2">
                     <div class="input-group mb-3">
                         <div class="col-4 col-md-3 mb-1">
-                            <input type="text" class="form-control" name="cep" id="cep" value="<?php echo $cep?>" placeholder="CEP">
+                            <input type="text" class="form-control" name="cep" id="cep" value="<?php echo $cep?>" placeholder="CEP" disabled>
                         </div>
                         <div class="col-8 col-md-3 mb-1">
-                            <select class="form-control" name="pais" value="<?php echo $pais?>" id="pais">
+                            <select class="form-control" name="pais" value="<?php echo $pais?>" id="pais" disabled>
                                 <option value="África do Sul">África do Sul</option>
                                 <option value="Albânia">Albânia</option>
                                 <option value="Alemanha">Alemanha</option>
@@ -346,26 +330,26 @@
                             <i class="fa fa-chevron-down select_after" aria-hidden="true"></i>
                         </div>
                         <div class="col-4 col-md-3 mb-1">
-                            <input type="text" class="form-control" name="estado" id="estado" value="<?php echo $estado?>" placeholder="Estado">
+                            <input type="text" class="form-control" name="estado" id="estado" value="<?php echo $estado?>" placeholder="Estado" disabled>
                         </div>
                         <div class="col-8 col-md-3 mb-1">
-                            <input type="text" class="form-control" name="cidade" id="cidade" value="<?php echo $cidade?>" placeholder="Cidade">
+                            <input type="text" class="form-control" name="cidade" id="cidade" value="<?php echo $cidade?>" placeholder="Cidade" disabled>
                         </div>
 
                     </div>
                     <div class="input-group mb-0">
                         <div class="col-4 col-md-4 mb-1">
-                            <input type="text" class="form-control" name="rua" id="rua" value="<?php echo $rua?>" placeholder="Rua">
+                            <input type="text" class="form-control" name="rua" id="rua" value="<?php echo $rua?>" placeholder="Rua" disabled>
                         </div>
                         
                         <div class="col-8 col-md-5 mb-1">
-                            <input type="text" class="form-control" name="setor" id="setor" value="<?php echo $setor?>" placeholder="Setor">
+                            <input type="text" class="form-control" name="setor" id="setor" value="<?php echo $setor?>" placeholder="Setor" disabled>
                         </div>
                         <div class="col-3 col-md-3 mb-1">
-                            <input type="text" class="form-control" name="numero" id="numero" value="<?php echo $numero?>" placeholder="Numero">
+                            <input type="text" class="form-control" name="numero" id="numero" value="<?php echo $numero?>" placeholder="Numero" disabled>
                         </div>
                         <div class="col-9 col-md-12 mb-1">
-                            <input type="text" class="form-control" name="complemento" id="complemento" value="<?php echo $complemento?>" placeholder="Complemento">
+                            <input type="text" class="form-control" name="complemento" id="complemento" value="<?php echo $complemento?>" placeholder="Complemento" disabled>
                         </div>
                     </div>
 
@@ -374,9 +358,7 @@
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
                 <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
-                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
-                <input class="btn btn-success btn-enviar px-5 mt-4" type="submit" name="update" value="Salvar Edição">
-
+               
             </form>
         </article>
 

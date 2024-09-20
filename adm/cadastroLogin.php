@@ -82,7 +82,7 @@
 
     <section class="container" id="formulario-cadastro-login">
         <article class="row d-flex flex-column jusify-content-center align-items-center">
-            <h2 class="text-center">Cadastro Login de <?php echo $nome?></h2>
+            <h2 class="text-center">Cadastro Login <?php echo $nome?></h2>
             
             <form class="col-10 col-form m-5" method="POST" action="process/saveCadastroLogin.php">
                 

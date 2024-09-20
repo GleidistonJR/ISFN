@@ -28,7 +28,7 @@
         }
         @media (max-width: 992px) {
             .col-nome{
-                width: 70%;
+                width: 55%;
             }
         }
 
@@ -37,7 +37,7 @@
 <body>
     <?php include_once("Componentes/menu.php"); ?>
 
-    <section class="admDoadores mb-5">
+    <section class="admDoadores mb-5 mx-md-5">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
 
 
@@ -46,11 +46,8 @@
                 <tr>
                     <th scope="col"></th>
                     <th class="col-nome " scope="col">Nome</th>
-                    <th class="d-none d-md-table-cell" scope="col">Documento</th>
                     <th class="d-none d-md-table-cell" scope="col">Email</th>
                     <th class="d-none d-md-table-cell" scope="col">Telefone</th>
-                    <th class="d-none d-md-table-cell" scope="col">Nascimento</th>
-                    <th class="d-none d-md-table-cell" scope="col">Sexo</th>
                     <th scope="col">Edição</th>
                 </tr>
             </thead>
@@ -63,12 +60,15 @@
                         echo "<tr>";
                         echo "<th scope='row'><input class='form-check-input' type='radio' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
-                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['doc']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
-                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['nasc']) . "</td>";
-                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['sexo']) . "</td>";
                         echo '<td>
+                        <a class="btn btn-warning btn-sm" href="verDoador.php?id='.$row['id'].'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                            </svg>
+                        </a>
                         <a class="btn btn-primary btn-sm" href="#" onclick="confirmarSenha('.$row['id'].', \'edit.php\')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
                                 <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
