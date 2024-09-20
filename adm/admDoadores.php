@@ -10,8 +10,6 @@
     // Pegando o resultado da consulta
     $result = $stmt->get_result();
 
-    $edit = '"edit.php"';
-    $remove = 'remove.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +23,10 @@
     <style>
         .admDoadores{
             padding-top:150px;
+        }
+        .form-check-input {
+            background-color: #fefefe;
+            border: 1px solid #555;
         }
         @media (max-width: 992px) {
             .col-nome{
@@ -57,7 +59,7 @@
                 if ($result->num_rows > 0) {
                     // Exibindo cada linha de resultado em uma nova linha da tabela
                     while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
+                        echo '<tr onclick="selecionaRadio(\'radio_'. htmlspecialchars($row['id']) .'\' )">';
                         echo "<th scope='row'><input class='form-check-input' type='radio' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
@@ -98,6 +100,10 @@
 
 <script>
     
+    function selecionaRadio(id) {
+        const radio = document.getElementById(id)        
+        radio.checked = true;
+    }
     function confirmarSenha(id, arquivo) {
         var senha = prompt("Por favor, insira sua senha para confirmar:");
         
@@ -129,8 +135,6 @@
 
             document.body.appendChild(form);
             form.submit(); // Envia o formulário para verificar a senha
-        } else {
-            alert("Senha não pode ser vazia.");
         }
     }
 
@@ -150,7 +154,6 @@
             const confirmAction = confirm("Você tem certeza que deseja deletar este registro?");
             if (confirmAction) {
                 confirmarSenha(id, "process/remove.php" )
-                window.location.href = 'process/remove.php?id=' + id; // Redireciona para remover o registro
             } else {
                 event.preventDefault(); // Impede a exclusão se o usuário cancelar
             }

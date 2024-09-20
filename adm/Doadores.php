@@ -1,6 +1,6 @@
 <?php
     
-    include_once("session_login.php");
+    include_once("session_login_nivel5.php");
     include_once("../DAO.php");
     
     // Preparando e executando a consulta para listar os dados
@@ -35,19 +35,17 @@
 <body>
     <?php include_once("Componentes/menu.php"); ?>
 
-    <section class="admDoadores mx-md-5 mb-5 table-responsive">
-        <h1 class="text-center mb-5">Lista de Doadores Mensal</h1>
+    <section class="admDoadores mb-5 mx-md-5">
+        <h1 class="text-center mb-5">Lista de Doadores</h1>
 
 
         <table class="table table-striped table-hover tabela">
             <thead class='table-info'>
                 <tr>
-                    <th class='col-nome' scope="col">Nome</th>
-                    <th class="d-none d-md-table-cell" scope="col">Documento</th>
+                    <th class="col-nome " scope="col">Nome</th>
                     <th class="d-none d-md-table-cell" scope="col">Email</th>
                     <th class="d-none d-md-table-cell" scope="col">Telefone</th>
-                    <th class="d-none d-md-table-cell" scope="col">Nascimento</th>
-                    <th class="" scope="col">Sexo</th>
+                    <th scope="col">Visualizar</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,11 +56,17 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
-                        echo "<td class='d-none d-md-table-cell'>*****</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
-                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['nasc']) . "</td>";
-                        echo "<td >" . htmlspecialchars($row['sexo']) . "</td>";
+                        echo '<td class="ps-5">
+                        <a class="btn btn-warning btn-sm" href="verDoador.php?id='.$row['id'].'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                            </svg>
+                        </a>
+                        </td>';
+                        echo "</tr>";
                     }
                 } else {
                     echo "<tr><td colspan='3'>Nenhum doador encontrado</td></tr>";
@@ -79,28 +83,4 @@
     <?php include_once('Componentes/footer.html')?>
 </body>
 
-<script>
-    // Função para verificar se o radio correspondente está selecionado
-     document.querySelectorAll('.delete-link').forEach(link => {
-        link.addEventListener('click', function(event) {
-            const id = this.getAttribute('data-id'); // Pega o id do link
-            const radio = document.getElementById('radio_' + id); // Acha o radio correspondente
-            
-            // Verifica se o radio está selecionado
-            if (!radio.checked) {
-                alert("Por favor, selecione o registro correspondente para excluir.");
-                event.preventDefault(); // Impede a exclusão se o radio não estiver marcado
-                return;
-            }
-
-            // Confirmação da exclusão
-            const confirmAction = confirm("Você tem certeza que deseja deletar este registro?");
-            if (confirmAction) {
-                window.location.href = 'remove.php?id=' + id; // Redireciona para remover o registro
-            } else {
-                event.preventDefault(); // Impede a exclusão se o usuário cancelar
-            }
-        });
-    });
-</script>
 </html>
