@@ -12,7 +12,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?10">
+    <link rel="stylesheet" href="css/formularioDoador.css?11">
 </head>
 
 

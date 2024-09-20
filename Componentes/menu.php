@@ -43,7 +43,7 @@
                             <li><a class="dropdown-item" href="adm/login.php">Entrar</a></li>
                             ';
                             
-                        }if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
+                        }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 5){
                             //esta logado nivel 5 
                             echo '
                             <li><a class="dropdown-item" href="adm/admDoadores.php">Lista de Doadores ADM</a></li>

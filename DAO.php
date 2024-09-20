@@ -1,12 +1,12 @@
 <?php
 
-/*
+    /*
     $dbHost = "Localhost";
     $dbUsername = "isfn";
     $dbPassword = "newISFN@2024";
     $dbName = "isfn_isfn";
     */
-  
+
     $dbHost = "Localhost";
     $dbUsername = "root";
     $dbPassword = "";
