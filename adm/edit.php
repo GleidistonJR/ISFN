@@ -22,9 +22,6 @@
         if($result->num_rows > 0){
             
             while ($row = $result->fetch_assoc()) {
-                $login = $row['login'];
-                $senha = $row['senha'];
-                $nivel = $row['nivel'];
                 $nome = $row['nome'];
                 $nasc = $row['nasc'];
                 $doc = $row['doc'];
@@ -83,22 +80,30 @@
     #edit-formulario-colaborador .row{
         max-width: 100%;
     }
-    .btn-enviar{
-        margin-left: 10%;
-        width: 20%;
-    }
     .btn-voltar{
-        margin-left: 25%;
-        width: 20%;
+        margin-left: 5%;
+        width: 25%;
+    }
+    .btn-cadastro{
+        margin-left: 5%;
+        width: 25%;
+    }
+    .btn-enviar{
+        margin-left: 5%;
+        width: 25%;
     }
     @media (max-width: 992px) {
-        .btn-enviar{
-        margin-left: 0%;
-        width: 45%;
-        }
         .btn-voltar{
             margin-left: 0%;
-            width: 45%;
+            width: 100%;
+        }
+        .btn-cadastro{
+            margin-left: 0%;
+            width: 100%;
+        }
+        .btn-enviar{
+        margin-left: 0%;
+        width: 100%;
         }
     }
 </style>
@@ -113,23 +118,9 @@
     <section class="container" id="edit-formulario-colaborador">
         <article class="row d-flex flex-column jusify-content-center align-items-center">
             <h2 class="text-center">Editar Doador</h2>
+            
             <form class="col-10 col-form m-5" method="POST" action="saveEdit.php">
                 
-                <div class="input-group justify-content-around mb-4">
-                    <div class="col-12 col-md-4 mb-2 mb-md-4">
-                        <label for="login" class="form-label">login:</label>
-                        <input type="text" class="form-control" placeholder="login" value="<?php echo $login?>" name="login" id="login">
-                    </div>
-                    <div class="col-10 col-md-4 mb-2 mb-md-4">
-                        <label for="senha" class="form-label">nova senha:</label>
-                        <input type="text" class="form-control" placeholder="senha" name="senha" id="senha">
-                    </div>
-                    <div class="col-2 col-md-1 mb-2 mb-md-4">
-                        <label for="nivel" class="form-label">nivel:</label>
-                        <input type="text" class="form-control" placeholder="nivel" value="<?php echo $nivel?>" name="nivel" id="nivel" >
-                    </div>
-                </div>
-
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label" id="nome">Nome:</label>
@@ -166,7 +157,7 @@
                             <input class="form-check-input" type="radio" name="sexo" value="F" <?php echo($sexo == 'F') ? 'checked' : '' ?> id="feminino">
                             <label class="form-check-label" for="feminino">Feminino</label>
                         </div>
-                    </div>      
+                    </div>
                 </div>
 
                 <label for="endereco" class="form-label">Endereço</label>
@@ -383,7 +374,8 @@
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
                 <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
-                <input class="btn btn-primary btn-enviar px-5 mt-4" type="submit" name="update" value="Editar">
+                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
+                <input class="btn btn-success btn-enviar px-5 mt-4" type="submit" name="update" value="Salvar Edição">
 
             </form>
         </article>
