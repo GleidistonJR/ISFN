@@ -40,6 +40,7 @@
                             //nao esta logado
                             echo '
                             <li><a class="dropdown-item" href="login.php">Entrar</a></li>
+                            <li><a class="dropdown-item" href="../formularioDoador.php">Cadastre-se</a></li>
                             ';
                             
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
@@ -52,6 +53,7 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7 
                             echo '
+                            <li><a class="dropdown-item" href="../formularioDoador.php">Cadastrar Doador</a></li>
                             <li><a class="dropdown-item" href="admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-danger text-center" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
@@ -92,6 +94,7 @@
                             //nao esta logado
                             echo '
                             <li><a href="login.php">Entrar</a></li>
+                            <li><a href="../formularioDoador.php">Cadastre-se</a></li>
                             ';
                             
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
@@ -104,6 +107,7 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7
                             echo '
+                            <li><a href="../formularioDoador.php">Cadastrar Doador</a></li>
                             <li><a href="admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="text-danger" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>

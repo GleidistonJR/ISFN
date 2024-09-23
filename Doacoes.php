@@ -94,9 +94,7 @@
 
     </section>
 
-    <a class="btn btn-padrinho" href="formularioDoador.php">Seja um doador mensal</a>
-
-
+    
 
 
     <?php

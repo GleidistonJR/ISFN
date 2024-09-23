@@ -164,23 +164,6 @@
     background-color: #0c6313;
 }
 
-.btn-padrinho {
-    font-size: 1.3em;
-    padding: 10px 25px;
-    border-radius: 25px;
-    background-image: linear-gradient(180deg, var(--verdeSecundario), var(--verdePrincipal));
-    color: #fff;
-    width: 33%;
-    margin: 50px 0 ;
-    margin-left: 33%;
-    transition: .3s;
-    border: none;
-}
-
-.btn-padrinho:hover {
-    background-image: linear-gradient(130deg, var(--verdePrincipal), var(--verdePrincipal));
-    color: #fff;
-}
 
 
 
@@ -256,9 +239,5 @@
         width: 95%;
         height: 50%;
         padding: 20px;
-    }
-    .btn-padrinho {    
-        width: 80%;
-        margin-left: 10%;
-    }
+    }   
 }

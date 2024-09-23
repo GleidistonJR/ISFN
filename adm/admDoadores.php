@@ -30,6 +30,10 @@
             background-color: #fefefe;
             border: 1px solid #555;
         }
+        .pesquisar{
+            width: 40%;
+            margin-left:30%;
+        }
         @media (max-width: 992px) {
             .col-nome{
                 width: 55%;
@@ -43,7 +47,11 @@
 
     <section class="admDoadores mb-5 mx-md-5">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
-
+        
+        <div class="input-group mb-5 pesquisar">
+            <input type="search" class="form-control" id="search-input" placeholder="Pesquisar pelo nome">
+            <button class="btn btn-primary" id="search-button"><i class="bi bi-search"></i></button>
+        </div>
 
         <table class="table table-striped table-hover tabela">
             <thead class='table-info'>
@@ -160,6 +168,24 @@
                 event.preventDefault(); // Impede a exclusão se o usuário cancelar
             }
         });
+    });
+
+    document.getElementById('search-button').addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do botão
+        
+        // Pega o valor inserido no campo de pesquisa
+        var searchValue = document.getElementById('search-input').value;
+
+        // Faz a requisição AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'process/processarPesquisa.php?search=' + encodeURIComponent(searchValue), true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Atualiza o corpo da tabela com o resultado da pesquisa
+                document.querySelector('tbody').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
     });
 
 </script>
