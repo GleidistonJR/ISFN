@@ -44,9 +44,11 @@
     <section class="admDoadores mb-5 mx-md-5">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
 
-        <div class="input-group mb-5 pesquisar">
-            <input type="search" class="form-control" id="search-input" placeholder="Pesquisar pelo nome">
-            <button class="btn btn-primary" id="search-button"><i class="bi bi-search"></i></button>
+        <div class="mb-5 pesquisar">
+            <form class="input-group" id="search-form" onsubmit="return false;"> <!-- Formulário -->
+                <input type="search" class="form-control" id="search-input" placeholder="Pesquisar pelo nome" required>
+                <button type="submit" class="btn btn-primary" id="search-button"><i class="bi bi-search"></i></button>
+            </form>
         </div>
 
         <table class="table table-striped table-hover tabela">
