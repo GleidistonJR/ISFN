@@ -22,7 +22,7 @@
     
     // Executa a consulta
     if ($stmt->execute()) {
-        echo "window.location.href = '../admDoadores.php';</script>";
+        echo "<script>window.location.href = '../admDoadores.php';</script>";
     } else {
         echo "<script>alert('Erro ao deletar registro! ". $stmt->erro ."'); window.location.href = '../admDoadores.php';</script>";
     }
