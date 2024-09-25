@@ -62,7 +62,7 @@
                             //esta logado nivel 7 
                             echo '
                             <li><a class="dropdown-item" href="transparencia.php">Transparencia</a></li>
-                            <li><a class="dropdown-item" href="compiladorTransacoes.php">Cadastrar Extrato</a></li>
+                            <li><a class="dropdown-item" href="cadastroExtrato.php">Cadastrar Extrato</a></li>
                             <li><a class="dropdown-item" href="../formularioDoador.php">Cadastrar Doador</a></li>
                             <li><a class="dropdown-item" href="admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -126,7 +126,7 @@
                             //esta logado nivel 7
                             echo '
                             <li><a href="transparencia.php">Transparencia</a></li>
-                            <li><a href="compiladorTransacoes.php">Cadastrar Extrato</a></li>
+                            <li><a href="cadastroExtrato.php">Cadastrar Extrato</a></li>
                             <li><a href="../formularioDoador.php">Cadastrar Doador</a></li>
                             <li><a href="admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>

@@ -34,6 +34,10 @@
             .col-nome{
                 width: 80%;
             }
+            .pesquisar{
+                width: 80%;
+                margin-left:10%;
+            }
         }
 
     </style>
@@ -46,7 +50,7 @@
 
         <div class="mb-5 pesquisar">
             <form class="input-group" id="search-form" onsubmit="return false;"> <!-- Formulário -->
-                <input type="search" class="form-control" id="search-input" placeholder="Pesquisar pelo nome" required>
+                <input type="search" class="form-control" id="search-input" placeholder="Pesquisar nome" required>
                 <button type="submit" class="btn btn-primary" id="search-button"><i class="bi bi-search"></i></button>
             </form>
         </div>
