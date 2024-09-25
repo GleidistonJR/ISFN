@@ -73,7 +73,7 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
             // Commit da transação
             $conexao->commit();
 
-            echo "<script>alert('Doador e endereço cadastrados com sucesso!'); window.location.href = 'Doacoes.php';</script>";
+            echo "<script>window.location.href = 'cadastradoComSucesso.php';</script>";
 
             $stmt->close();
             $conexao->close();

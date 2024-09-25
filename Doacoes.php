@@ -18,11 +18,7 @@
 
 
 <body>
-    <div class="pg-doacao">
-        <?php
-        include("Componentes/menu.php");
-        ?>
-    </div>
+    <?php include("Componentes/menu.php"); ?>
 
 
 
