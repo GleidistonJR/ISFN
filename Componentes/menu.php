@@ -47,14 +47,14 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
                             //esta logado nivel baixo
                             echo '
-                            <li><a class="dropdown-item" href="adm/transparencia.php">Transparencia</a></li>
+                            <li><a class="dropdown-item" href="adm/transparencia.php">Transparência</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                             //esta logado nivel baixo
                             echo '
-                            <li><a class="dropdown-item" href="adm/transparencia.php">Transparencia</a></li>
+                            <li><a class="dropdown-item" href="adm/transparencia.php">Transparência</a></li>
                             <li><a class="dropdown-item" href="adm/Doadores.php">Lista de Doadores</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
@@ -62,7 +62,7 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7 
                             echo '
-                            <li><a class="dropdown-item" href="adm/transparencia.php">Transparencia</a></li>                            
+                            <li><a class="dropdown-item" href="adm/transparencia.php">Transparência</a></li>                            
                             <li><a class="dropdown-item" href="adm/cadastroExtrato.php">Cadastrar Extrato</a></li>                            
                             <li><a class="dropdown-item" href="formularioDoador.php">Cadastrar Doador</a></li>
                             <li><a class="dropdown-item" href="adm/admDoadores.php">Lista de Doadores ADM</a></li>
@@ -109,14 +109,14 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
                             //esta logado nivel baixo
                             echo '
-                            <li><a href="adm/transparencia.php">Transparencia</a></li>
+                            <li><a href="adm/transparencia.php">Transparência</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="text-danger" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                            //esta logado nivel baixo
                            echo '
-                           <li><a href="adm/transparencia.php">Transparencia</a></li>
+                           <li><a href="adm/transparencia.php">Transparência</a></li>
                            <li><a href="adm/Doadores.php">Lista de Doadores</a></li>
                            <li><hr class="dropdown-divider"></li>
                            <li><a class="text-danger" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
@@ -124,7 +124,7 @@
                        }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7
                             echo '
-                            <li><a href="adm/transparencia.php">Transparencia</a></li>
+                            <li><a href="adm/transparencia.php">Transparência</a></li>
                             <li><a href="adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
                             <li><a href="formularioDoador.php">Cadastrar Doador</a></li>
                             <li><a href="adm/admDoadores.php">Lista de Doadores ADM</a></li>

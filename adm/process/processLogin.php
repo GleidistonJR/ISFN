@@ -59,6 +59,21 @@
                     header('Location: ../admDoadores.php');
                 }
                 
+                //Inserir historico de login
+                // Busca no banco de dados
+                $conn = $conexao->prepare("INSERT INTO historico (id_usuario) VALUES (?);");
+                
+                //Verifica se ocorreu erro na conexão
+                if ($conn === false) {
+                    throw new Exception("Erro na preparação da consulta: " . $conexao->error);
+                }
+                $conn->bind_param("i", $row['id']);
+    
+                if (!$conn->execute()) {
+                    throw new Exception("Erro ao inserir na tabela historico: " . $conn->error);
+                }
+
+                                
             } else {
                 //senha incorreta
                 unset($_SESSION['login']);
@@ -70,7 +85,8 @@
             echo "<script>alert('Login não encontrado!'); window.location.href = '../login.php';</script>";
         }
 
-        // Fecha a declaração e a conexão
+        // Fecha as declarações e a conexão
+        $conn->close();
         $stmt->close();
         $conexao->close();
     } else {

@@ -2,6 +2,7 @@
 include_once("process/sessionLogin.php");
 verificarNivel($_SESSION['nivel'], [7,2,1]);
 
+//Função para monstrar apenas primeira letra do nome
 function esconderNome($frase) {
     // Divide a frase em palavras
     $palavras = explode(' ', $frase);
@@ -56,7 +57,7 @@ function esconderNome($frase) {
     <?php include("Componentes/menu.php");?>
 
     <section class="transparencia container mb-5">
-        <h1 class="text-center">Transparencia</h1>
+        <h1 class="text-center">Transparência</h1>
         
         <div class="table-responsive">
             <table class="table table-bordered mt-5">
