@@ -4,10 +4,10 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 110vh;
     background-image: url(../img/img-banner/banner-gg.webp);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
 }
 
@@ -41,6 +41,18 @@
     padding: 0;
 }
 
+@media (max-width: 1400px) {
+    .sec-banner {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        height: 120vh;
+        background-image: url(../img/img-banner/banner-gg.webp);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+    }
+}
 @media (max-width: 992px) {
 
     .sec-banner {

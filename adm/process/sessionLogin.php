@@ -11,6 +11,7 @@
     if(!isset($_SESSION['login'])){
         unset($_SESSION['login']);
         unset($_SESSION['nivel']);
+        unset($_SESSION['nome']);
         session_destroy();
     }
     

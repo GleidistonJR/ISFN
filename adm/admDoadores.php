@@ -66,7 +66,7 @@
         <table class="table table-striped table-hover tabela">
             <thead class='table-info'>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col"> </th>
                     <th class="col-nome " scope="col">Nome</th>
                     <th class="d-none d-md-table-cell" scope="col">Email</th>
                     <th class="d-none d-md-table-cell" scope="col">Telefone</th>
@@ -77,10 +77,11 @@
                 <?php
                 // Verifica se existem resultados
                 if ($result->num_rows > 0) {
+                    $i = 1;
                     // Exibindo cada linha de resultado em uma nova linha da tabela
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>';
-                        echo "<th scope='row'>". htmlspecialchars($row['id']) ." </th>";
+                        echo "<th scope='row'>". htmlspecialchars($i) ." </th>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
@@ -102,6 +103,7 @@
                             </svg>
                         </a></td>';
                         echo "</tr>";
+                        $i++;
                     }
                 } else {
                     echo "<tr><td colspan='3'>Nenhum doador encontrado</td></tr>";

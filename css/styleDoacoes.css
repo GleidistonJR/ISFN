@@ -168,6 +168,16 @@
 
 
 
+@media (max-width:1400px) {
+    .doacao .row-doacao {
+        background-image: url(../img/img-doacoes/brasil_alunos.jpeg);
+        background-position: bottom;
+        background-size: 30%;
+        width: 100%;
+        padding: 50px 0 180px 0;
+        margin: auto;
+    }
+}
 @media (max-width:720px) {
 
 

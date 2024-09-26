@@ -5,9 +5,10 @@
 }
 
 #menu {
+    width: 100%;
     position: fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     align-items: center;
     z-index: 20;
@@ -18,24 +19,13 @@
     /* #ecdd06 */
 }
 
-/* 
-#menu::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #0625d1;
-    height: 3px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-} */
 
 #menu .row {
     width: 100%;
     height: 65px;
     display: flex;
     text-align: center;
+    justify-content: space-between;
 }
 
 #menu .row #logo {
@@ -75,46 +65,34 @@ ul {
     display: flex;
     justify-content: center;
 }
-
-#navbar ul li {
-    display: inline-block;
-    margin-left: 13px;
+.navbar ul {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
 }
 
+.navbar ul li {
+    display: inline-block;
+    margin-left: 17px;
+}
 
-#navbar ul li a {
+.navbar ul li a,.navbar ul div a {
     color: var(--menu-color);
     text-decoration: none;
     font-size: 1.2em;
 }
 
-#social {
+.navbar ul div ul li{
+    width: 100%;
+    margin: 0;
+}
+
+.adm-links {
     display: flex;
     justify-content: end;
     gap: 25px;
 }
 
-#social i {
-    color: var(--menu-color);
-    font-size: 20px;
-    font-weight: 400;
-}
-
-/* SCROLL*/
-div.rolagem {
-    background-color: var(--verdePrincipal);
-    backdrop-filter: blur(10px);
-    height: 70px;
-}
-
-div.rolagem .img-logo-mini {
-    display: inline;
-    padding: 10px;
-}
-
-div.rolagem .img-logo-normal {
-    display: none;
-}
 
 
 
@@ -196,11 +174,11 @@ div.rolagem .img-logo-normal {
         padding-right: 8px;
     }
 
-    #navbar {
+    .navbar {
         display: none;
     }
 
-    #social {
+    .adm-links {
         display: none;
     }
 

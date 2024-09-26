@@ -44,6 +44,10 @@
                 //armazenando na seção dados
                 $_SESSION['login'] = $row['login'];
                 $_SESSION['nivel'] = $row['nivel'];
+                $nomeCompleto = $row['nome'];
+                $partesDoNome = explode(' ', trim($nomeCompleto));
+                //Armazenando na seção apenas o primeiro nome
+                $_SESSION['nome'] = $partesDoNome[0];
                 
                 if(isset($_SESSION['login']) && $_SESSION['nivel'] == 0){
                     //logado nivel 0
