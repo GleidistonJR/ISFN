@@ -9,10 +9,10 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
-    <link rel="stylesheet" href="css/banner.css?12">
-    <link rel="stylesheet" href="css/IndexSobre.css?12">
-    <link rel="stylesheet" href="css/IndexApoiar.css?12">
-<!--    <link rel="stylesheet" href="css/IndexDepoimentos.css?12">   -->
+    <link rel="stylesheet" href="css/banner.css?13">
+    <link rel="stylesheet" href="css/IndexSobre.css?13">
+    <link rel="stylesheet" href="css/IndexApoiar.css?13">
+<!--    <link rel="stylesheet" href="css/IndexDepoimentos.css?13">   -->
 
     <title>Instituto São Filipe Neri</title>
 
