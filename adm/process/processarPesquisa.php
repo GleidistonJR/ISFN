@@ -14,8 +14,8 @@ if (isset($_GET['search'])) {
     // Verifica se há resultados
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo '<tr onclick="selecionaRadio(\'radio_'. htmlspecialchars($row['id']) .'\' )">';
-            echo "<th scope='row'><input class='form-check-input' type='radio' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
+            echo '<tr>';
+            echo "<th scope='row'>". htmlspecialchars($row['id']) ." </th>";
             echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
             echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
             echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";

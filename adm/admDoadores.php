@@ -66,7 +66,7 @@
         <table class="table table-striped table-hover tabela">
             <thead class='table-info'>
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">ID</th>
                     <th class="col-nome " scope="col">Nome</th>
                     <th class="d-none d-md-table-cell" scope="col">Email</th>
                     <th class="d-none d-md-table-cell" scope="col">Telefone</th>
@@ -79,8 +79,8 @@
                 if ($result->num_rows > 0) {
                     // Exibindo cada linha de resultado em uma nova linha da tabela
                     while ($row = $result->fetch_assoc()) {
-                        echo '<tr onclick="selecionaRadio(\'radio_'. htmlspecialchars($row['id']) .'\' )">';
-                        echo "<th scope='row'><input class='form-check-input' type='radio' name='radioId' id='radio_". htmlspecialchars($row['id']) ."' ></td>";
+                        echo '<tr>';
+                        echo "<th scope='row'>". htmlspecialchars($row['id']) ." </th>";
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
@@ -102,7 +102,6 @@
                             </svg>
                         </a></td>';
                         echo "</tr>";
-                        // onclick="confirmarSenha('.$row['id'].', \'edit.php\')
                     }
                 } else {
                     echo "<tr><td colspan='3'>Nenhum doador encontrado</td></tr>";
@@ -146,10 +145,6 @@
     let id;
     let arquivo;
 
-    function selecionaRadio(id) {
-        const radio = document.getElementById(id)        
-        radio.checked = true;
-    }
     
     function confirmarSenha(id, arquivo, senha) {
                 
@@ -215,24 +210,36 @@
 
 
 
-    //PESQUISA
+    // Quando o botão de pesquisa é clicado, dispara o evento
     document.getElementById('search-button').addEventListener('click', function(e) {
-        e.preventDefault(); // Previne o comportamento padrão do botão
-        
-        // Pega o valor inserido no campo de pesquisa
+
+        // Previne o comportamento padrão (como enviar um formulário ou recarregar a página)
+        e.preventDefault();
+
+        // Captura o valor inserido no campo de pesquisa (input)
         var searchValue = document.getElementById('search-input').value;
 
-        // Faz a requisição AJAX
+        // Cria um objeto XMLHttpRequest para fazer uma requisição AJAX
         var xhr = new XMLHttpRequest();
+
+        // Configura a requisição como GET e inclui o valor da pesquisa na URL
         xhr.open('GET', 'process/processarPesquisa.php?search=' + encodeURIComponent(searchValue), true);
+
+        // Define a função que será executada quando o estado da requisição mudar
         xhr.onreadystatechange = function() {
+
+            // Verifica se a requisição está completa (readyState 4) e se a resposta foi bem-sucedida (status 200)
             if (xhr.readyState == 4 && xhr.status == 200) {
-                // Atualiza o corpo da tabela com o resultado da pesquisa
+
+                // Atualiza o conteúdo do corpo da tabela (<tbody>) com o resultado da pesquisa
                 document.querySelector('tbody').innerHTML = xhr.responseText;
             }
         };
+
+        // Envia a requisição para o servidor
         xhr.send();
     });
+
 
 </script>
 </html>

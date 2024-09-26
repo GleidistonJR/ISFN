@@ -135,13 +135,9 @@
                     <div class="col-6 mb-4">
                         <label class="form-label" for="sexo">Sexo</label>
                         <div class="form-check col-6">
-                            <input class="form-check-input" type="radio" name="sexo" value="M" <?php echo($sexo == 'M') ? 'checked' : '' ?> id="masculino">
-                            <label class="form-check-label" for="masculino">Masculino</label>
-                        </div>
-                        <div class="form-check  col-6">
-                            <input class="form-check-input" type="radio" name="sexo" value="F" <?php echo($sexo == 'F') ? 'checked' : '' ?> id="feminino">
-                            <label class="form-check-label" for="feminino">Feminino</label>
-                        </div>
+                            <input class="form-check-input" type="radio" name="sexo" value="M" id="sexo" checked>
+                            <label class="form-check-label" for="sexo"><?php echo($sexo == 'M') ? 'Masculino' : 'Feminino' ?></label>
+                        </div>                        
                     </div>
                 </div>
 

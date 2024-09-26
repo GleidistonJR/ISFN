@@ -39,10 +39,6 @@ function esconderNome($frase) {
             .table-dark .descricao{
                 padding-right:100px;
             }
-            .table-dark .nome{
-                display:block;
-                width: 350px;
-            }
             .table-dark .documento{
                 padding-right:80px;
             }
@@ -60,14 +56,14 @@ function esconderNome($frase) {
         <h1 class="text-center">Transparência</h1>
         
         <div class="table-responsive">
-            <table class="table table-bordered mt-5">
-                <thead class="table-dark">
+            <table class="table table-striped mt-5">
+                <thead class="table-info">
                     <tr>
-                        <th class="data">Data</th>
-                        <th class="descricao">Descrição</th>
-                        <th class="nome">Nome (sigilo)</th>
+                        <th class="data" scope="col">Data</th>
+                        <th class="d-none d-md-table-cell descricao">Descrição</th>
+                        <th class="nome">Nome</th>
                         <?php if ($_SESSION['nivel'] == 7): ?>
-                            <th class="documento">Documento</th>
+                            <th class="d-none d-md-table-cell documento">Documento</th>
                             <?php endif; ?>
                             <th class="valor">Valor</th>
                     </tr>   
@@ -96,8 +92,11 @@ function esconderNome($frase) {
                         // Loop pelas transações e exibir na tabela
                         while ($transacao = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($transacao['data']) . "</td>";
-                            echo "<td>" . htmlspecialchars($transacao['descricao']) . "</td>";
+
+                            $dataFormatada = date("d/m/Y", strtotime($transacao['data'])); // Converte para DD/MM/YYYY
+                            
+                            echo "<td>" . htmlspecialchars($dataFormatada) . "</td>";
+                            echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($transacao['descricao']) . "</td>";
                             if($_SESSION['nivel'] == 7){
                                 echo "<td>" . htmlspecialchars($transacao['nome']) . "</td>";
                             }else{
@@ -106,7 +105,7 @@ function esconderNome($frase) {
                                 
                             }
                             if($_SESSION['nivel'] == 7){
-                                echo "<td>" . htmlspecialchars($transacao['documento']) . "</td>";
+                                echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($transacao['documento']) . "</td>";
                             }
                             echo "<td>" . htmlspecialchars(number_format($transacao['valor'], 2, ',', '.')) . "</td>";
                             echo "</tr>";
