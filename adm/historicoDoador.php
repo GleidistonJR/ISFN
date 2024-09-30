@@ -1,65 +1,77 @@
 <?php
-include_once("process/sessionLogin.php");
-verificarNivel($_SESSION['nivel'], [7,2,1]);
+    include_once('process/sessionLogin.php'); 
+    verificarNivel($_SESSION['nivel'], [7]);
 
-//Função para monstrar apenas primeira letra do nome
-function esconderNome($frase) {
-    // Divide a frase em palavras
-    $palavras = explode(' ', $frase);
-    $inicial = '';
+    if (isset($_GET['doc'])) {
+        $doc = $_GET['doc'];
 
-    // Loop por cada palavra e extrai a primeira letra
-    foreach ($palavras as $index => $palavra) {
-        if (!empty($palavra)) { // Verifica se a palavra não está vazia
-            // Se não for a primeira letra, adiciona o ponto
-            if ($index > 0) {
-                $inicial .= '.';
+        include('../DAO.php');
+              
+        $conn = $conexao->prepare("SELECT * FROM pessoa WHERE doc=?");
+        
+        // Vinculando o parâmetro à consulta (número inteiro)
+        $conn->bind_param("s", $doc);
+        
+        // Executando a consulta
+        $conn->execute();
+        
+        $result = $conn->get_result();
+        
+        
+        if($result->num_rows > 0){
+            //Pussui cadastro
+            while ($row = $result->fetch_assoc()) {
+                $id = $row['id'];
+                $login = $row['login'];
             }
-            $inicial .= strtoupper($palavra[0]); // Adiciona a letra inicial
+            if(empty($login)){ //se o doador possuir cadastro mas não possuir login
+                $cadastroLogin = true;
+                $cadastroDoador = false;
+            }else{ //se o doador possuir cadastro mas e tambem possuir login
+                $cadastroLogin = false;
+                $cadastroDoador = false;
+
+            }
+            
+        }else{
+            $cadastroLogin = false;
+            $cadastroDoador = true;
+           //se o não doador possuir cadastro
+            
         }
+        $conn->close();
     }
 
-    return $inicial;
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>ISFN | Transparencia</title>  
-    <?php include("Componentes/headBasic.html");?>
+    <?php include_once('Componentes/headBasic.html'); ?>
+    <title>ISFN | Historico Doador <?php echo $login ?> </title>
 
     <style>
-        section.transparencia {
+        .historico-doador{
             padding-top: 150px;
         }
-        section.transparencia tr{
-            cursor: pointer;
+        .btn-voltar{
+            margin-left: 15%;
+            width: 30%;
         }
-        @media (max-width:720px){
-            .table-dark .data{
-                padding-right:80px;
-            }
-            .table-dark .descricao{
-                padding-right:100px;
-            }
-            .table-dark .documento{
-                padding-right:80px;
-            }
-            .table-dark .valor{
-                padding-right:40px;
-            }
+        .btn-cadastro{
+            margin-left: 10%;
+            width: 30%;
         }
-
     </style>
 </head>
 <body>
-    <?php include("Componentes/menu.php");?>
+    <?php include_once('Componentes/menu.php'); ?>
+    
+    <section class="container historico-doador">
 
-    <section class="transparencia container mb-5">
-        <h1 class="text-center">Transparência</h1>
+        <h1 class="text-center">Historico do Doador</h1>
         
         <div class="table-responsive">
-            <table class="table table-striped table-hover mt-5">
+            <table class="table table-striped mt-5">
                 <thead class="table-info">
                     <tr>
                         <th class="data" scope="col">Data</th>
@@ -84,9 +96,9 @@ function esconderNome($frase) {
                     $offset = ($page - 1) * $limit;
                     
                     // Consulta para selecionar todas as transações do banco de dados, ordenadas pela data e limitadas a 20 por página
-                    $sql = "SELECT data, descricao, nome, documento, valor FROM extrato ORDER BY data DESC LIMIT ?, ?";
+                    $sql = "SELECT data, descricao, nome, documento, valor FROM extrato WHERE documento=? ORDER BY data DESC LIMIT ?, ?";
                     $stmt = $conexao->prepare($sql);
-                    $stmt->bind_param("ii", $offset, $limit);
+                    $stmt->bind_param("sii", $doc,$offset, $limit);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     
@@ -94,7 +106,7 @@ function esconderNome($frase) {
                     if ($result->num_rows > 0) {
                         // Loop pelas transações e exibir na tabela
                         while ($transacao = $result->fetch_assoc()) {
-                        echo "<tr  onclick='verdoacoes(\"". $transacao['documento']."\",".$_SESSION['nivel']." )'>";
+                            echo "<tr>";
 
                             $dataFormatada = date("d/m/Y", strtotime($transacao['data'])); // Converte para DD/MM/YYYY
                             
@@ -112,6 +124,7 @@ function esconderNome($frase) {
                             }
                             echo "<td>" . htmlspecialchars(number_format($transacao['valor'], 2, ',', '.')) . "</td>";
                             echo "</tr>";
+                            
                         }
                     } else {
                         echo "<tr><td colspan='5' class='text-center'>Nenhuma transação encontrada.</td></tr>";
@@ -121,7 +134,7 @@ function esconderNome($frase) {
                     $stmt->close();
                     
                     // Contar o total de transações para a paginação
-                    $sqlCount = "SELECT COUNT(*) AS total FROM extrato";
+                    $sqlCount = "SELECT COUNT(*) AS total FROM extrato WHERE documento='$doc'";
                     $resultCount = $conexao->query($sqlCount);
                     $total = $resultCount->fetch_assoc()['total'];
                     $totalPages = ceil($total / $limit);
@@ -156,18 +169,16 @@ function esconderNome($frase) {
             </ul>
         </nav>
 
-    </section>    
-
-    <?php include("Componentes/footer.html");?>
-
+        <a class="btn btn-secondary btn-voltar my-5" href="#" onclick="window.history.back()">Voltar</a>
+        <!-- verifica se esse doador tem ou nao login, para oferecer criar -->
+        <?php if ($cadastroLogin): ?>
+        <a class="btn btn-primary my-5 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
+        <?php endif; ?>
+        <?php if ($cadastroDoador): ?>
+        <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>">Cadastrar Doador</a>
+        <?php endif; ?>
+    </section>
+    
+    <?php include_once('Componentes/footer.html'); ?>
 </body>
-<script>
-    function verdoacoes(doc, nivel) {
-        if(nivel == 7){
-            window.location.href = 'historicoDoador.php?doc=' + doc;
-        }
-    }
-</script>
-
 </html>
-

@@ -1,5 +1,12 @@
 <?php
     include_once("adm/process/sessionLogin.php");
+
+    if (isset($_GET['doc'])) {
+        $doc = $_GET['doc'];
+    }else{
+        $doc = "";
+        
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,7 +43,7 @@
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" >CPF</label>
-                        <input type="text" class="form-control"  placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="doc" id="cpf" required>
+                        <input type="text" class="form-control"  placeholder="000.000.000-00" aria-label="cpf" aria-describedby="basic-addon1" name="doc" id="cpf" value="<?php echo $doc?>" required>
                     </div>
 
                     <div class="col-5 col-md-4">

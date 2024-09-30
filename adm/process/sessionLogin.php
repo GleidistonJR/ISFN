@@ -23,7 +23,7 @@
                 </script>";
             exit();
         } else {
-            //permitido
+            return true;
         }
     }
 ?>

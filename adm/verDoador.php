@@ -82,11 +82,19 @@
         max-width: 100%;
     }
     .btn-voltar{
-        margin-left: 33%;
-        width: 33%;
+        margin-left: 15%;
+        width: 30%;
+    }
+    .btn-doacoes{
+        margin-left: 10%;
+        width: 30%;
     }
     @media (max-width: 992px) {
         .btn-voltar{
+            margin-left: 0%;
+            width: 100%;
+        }
+        .btn-doacoes{
             margin-left: 0%;
             width: 100%;
         }
@@ -179,6 +187,10 @@
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
                 <a class="btn btn-secondary btn-voltar px-5 mt-4" href="#" onclick="window.history.back()">Voltar</a>
+                
+                <?php if ($_SESSION['nivel'] == 7): ?>
+                <a class="btn btn-success btn-doacoes px-5 mt-4" href="historicoDoador.php?doc=<?php echo $doc?>">Ver Doações</a>
+                <?php endif; ?>
                
             </form>
         </article>
