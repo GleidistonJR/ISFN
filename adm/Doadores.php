@@ -23,20 +23,32 @@
     <title>ADM | Lista de Doadores</title>
 
     <style>
-        .admDoadores{
+        .Doadores{
             padding-top:150px;
+            min-height:60vh;
         }
-        .pesquisar{
-            width: 40%;
-            margin-left:30%;
+        .form-check-input {
+            background-color: #fefefe;
+            border: 1px solid #555;
+        }
+        .pesquisar.row{
+            width: 100%;
+        }
+        .col-pesquisa{
+            margin-left: 17%;
         }
         @media (max-width: 992px) {
-            .col-nome{
-                width: 80%;
+            .Doadores{
+                padding-top:150px;
+                min-height:50vh;
+            }.col-nome{
+                width: 55%;
             }
-            .pesquisar{
-                width: 80%;
-                margin-left:10%;
+            .col-filtro{
+                margin-left: 6%;
+            }
+            .col-pesquisa{
+                margin-left: 9%;
             }
         }
 
@@ -45,14 +57,29 @@
 <body>
     <?php include_once("Componentes/menu.php"); ?>
 
-    <section class="admDoadores mb-5 mx-md-5">
+    <section class="Doadores mb-5 mx-md-5">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
 
-        <div class="mb-5 pesquisar">
-            <form class="input-group" id="search-form" onsubmit="return false;"> <!-- Formulário -->
-                <input type="search" class="form-control" id="search-input" placeholder="Pesquisar nome" required>
-                <button type="submit" class="btn btn-primary" id="search-button"><i class="bi bi-search"></i></button>
-            </form>
+        <div class="mb-5 pesquisar row">
+            <div class="btn-group col-1 col-filtro">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-sort-up"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-9 col-pesquisa">
+                <form class="input-group" id="search-form" onsubmit="return false;"> <!-- Formulário -->
+                    <input type="search" class="form-control" id="search-input" placeholder="Pesquisar nome" required>
+                    <button type="submit" class="btn btn-primary" id="search-button"><i class="bi bi-search"></i></button>
+                </form>
+            </div>            
         </div>
 
         <table class="table table-striped table-hover tabela">

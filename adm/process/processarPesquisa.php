@@ -13,9 +13,10 @@ if (isset($_GET['search'])) {
 
     // Verifica se há resultados
     if ($result->num_rows > 0) {
+        $i = 1;
         while ($row = $result->fetch_assoc()) {
             echo '<tr>';
-            echo "<th scope='row'>". htmlspecialchars($row['id']) ." </th>";
+            echo "<th scope='row'>". htmlspecialchars($i) ." </th>";
             echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
             echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
             echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
@@ -37,6 +38,7 @@ if (isset($_GET['search'])) {
                 </svg>
             </a></td>';
             echo "</tr>";
+            $i++;
         }
     } else {
         echo "<tr><td colspan='3'>Nenhum doador encontrado</td></tr>";
