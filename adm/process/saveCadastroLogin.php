@@ -13,15 +13,18 @@
         $id = $_POST['id'];
         
        
-        if(isset($senha)){
+        if(!empty($senha)){
             $senhaSegura = password_hash($senha, PASSWORD_DEFAULT ); // Criptografa a senha 
-        }else{
-            $senhaSegura = ''; 
+
+            $stmt = $conexao->prepare("UPDATE pessoa SET senha = ? WHERE id = ?");
+            $stmt->bind_param("si", $senhaSegura, $id);
+            $stmt->execute();
+            $stmt->close();
+
         }
 
         
-        $stmt = $conexao->prepare("UPDATE pessoa SET login = ?, senha = ?, nivel = ? 
-        WHERE id = ?");
+        $stmt = $conexao->prepare("UPDATE pessoa SET login = ?,  nivel = ? WHERE id = ?");
 
         // Verifica se a preparação da consulta foi bem-sucedida
         if ($stmt === false) {
@@ -29,7 +32,7 @@
         }
 
         // Vincula os parâmetros e executa a consulta
-        $stmt->bind_param("ssii", $login, $senhaSegura, $nivel, $id);
+        $stmt->bind_param("sii", $login, $nivel, $id);
 
         
         if (!$stmt->execute()) {
@@ -38,9 +41,8 @@
             $conexao->close();
             exit();
         }
+
         $stmt->close();
-               
-        // Fecha a conexão
         $conexao->close();
         
         echo "<script>alert('Doador e endereço atualizados com sucesso!'); window.location.href = '../admDoadores.php';</script>";

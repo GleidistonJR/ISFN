@@ -30,6 +30,7 @@
                 $email = $row['email'];
                 $naturalidade = $row['naturalidade'];
                 $sexo = $row['sexo'];
+                $login = $row['login'];
             }
             
             
@@ -227,7 +228,12 @@
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
                 <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
+                <?php if(empty($login)): ?>
                 <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Criar Login</a>
+                <?php endif ?>
+                <?php if(!empty($login)): ?>
+                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Editar Login</a>
+                <?php endif ?>
                 <input class="btn btn-success btn-enviar px-5 mt-4" type="submit" name="update" value="Salvar Edição">
 
             </form>

@@ -46,15 +46,19 @@
             if(empty($login)){ //se o doador possuir cadastro mas não possuir login
                 $cadastroLogin = true;
                 $cadastroDoador = false;
+                $verDoador = true;
             }else{ //se o doador possuir cadastro mas e tambem possuir login
                 $cadastroLogin = false;
                 $cadastroDoador = false;
-
+                $verDoador = true;
+                
+                
             }
             
         }else{
             $cadastroLogin = false;
             $cadastroDoador = true;
+            $verDoador = false;
            //se o não doador possuir cadastro
             
         }
@@ -76,10 +80,30 @@
             margin-left: 15%;
             width: 30%;
         }
+        .btn-login{
+            margin-left: 10%;
+            width: 30%;
+        }
         .btn-cadastro{
             margin-left: 10%;
             width: 30%;
         }
+        <?php if ($verDoador && $cadastroLogin): ?>
+        
+        .btn-voltar{
+            margin-left: 15%;
+            width: 20%;
+        }
+        .btn-login{
+            margin-left: 5%;
+            width: 20%;
+        }
+
+        .btn-ver-doador{
+            margin-left: 5%;
+            width: 20%;
+        }
+        <?php endif; ?>
     </style>
 </head>
 <body>
@@ -191,7 +215,7 @@
         <a class="btn btn-secondary btn-voltar my-5" href="#" onclick="window.history.back()">Voltar</a>
         <!-- verifica se esse doador tem ou nao login, para oferecer criar -->
         <?php if ($cadastroLogin): ?>
-        <a class="btn btn-primary my-5 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
+        <a class="btn btn-primary my-5 btn-login" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
         <?php endif; ?>
         <?php if ($cadastroDoador): ?>
             <?php if (!$direcionarCPF): ?>
@@ -201,6 +225,11 @@
                     <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoadorPj.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>
         <?php endif; ?>
+        <?php if ($verDoador): ?>
+            <a class="btn btn-success my-5 btn-ver-doador" href="verDoador.php?id=<?php echo $id?>">Ver Doador</a>
+        <?php endif; ?>
+
+
     </section>
     
     <?php include_once('Componentes/footer.html'); ?>
