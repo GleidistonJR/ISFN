@@ -5,18 +5,37 @@
     if (isset($_GET['doc'])) {
         $doc = $_GET['doc'];
 
+        $numeroIdentificador = $_GET['doc'];
+        
+        if(strlen($numeroIdentificador) > 15){
+            //Foi enviado um cpf
+            $direcionarCPF = true;
+            $direcionarCNPJ = false;
+        }else{
+            //Foi enviado um cnpj
+            $direcionarCPF = false;
+            $direcionarCNPJ = true;
+        }
+       
         include('../DAO.php');
+
+        $stmt = $conexao->prepare("SELECT * FROM extrato WHERE documento=?");        
+        $stmt->bind_param("s", $doc);
+        $stmt->execute();        
+        $result = $stmt->get_result();
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()) {
+                //Resultado
+                $nomeDoador = $row['nome'];
+            }
+        }
+
+        $stmt->close();
               
         $conn = $conexao->prepare("SELECT * FROM pessoa WHERE doc=?");
-        
-        // Vinculando o parâmetro à consulta (número inteiro)
         $conn->bind_param("s", $doc);
-        
-        // Executando a consulta
         $conn->execute();
-        
         $result = $conn->get_result();
-        
         
         if($result->num_rows > 0){
             //Pussui cadastro
@@ -175,7 +194,12 @@
         <a class="btn btn-primary my-5 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
         <?php endif; ?>
         <?php if ($cadastroDoador): ?>
-        <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>">Cadastrar Doador</a>
+            <?php if (!$direcionarCPF): ?>
+                <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
+            <?php endif; ?>                
+            <?php if (!$direcionarCNPJ): ?>
+                    <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoadorPj.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
+            <?php endif; ?>
         <?php endif; ?>
     </section>
     

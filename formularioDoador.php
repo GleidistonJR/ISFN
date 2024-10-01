@@ -2,10 +2,12 @@
     include_once("adm/process/sessionLogin.php");
 
     if (isset($_GET['doc'])) {
-        $doc = $_GET['doc'];
+        $cpf = $_GET['doc'];               
+        $nome = $_GET['nome'];               
+
     }else{
-        $doc = "";
-        
+        $cpf = "";        
+        $nome = "";        
     }
 ?>
 <!DOCTYPE html>
@@ -35,7 +37,7 @@
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" placeholder="Nome Completo"  name="nome" id="nome" required>
+                        <input type="text" class="form-control" placeholder="Nome Completo"  name="nome" id="nome" value="<?php echo $nome?>" required>
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">
                         <label for="data-nascimento" class="form-label">Nascimento</label>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" >CPF</label>
-                        <input type="text" class="form-control"  placeholder="000.000.000-00"  name="doc" id="cpf" value="<?php echo $doc?>" required>
+                        <input type="text" class="form-control"  placeholder="000.000.000-00"  name="doc" id="cpf" value="<?php echo $cpf?>" required>
                     </div>
 
                     <div class="col-5 col-md-4">

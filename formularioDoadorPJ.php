@@ -2,10 +2,12 @@
     include_once("adm/process/sessionLogin.php");
 
     if (isset($_GET['doc'])) {
-        $doc = $_GET['doc'];
+        $cnpj = $_GET['doc'];  
+        $razao = $_GET['nome'];             
+
     }else{
-        $doc = "";
-        
+        $cnpj = "";   
+        $nome = "";      
     }
 ?>
 <!DOCTYPE html>
@@ -35,11 +37,11 @@
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="razao" class="form-label">Razão Social</label>
-                        <input type="text" class="form-control" placeholder="Razão Social"  name="razao" id="razao" required>
+                        <input type="text" class="form-control" placeholder="Razão Social"  name="razao" id="razao" value="<?php echo $razao?>" required>
                     </div>
                     <div class="col-12 col-md-4">
                         <label for="cnpj" class="form-label" >CNPJ</label>
-                        <input type="text" class="form-control"  placeholder="00.000.000/0000-00"  name="cnpj" id="cnpj" value="<?php echo $doc?>" required>
+                        <input type="text" class="form-control"  placeholder="00.000.000/0000-00"  name="cnpj" id="cnpj" value="<?php echo $cnpj?>" required>
                     </div>
                 </div>
                 <div class="input-group mb-4">
@@ -53,7 +55,7 @@
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" >CPF</label>
-                        <input type="text" class="form-control"  placeholder="000.000.000-00"  name="doc" id="cpf" value="<?php echo $doc?>" required>
+                        <input type="text" class="form-control"  placeholder="000.000.000-00"  name="doc" id="cpf" required>
                     </div>
 
                     <div class="col-5 col-md-4">
