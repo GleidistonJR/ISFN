@@ -70,7 +70,7 @@
 <html lang="pt-br">
 <head>
     <?php include_once('Componentes/headBasic.html'); ?>
-    <title>ISFN | Histórico Doador <?php echo $login ?> </title>
+    <title>ISFN | Histórico Doador</title>
 
     <style>
         .historico-doador{
@@ -85,6 +85,10 @@
             width: 30%;
         }
         .btn-cadastro{
+            margin-left: 10%;
+            width: 30%;
+        }
+        .btn-ver-doador{
             margin-left: 10%;
             width: 30%;
         }
@@ -104,6 +108,29 @@
             width: 20%;
         }
         <?php endif; ?>
+        @media (max-width:720px){
+            .btn-voltar{
+                margin-left: 10%;
+                width: 80%;
+                margin: 10px 10%;
+            }
+            .btn-login{
+                margin-left: 10%;
+                width: 80%;
+            }
+
+            .btn-ver-doador{
+                margin-left: 10%;
+                width: 80%;
+            }
+            .btn-cadastro{
+                margin-left: 10%;
+                width: 80%;
+            }
+            h4{
+                font-size:1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -112,17 +139,13 @@
     <section class="container historico-doador">
 
         <h1 class="text-center">Histórico do Doador</h1>
+        <h4 class="text-center"> <?php echo $nomeDoador ?> | <?php echo $doc ?> </h4>
         
         <div class="table-responsive">
             <table class="table table-striped mt-5">
                 <thead class="table-info">
                     <tr>
                         <th class="data" scope="col">Data</th>
-                        <th class="d-none d-md-table-cell descricao">Descrição</th>
-                        <th class="nome">Nome</th>
-                        <?php if ($_SESSION['nivel'] == 7): ?>
-                        <th class="d-none d-md-table-cell documento">Documento</th>
-                        <?php endif; ?>
                         <th class="valor">Valor</th>
                     </tr>   
                 </thead>
@@ -154,17 +177,6 @@
                             $dataFormatada = date("d/m/Y", strtotime($transacao['data'])); // Converte para DD/MM/YYYY
                             
                             echo "<td>" . htmlspecialchars($dataFormatada) . "</td>";
-                            echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($transacao['descricao']) . "</td>";
-                            if($_SESSION['nivel'] == 7){
-                                echo "<td>" . htmlspecialchars($transacao['nome']) . "</td>";
-                            }else{
-                                $nomeOculto = esconderNome($transacao['nome']);
-                                echo "<td>" . htmlspecialchars($nomeOculto) . "</td>";
-                                
-                            }
-                            if($_SESSION['nivel'] == 7){
-                                echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($transacao['documento']) . "</td>";
-                            }
                             echo "<td>" . htmlspecialchars(number_format($transacao['valor'], 2, ',', '.')) . "</td>";
                             echo "</tr>";
                             
@@ -212,21 +224,21 @@
             </ul>
         </nav>
 
-        <a class="btn btn-secondary btn-voltar my-5" href="#" onclick="window.history.back()">Voltar</a>
+        <a class="btn btn-secondary btn-voltar my-md-5 mb-3" href="#" onclick="window.history.back()">Voltar</a>
         <!-- verifica se esse doador tem ou nao login, para oferecer criar -->
         <?php if ($cadastroLogin): ?>
-        <a class="btn btn-primary my-5 btn-login" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
+        <a class="btn btn-primary my-md-5 mb-3 btn-login" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
         <?php endif; ?>
         <?php if ($cadastroDoador): ?>
             <?php if (!$direcionarCPF): ?>
-                <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
+                <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>                
             <?php if (!$direcionarCNPJ): ?>
-                    <a class="btn btn-success my-5 btn-cadastro" href="../formularioDoadorPj.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
+                    <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="../formularioDoadorPJ.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>
         <?php endif; ?>
         <?php if ($verDoador): ?>
-            <a class="btn btn-success my-5 btn-ver-doador" href="verDoador.php?id=<?php echo $id?>">Ver Doador</a>
+            <a class="btn btn-success my-md-5 mb-3 btn-ver-doador" href="verDoador.php?id=<?php echo $id?>">Ver Doador</a>
         <?php endif; ?>
 
 

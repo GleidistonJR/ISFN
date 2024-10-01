@@ -2,25 +2,6 @@
 include_once("process/sessionLogin.php");
 verificarNivel($_SESSION['nivel'], [7,2,1]);
 
-//Função para monstrar apenas primeira letra do nome
-function esconderNome($frase) {
-    // Divide a frase em palavras
-    $palavras = explode(' ', $frase);
-    $inicial = '';
-
-    // Loop por cada palavra e extrai a primeira letra
-    foreach ($palavras as $index => $palavra) {
-        if (!empty($palavra)) { // Verifica se a palavra não está vazia
-            // Se não for a primeira letra, adiciona o ponto
-            if ($index > 0) {
-                $inicial .= '.';
-            }
-            $inicial .= strtoupper($palavra[0]); // Adiciona a letra inicial
-        }
-    }
-
-    return $inicial;
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,9 +45,9 @@ function esconderNome($frase) {
                     <tr>
                         <th class="data" scope="col">Data</th>
                         <th class="d-none d-md-table-cell descricao">Descrição</th>
-                        <th class="nome">Nome</th>
                         <?php if ($_SESSION['nivel'] == 7): ?>
-                        <th class="d-none d-md-table-cell documento">Documento</th>
+                            <th class="nome">Nome</th>
+                            <th class="d-none d-md-table-cell documento">Documento</th>
                         <?php endif; ?>
                         <th class="valor">Valor</th>
                     </tr>   
@@ -102,12 +83,6 @@ function esconderNome($frase) {
                             echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($transacao['descricao']) . "</td>";
                             if($_SESSION['nivel'] == 7){
                                 echo "<td>" . htmlspecialchars($transacao['nome']) . "</td>";
-                            }else{
-                                $nomeOculto = esconderNome($transacao['nome']);
-                                echo "<td>" . htmlspecialchars($nomeOculto) . "</td>";
-                                
-                            }
-                            if($_SESSION['nivel'] == 7){
                                 echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($transacao['documento']) . "</td>";
                             }
                             echo "<td>" . htmlspecialchars(number_format($transacao['valor'], 2, ',', '.')) . "</td>";
