@@ -99,9 +99,29 @@
                     $i = 1;
                     // Exibindo cada linha de resultado em uma nova linha da tabela
                     while ($row = $result->fetch_assoc()) {
+                        
+                        //Sonsulta para saber se aquele doador e Pessoa Juridica
+                        $conn = $conexao->prepare("SELECT * FROM pessoa_juridica WHERE id_pessoa=?");
+                        $conn->bind_param("i", $row['id']);
+                        $conn->execute();
+                        $resultado = $conn->get_result();
+                        //Retorna verdadeiro ou falso
+                        if ($resultado->num_rows > 0) {
+                            $pj = true;
+                            
+                        }else{
+                            $pj = false;
+                        }
+
+
                         echo '<tr>';
                         echo "<th scope='row'>". htmlspecialchars($i) ." </th>";
-                        echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
+                        if($pj){
+                            echo "<td>" . htmlspecialchars($row['nome']) . " <b>(PJ)</b></td>";
+                        }else{
+                            echo "<td>" . htmlspecialchars($row['nome']) . "</td>";                            
+                        }
+
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
                         echo '<td>
@@ -129,6 +149,7 @@
                 }
 
                 // Fechando a conexão
+                $conn->close();
                 $stmt->close();
                 $conexao->close();
                 ?>

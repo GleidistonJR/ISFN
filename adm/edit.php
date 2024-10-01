@@ -55,6 +55,21 @@
                 // Se não encontrar o endereço, você pode definir valores padrão ou lidar com o caso como preferir
                 $cep = $pais = $estado = $cidade = $rua = $setor = $numero = $complemento = '';
             }
+
+            // Prepara e executa a consulta para obter PJ associado à pessoa
+            $stmt = $conexao->prepare("SELECT * FROM pessoa_juridica WHERE id_pessoa=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $razao = $row['razao'];
+                    $cnpj = $row['cnpj'];
+                }
+            }else{
+                $razao = $cnpj = '';
+            }
         }
         else{
             echo "<script>alert('ID não encontrado para edição!'); window.location.href = 'admDoadores.php';</script>";
@@ -82,7 +97,7 @@
         max-width: 100%;
     }
     .btn-voltar{
-        margin-left: 5%;
+        margin-left: 7%;
         width: 25%;
     }
     .btn-cadastro{
@@ -121,19 +136,32 @@
             <h2 class="text-center">Editar Cadastro Doador</h2>
             
             <form class="col-10 col-form m-5" method="POST" action="process/saveEdit.php">
-                
+            
+                <?php if(!empty($razao)) : ?>
+                <div class="input-group mb-4">
+                    <div class="col-12 col-md-8 mb-2 mb-md-4">
+                        <label for="razao" class="form-label">Razão Social</label>
+                        <input type="text" class="form-control" placeholder="Razão Social"  name="razao" id="razao" value="<?php echo $razao?>" >
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label for="cnpj" class="form-label" >CNPJ</label>
+                        <input type="text" class="form-control"  placeholder="00.000.000/0000-00"  name="cnpj" id="cnpj" value="<?php echo $cnpj?>" >
+                    </div>
+                </div>
+                <?php endif ?>
+            
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label" id="nome">Nome:</label>
-                        <input type="text" class="form-control" placeholder="Nome Completo" value="<?php echo $nome?>" name="nome" id="nome" required>
+                        <input type="text" class="form-control" placeholder="Nome Completo" value="<?php echo $nome?>" name="nome" id="nome" >
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">
                         <label for="data-nascimento" class="form-label">Nascimento:</label>
                         <input type="text" class="form-control" placeholder="00/00/0000" value="<?php echo $nasc?>" name="nasc" id="data-nascimento">
                     </div>
                     <div class="col-7 col-md-3">
-                        <label for="cpf" class="form-label" id="cpf" >CPF:</label>
-                        <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00" value="<?php echo $doc?>" name="doc" id="cpf" required>
+                        <label for="cpf" class="form-label">CPF:</label>
+                        <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" value="<?php echo $doc?>" name="doc" id="cpf" >
                     </div>
 
                     <div class="col-6 col-md-4">
@@ -199,7 +227,7 @@
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
                 <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
-                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
+                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Criar Login</a>
                 <input class="btn btn-success btn-enviar px-5 mt-4" type="submit" name="update" value="Salvar Edição">
 
             </form>
@@ -217,7 +245,8 @@
         $("#data-nascimento").mask("00/00/0000");
         $("#telefone").mask("(00)00000-0000");
         $("#cep").mask("00000-000");
-        $("#cpfInp").mask("000.000.000-00");
+        $("#cpf").mask("000.000.000-00");
+        $("#cnpj").mask("00.000.000/0000-00");
     </script>
     <script type="text/javascript" src="js/cep.js"></script>
 </body>

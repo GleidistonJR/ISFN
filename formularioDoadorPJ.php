@@ -44,7 +44,7 @@
                 </div>
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
-                        <label for="nome" class="form-label">Nome</label>
+                        <label for="nome" class="form-label">Dados do responsavel</label>
                         <input type="text" class="form-control" placeholder="Nome Completo"  name="nome" id="nome" required>
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">

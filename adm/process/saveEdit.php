@@ -32,27 +32,20 @@
         $sexo = trim($sexo); 
         $email = filter_var($email, FILTER_SANITIZE_EMAIL); // Sanitiza o email (Remove caracteres não permitidos no e-mail.)
         
-
-        
-        $stmt = $conexao->prepare("UPDATE pessoa SET doc = ?, nome = ?, nasc = ?, fone = ?, email = ?, sexo = ? 
-        WHERE id = ?");
-
+        // Atualiza os dados da tabela pessoa
+        $stmt = $conexao->prepare("UPDATE pessoa SET doc = ?, nome = ?, nasc = ?, fone = ?, email = ?, sexo = ? WHERE id = ?");
         // Verifica se a preparação da consulta foi bem-sucedida
         if ($stmt === false) {
             die("Erro na preparação da consulta: " . $conexao->error);
         }
-
         // Vincula os parâmetros e executa a consulta
-        $stmt->bind_param("ssssssi", $doc, $nome, $nasc, $fone, $email, $sexo, $id);
-
-        
+        $stmt->bind_param("ssssssi", $doc, $nome, $nasc, $fone, $email, $sexo, $id);        
         if (!$stmt->execute()) {
             echo "<script>alert('Erro ao atualizar dados da pessoa: " . $stmt->error . "'); window.location.href = '../admDoadores.php';</script>";
             $stmt->close();
             $conexao->close();
             exit();
         }
-        $stmt->close();
         
         // Atualiza os dados da tabela endereco
         $stmt = $conexao->prepare("UPDATE endereco SET cep = ?, pais = ?, estado = ?, cidade = ?, rua = ?, setor = ?, numero = ?, complemento = ? WHERE id_pessoa = ?");
@@ -66,12 +59,50 @@
             $conexao->close();
             exit();
         }
-        $stmt->close();
         
+        // Capturando dados do formulário se for PJ
+        if (!empty($_POST['razao'])) {
+            $razao = $_POST['razao'];
+            $cnpj = $_POST['cnpj'];
+
+            //Verifica se existe, para ou criar, ou fazer update
+            $stmt = $conexao->prepare("SELECT * FROM pessoa_juridica WHERE id_pessoa = ?");
+            $stmt->bind_param("i", $id);
+            // Executando a consulta
+            $stmt->execute();                
+            $result = $stmt->get_result();                
+            
+            if($result->num_rows > 0){
+                $stmt = $conexao->prepare("UPDATE pessoa_juridica SET razao = ?, cnpj = ? WHERE id_pessoa = ?");
+                if ($stmt === false) {
+                    die("Erro na preparação da consulta: " . $conexao->error);
+                }
+                $stmt->bind_param("ssi", $razao, $cnpj, $id);
+    
+                if (!$stmt->execute()) {
+                    die("Erro ao inserir na tabela endereco: " . $stmt->error);
+                }
+
+            }else{
+                $stmt = $conexao->prepare("INSERT INTO pessoa_juridica (id_pessoa, razao, cnpj) VALUES (?, ?, ?)");
+                if ($stmt === false) {
+                    die("Erro na preparação da consulta: " . $conexao->error);
+                }
+                $stmt->bind_param("iss", $id, $razao, $cnpj);
+    
+                if (!$stmt->execute()) {
+                    die("Erro ao inserir na tabela endereco: " . $stmt->error);
+                }
+            }
+
+        }
+
+
         // Fecha a conexão
+        $stmt->close();
         $conexao->close();
         
-        echo "<script>alert('Doador e endereço atualizados com sucesso!'); window.location.href = '../admDoadores.php';</script>";
+        echo "<script>alert('Dados do Doador atualizados com sucesso!'); window.location.href = '../admDoadores.php';</script>";
     } else {
         // Se não tiver acessado a página enviando dados do formulário
         retornarAdm();
