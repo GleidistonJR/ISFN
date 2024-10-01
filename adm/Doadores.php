@@ -1,7 +1,7 @@
 <?php
     
     include_once("process/sessionLogin.php");
-    verificarNivel($_SESSION['nivel'], [2,7]);
+    verificarNivel($_SESSION['nivel'], [7]);
 
     include_once("../DAO.php");
     

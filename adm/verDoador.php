@@ -1,6 +1,6 @@
 <?php
     include_once("process/sessionLogin.php");
-    verificarNivel($_SESSION['nivel'], [2,7]);
+    verificarNivel($_SESSION['nivel'], [7]);
 
     // Verifica se os parâmetros foram enviados na URL
     if (isset($_GET['id'])) {
@@ -55,6 +55,23 @@
                 // Se não encontrar o endereço, você pode definir valores padrão ou lidar com o caso como preferir
                 $cep = $pais = $estado = $cidade = $rua = $setor = $numero = $complemento = '';
             }
+
+            // Prepara e executa a consulta para obter PJ associado à pessoa
+            $stmt = $conexao->prepare("SELECT * FROM pessoa_juridica WHERE id_pessoa=?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                // Recupera os dados do endereço
+                while ($row = $result->fetch_assoc()) {
+                    $razao = $row['razao'];
+                    $cnpj = $row['cnpj'];
+                }
+            }else{
+                $razao = $cnpj = '';
+            }
+
         }
         else{
             echo "<script>alert('ID não encontrado para edição!'); window.location.href = 'admDoadores.php';</script>";
@@ -113,7 +130,19 @@
             <h2 class="text-center">Dados Doador <?php echo $nome?></h2>
             
             <form class="col-10 col-form m-5" method="POST" action="process/saveEdit.php">
-                
+                <?php if(!empty($razao)) : ?>
+                <div class="input-group mb-4">
+                    <div class="col-12 col-md-8 mb-2 mb-md-4">
+                        <label for="razao" class="form-label">Razão Social</label>
+                        <input type="text" class="form-control" placeholder="Razão Social"  name="razao" id="razao" value="<?php echo $razao?>" disabled>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label for="cnpj" class="form-label" >CNPJ</label>
+                        <input type="text" class="form-control"  placeholder="00.000.000/0000-00"  name="cnpj" id="cnpj" value="<?php echo $cnpj?>" disabled>
+                    </div>
+                </div>
+                <?php endif ?>
+
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label" id="nome">Nome:</label>
