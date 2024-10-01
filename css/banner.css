@@ -57,9 +57,12 @@
 
     .sec-banner {
         background-image: url(../img/img-banner/BannerMob.jpg);
+        height: 100vh;
         padding: 0; 
         justify-content: start;
         align-items: center;
+        background-size: cover;
+        background-position: top;
     }
     .row-banner{
         display: flex;

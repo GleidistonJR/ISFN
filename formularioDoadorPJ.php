@@ -29,9 +29,19 @@
     ?>
     <section class="formulario-colaborador container-fluid" id="formulario-colaborador">
         <article class="row">
-            <h2>Cadastro Doador Mensal P.F.</h2>
+            <h2>Cadastro Doador Mensal P.J.</h2>
             <form class="col-12 col-md-5 col-form" method="POST" action="enviarDoador.php" onsubmit="return validarFormulario()">
 
+                <div class="input-group mb-4">
+                    <div class="col-12 col-md-8 mb-2 mb-md-4">
+                        <label for="razao" class="form-label">Razão Social</label>
+                        <input type="text" class="form-control" placeholder="Razão Social"  name="razao" id="razao" required>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label for="cnpj" class="form-label" >CNPJ</label>
+                        <input type="text" class="form-control"  placeholder="00.000.000/0000-00"  name="cnpj" id="cnpj" value="<?php echo $doc?>" required>
+                    </div>
+                </div>
                 <div class="input-group mb-4">
                     <div class="col-12 col-md-8 mb-2 mb-md-4">
                         <label for="nome" class="form-label">Nome</label>
@@ -39,7 +49,7 @@
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-4">
                         <label for="data-nascimento" class="form-label">Nascimento</label>
-                        <input type="text" class="form-control" placeholder="00/00/0000" name="nasc" id="data-nascimento" required>
+                        <input type="text" class="form-control" placeholder="00/00/0000"  name="nasc" id="data-nascimento" required>
                     </div>
                     <div class="col-7 col-md-3">
                         <label for="cpf" class="form-label" >CPF</label>
@@ -288,11 +298,11 @@
             </form>
 
             <div class="col-12 p-0 col-md-5 col-img">
-                <img src="./img/img-banner/criancas-fazendo-robo.webp" alt="">
+                <img src="./img/img-banner/img-robotica01-azul.webp" class="w-75" alt="">
             </div>
             
             <div class="col-10 dificuldade-cadastro">
-                <a href="formularioDoadorPJ.php" class="btn btn-success text-white mb-3">Cadastro de Pessoa Jurídica</a>
+                <a href="formularioDoador.php" class="btn btn-success text-white mb-3">Cadastro de Pessoa Física</a>
                 <h5><a href="https://wa.me//5562992862544" target="_blank">Dificuldades com cadastro?</a></h5>
             </div>
         </article>
@@ -313,6 +323,7 @@
     $("#telefone").mask("(00)00000-0000");
     $("#cep").mask("00000-000");
     $("#cpf").mask("000.000.000-00");
+    $("#cnpj").mask("00.000.000/0000-00");
 
     function validarCPF(cpf) {
         cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos

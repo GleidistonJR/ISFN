@@ -47,7 +47,7 @@
 <html lang="pt-br">
 <head>
     <?php include_once('Componentes/headBasic.html'); ?>
-    <title>ISFN | Historico Doador <?php echo $login ?> </title>
+    <title>ISFN | Histórico Doador <?php echo $login ?> </title>
 
     <style>
         .historico-doador{
@@ -68,7 +68,7 @@
     
     <section class="container historico-doador">
 
-        <h1 class="text-center">Historico do Doador</h1>
+        <h1 class="text-center">Histórico do Doador</h1>
         
         <div class="table-responsive">
             <table class="table table-striped mt-5">

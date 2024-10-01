@@ -1,6 +1,7 @@
 <?php
 
 if (isset($_POST['nome']) && isset($_POST['doc'])) {
+    
     // Capturando dados do formulário
     $nome = $_POST['nome'];
     $nasc = $_POST['nasc'];
@@ -29,16 +30,16 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
     // Incluindo conexão
     include_once("DAO.php");
 
-    // Prepara a consulta para verificar se o CPF já está cadastrado
+    // Prepara a consulta para verificar se o documento já está cadastrado
     $stmt = $conexao->prepare("SELECT id FROM pessoa WHERE doc = ?");
-    $stmt->bind_param("s", $doc); // Vinculando o CPF
+    $stmt->bind_param("s", $doc); // Vinculando o doc
     $stmt->execute();
     $stmt->store_result(); // Armazena o resultado
 
-    // Verifica se o CPF já existe
+    // Verifica se o documento já existe
     if ($stmt->num_rows > 0) {
-    // CPF já cadastrado
-    echo "<script>alert('Este CPF já está cadastrado!'); window.history.back();</script>";
+    // doc já cadastrado
+    echo "<script>alert('Este documento já está cadastrado!'); window.history.back();</script>";
     }else {
 
         // Iniciando uma transação
@@ -56,7 +57,7 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
                 throw new Exception("Erro ao inserir na tabela pessoa: " . $stmt->error);
             }
 
-            // Obter o ID da pessoa inserida
+            // Obtem o ID da pessoa inserida
             $id_pessoa = $conexao->insert_id;
 
             // Inserir na tabela endereco
@@ -68,6 +69,23 @@ if (isset($_POST['nome']) && isset($_POST['doc'])) {
 
             if (!$stmt->execute()) {
                 throw new Exception("Erro ao inserir na tabela endereco: " . $stmt->error);
+            }
+
+            
+            // Capturando dados do formulário se for PJ
+            if (isset($_POST['razao'])) {
+                $razao = $_POST['razao'];
+                $cnpj = $_POST['cnpj'];
+
+                $stmt = $conexao->prepare("INSERT INTO pessoa_juridica (id_pessoa, razao, cnpj) VALUES (?, ?, ?)");
+                if ($stmt === false) {
+                    throw new Exception("Erro na preparação da consulta: " . $conexao->error);
+                }
+                $stmt->bind_param("iss", $id_pessoa, $razao, $cnpj);
+    
+                if (!$stmt->execute()) {
+                    throw new Exception("Erro ao inserir na tabela endereco: " . $stmt->error);
+                }                
             }
 
             // Commit da transação

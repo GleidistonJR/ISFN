@@ -34,7 +34,7 @@
                         ';
                         
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
-                        //esta logado nivel baixo
+                        //esta logado nivel 1
                         echo '
                         <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,18 +48,18 @@
                         <li><a class="" href="adm/transparencia.php">Transparência</a></li>
                         ';
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
-                        //esta logado nivel baixo
+                        //esta logado nivel 2
                         echo '
-                         <div class="dropdown">
+                        <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 '. $_SESSION['nome'] .'
-                            </a>
+                            </a>kw
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
+                                         
                         <li><a class="" href="adm/transparencia.php">Transparência</a></li>
-                        <li><a class="" href="adm/Doadores.php">Doadores</a></li>
                         ';
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                         //esta logado nivel 7 
@@ -71,14 +71,13 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="formularioDoador.php">Cadastrar Doador</a></li>
                                 <li><a class="dropdown-item" href="adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
-                                <li><a class="dropdown-item" href="adm/admDoadores.php">Doadores ADM</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
 
                         <li><a class="" href="adm/transparencia.php">Transparência</a></li>   
-                        <li><a class="" href="adm/Doadores.php">Doadores</a></li>
+                        <li><a class="" href="adm/admDoadores.php">Doadores</a></li>
                         ';
                     }
                 ?>

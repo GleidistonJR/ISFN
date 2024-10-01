@@ -34,7 +34,7 @@
                         ';
                         
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
-                        //esta logado nivel baixo
+                        //esta logado nivel 1
                         echo '
                         <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,9 +48,9 @@
                         <li><a class="" href="transparencia.php">Transparência</a></li>
                         ';
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
-                        //esta logado nivel baixo
+                        //esta logado nivel 2
                         echo '
-                         <div class="dropdown">
+                        <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 '. $_SESSION['nome'] .'
                             </a>
@@ -58,8 +58,8 @@
                                 <li><a class="dropdown-item text-danger text-center" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
+                                         
                         <li><a class="" href="transparencia.php">Transparência</a></li>
-                        <li><a class="" href="Doadores.php">Doadores</a></li>
                         ';
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                         //esta logado nivel 7 
@@ -71,14 +71,13 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../formularioDoador.php">Cadastrar Doador</a></li>
                                 <li><a class="dropdown-item" href="cadastroExtrato.php">Cadastrar Extrato</a></li>
-                                <li><a class="dropdown-item" href="admDoadores.php">Doadores ADM</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger text-center" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
 
                         <li><a class="" href="transparencia.php">Transparência</a></li>   
-                        <li><a class="" href="Doadores.php">Doadores</a></li>
+                        <li><a class="" href="admDoadores.php">Doadores</a></li>
                         ';
                     }
                 ?>
@@ -117,27 +116,26 @@
                             ';
                             
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
-                            //esta logado nivel baixo
+                            //esta logado nivel 1
                             echo '
                             <li><a href="transparencia.php">Transparência</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="text-danger" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
-                           //esta logado nivel baixo
+                           //esta logado nivel 2
                            echo '
-                           <li><a href="transparencia.php">Transparência</a></li>
-                           <li><a href="Doadores.php">Lista de Doadores</a></li>
-                           <li><hr class="dropdown-divider"></li>
-                           <li><a class="text-danger" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
-                           ';
+                            <li><a href="transparencia.php">Transparência</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="text-danger" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            ';
                        }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7
                             echo '
                             <li><a href="transparencia.php">Transparência</a></li>
                             <li><a href="cadastroExtrato.php">Cadastrar Extrato</a></li>
                             <li><a href="../formularioDoador.php">Cadastrar Doador</a></li>
-                            <li><a href="admDoadores.php">Lista de Doadores ADM</a></li>
+                            <li><a href="admDoadores.php">Lista de Doadores</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="text-danger" href="process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
