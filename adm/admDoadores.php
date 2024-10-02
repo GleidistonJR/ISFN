@@ -5,12 +5,80 @@
     
     include_once("../DAO.php");
     
-    // Preparando e executando a consulta para listar os dados
-    $stmt = $conexao->prepare("SELECT * FROM pessoa ORDER BY nome ASC");
-    $stmt->execute();
+
+    // 1. Consulta para a tabela `pessoa`
+    $query_pessoa = "SELECT nome, doc AS documento, email, fone, id FROM pessoa";
+    $result_pessoa = $conexao->query($query_pessoa);
+    $pessoas = []; // Array para armazenar os dados da tabela pessoa
+    if ($result_pessoa->num_rows > 0) {
+        while ($row = $result_pessoa->fetch_assoc()) {
+            // Salva os documentos em um array para checagem posterior
+            $pessoas[] = $row;
+        }
+    }
+
     
-    // Pegando o resultado da consulta
-    $result = $stmt->get_result();
+    // 2. Consulta para a tabela `extrato`, excluindo documentos já presentes na tabela `pessoa`
+    $documentos_pessoa = array_column($pessoas, 'documento'); // Extraindo os documentos
+    $documentos_pessoa_imploded = "'" . implode("','", $documentos_pessoa) . "'"; // Preparando para uso no IN
+
+    $query_extrato = "SELECT DISTINCT nome, documento, NULL AS email, NULL AS fone, NULL AS id 
+                    FROM extrato 
+                    WHERE documento NOT IN ($documentos_pessoa_imploded)";
+
+    $result_extrato = $conexao->query($query_extrato);
+
+    $extratos = []; // Array para armazenar os dados da tabela extrato
+
+    if ($result_extrato->num_rows > 0) {
+        while ($row = $result_extrato->fetch_assoc()) {
+            $extratos[] = $row;
+        }
+    }
+
+    
+    // 3. Combina os resultados das duas consultas
+    $resultados_finais = array_merge($pessoas, $extratos);
+
+    // 4. Exibição dos resultados finais ordenados por nome
+    usort($resultados_finais, function($a, $b) {
+        return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+    });
+
+
+
+
+
+
+    // Preparando a consulta com UNION
+    $query = "
+    SELECT DISTINCT nome, documento, email, fone, id 
+    FROM (
+        SELECT nome, doc AS documento, email, fone, id 
+        FROM pessoa
+
+        UNION ALL
+
+        SELECT nome, documento, NULL AS email, NULL AS fone, NULL AS id 
+        FROM extrato
+    ) AS combined
+    WHERE documento IS NOT NULL
+    ORDER BY nome ASC";
+        
+    //$stmt = $conexao->prepare("SELECT * FROM pessoa ORDER BY nome ASC");
+    $stmt = $conexao->prepare($query);
+    if ($stmt === false) {
+        die("Erro na preparação da consulta: " . $conexao->error);
+    }
+
+
+
+
+
+
+
+    $stmt->execute();
+    $result = $stmt->get_result(); // Pegando o resultado da consulta
 
 ?>
 
@@ -98,11 +166,11 @@
                 if ($result->num_rows > 0) {
                     $i = 1;
                     // Exibindo cada linha de resultado em uma nova linha da tabela
-                    while ($row = $result->fetch_assoc()) {
+                    foreach ($resultados_finais as $doador) {
                         
-                        //Sonsulta para saber se aquele doador e Pessoa Juridica
+                        //consulta para saber se aquele doador e Pessoa Juridica
                         $conn = $conexao->prepare("SELECT * FROM pessoa_juridica WHERE id_pessoa=?");
-                        $conn->bind_param("i", $row['id']);
+                        $conn->bind_param("i", $doador['id']);
                         $conn->execute();
                         $resultado = $conn->get_result();
                         //Retorna verdadeiro ou falso
@@ -114,34 +182,142 @@
                         }
 
 
+
+                        $conn = $conexao->prepare("SELECT * FROM extrato WHERE documento=? ORDER BY data DESC LIMIT 1;");
+                        $conn->bind_param("s", $doador['documento']);
+                        $conn->execute();
+                        $resultado = $conn->get_result();
+                        
+                        if ($resultado->num_rows > 0) {
+                            //Existe doação
+                            $linha = $resultado->fetch_assoc();
+                            $ultimaDoacao = $linha['data'];
+                            $dataUltimaDoacao = new DateTime($ultimaDoacao);
+                            $dataAtual = new DateTime(); // Data atual
+
+                            $intervalo = $dataAtual->diff($dataUltimaDoacao);
+                            $diasIntervalo = $intervalo->days;
+
+                            $status = $diasIntervalo;
+                            if($diasIntervalo < 31){
+                                $status = "Verde";
+                            }elseif($diasIntervalo < 45){
+                                $status = "Amarelo";
+
+                            }elseif($diasIntervalo < 60){
+                                $status = "Laranja";
+
+                            }elseif($diasIntervalo > 60){
+                                $status = "Vermelho";
+                            }
+                        }else{
+                            //Não existe doação
+                            $status = "Nunca";
+                            
+                        }
+                        //Verificando se Doador e cadastrado
+                        $conn = $conexao->prepare("SELECT * FROM pessoa WHERE doc=?;");
+                        $conn->bind_param("s", $doador['documento']);
+                        $conn->execute();
+                        $resultado = $conn->get_result();
+                        
+                        if ($resultado->num_rows > 0) {
+                            $cadastrado = true;
+                        }else{
+                            $cadastrado = false;
+                        }
+
+
+
+
+
+
                         echo '<tr>';
                         echo "<th scope='row'>". htmlspecialchars($i) ." </th>";
                         if($pj){
-                            echo "<td>" . htmlspecialchars($row['nome']) . " <b>(PJ)</b></td>";
+                            echo "<td>" . htmlspecialchars($doador['nome']) . " <b>(PJ)</b></td>";
                         }else{
-                            echo "<td>" . htmlspecialchars($row['nome']) . "</td>";                            
+                            echo "<td>" . htmlspecialchars($doador['nome']) . "</td>";                            
                         }
 
-                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['email']) . "</td>";
-                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($row['fone']) . "</td>";
-                        echo '<td>
-                        <a class="btn btn-warning btn-sm" href="verDoador.php?id='.$row['id'].'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($doador['email']) . "</td>";
+                        //echo "<td class='d-none d-md-table-cell'>";
+                        // print_r($doador);
+                        // echo "</td>";
+                        echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($doador['fone']) . "</td>";
+                        if($cadastrado){
+
+                            if($status == 'Verde'){
+                                echo '<td>
+                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: green;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                 <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
                                 <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                            </svg>
-                        </a>
-                        <a class="btn btn-primary btn-sm edit-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$row['id'].'"">
+                                </svg>
+                                </a>';
+                            }elseif($status == 'Amarelo'){
+                                echo '<td>
+                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #efd51d;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                </svg>
+                                </a>';
+                            }elseif($status == 'Laranja'){
+                                echo '<td>
+                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #ef911d;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                </svg>
+                                </a>';
+                            }elseif($status == 'Vermelho'){
+                                echo '<td>
+                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #dc3545;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                </svg>
+                                </a>';
+                            }elseif($status == 'Nunca'){
+                                echo '<td>
+                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #6633FF;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                </svg>
+                                </a>';
+                            }
+                            echo '
+                            <a class="btn btn-primary btn-sm edit-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$doador['id'].'"">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
+                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
                             </svg>
-                        </a>
-                        <a class="btn btn-danger btn-sm delete-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$row['id'].'">
+                            </a>';
+                            echo '
+                            <a class="btn btn-danger btn-sm delete-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$doador['id'].'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
                             </svg>
-                        </a></td>';
-                        echo "</tr>";
+                            </a></td>';
+                        }else{
+                            $documento = verificarDocumento($doador['documento']);
+                            if($documento == "cpf"){
+                                echo '<td>
+                                        <a class="btn btn-success btn-sm" href="../formularioDoador.php?doc='.$doador["documento"].'&nome='.$doador['nome'].'">
+                                            Cadastrar
+                                        </a>
+                                        </td>';
+                            }else{
+                                echo '<td>
+                                <a class="btn btn-success btn-sm" href="../formularioDoadorPJ.php?doc='.$doador["documento"].'&nome='.$doador['nome'].'">
+                                    Cadastrar
+                                </a>
+                                </td>';
+                            }
+                        }
+                            echo "</tr>";
+
                         $i++;
                     }
                 } else {

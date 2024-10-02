@@ -26,4 +26,17 @@
             return true;
         }
     }
+
+    //FUNÇÔES REPETITIVAS
+    function verificarDocumento($_documento){
+        if(strlen($_documento) < 15){
+            //Foi enviado um cpf
+            $documento = 'cpf';
+            return $documento;
+        }else{
+            //Foi enviado um cnpj
+            $documento = 'cnpj';
+            return $documento;
+        }
+    }
 ?>

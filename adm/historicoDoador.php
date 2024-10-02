@@ -7,15 +7,8 @@
 
         $numeroIdentificador = $_GET['doc'];
         
-        if(strlen($numeroIdentificador) > 15){
-            //Foi enviado um cpf
-            $direcionarCPF = true;
-            $direcionarCNPJ = false;
-        }else{
-            //Foi enviado um cnpj
-            $direcionarCPF = false;
-            $direcionarCNPJ = true;
-        }
+        $documento = verificarDocumento($numeroIdentificador);
+       
        
         include('../DAO.php');
 
@@ -230,10 +223,10 @@
         <a class="btn btn-primary my-md-5 mb-3 btn-login" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
         <?php endif; ?>
         <?php if ($cadastroDoador): ?>
-            <?php if (!$direcionarCPF): ?>
+            <?php if ($documento == 'cpf'): ?>
                 <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>                
-            <?php if (!$direcionarCNPJ): ?>
+            <?php if ($documento == 'cnpj'): ?>
                     <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="../formularioDoadorPJ.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>
         <?php endif; ?>
