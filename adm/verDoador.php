@@ -28,7 +28,6 @@
                 $doc = $row['doc'];
                 $fone = $row['fone'];
                 $email = $row['email'];
-                $naturalidade = $row['naturalidade'];
                 $sexo = $row['sexo'];
             }
             

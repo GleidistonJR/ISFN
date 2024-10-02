@@ -54,10 +54,12 @@
                     header('Location: ../../index.php');
                 }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
                     //logado nivel 1
-                    header('Location: ../transparencia.php');
+                    //header('Location: ../transparencia.php');
+                    header('Location: ../../index.php');
                 }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                     //logado com nivel baixo
-                    header('Location: ../transparencia.php');
+                    //header('Location: ../transparencia.php');
+                    header('Location: ../../index.php');
                 }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                     //logado com nivel 7
                     header('Location: ../admDoadores.php');

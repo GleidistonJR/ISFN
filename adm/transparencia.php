@@ -1,6 +1,6 @@
 <?php
 include_once("process/sessionLogin.php");
-verificarNivel($_SESSION['nivel'], [7,2,1]);
+verificarNivel($_SESSION['nivel'], [7]);
 
 ?>
 <!DOCTYPE html>

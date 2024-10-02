@@ -200,19 +200,19 @@
 
                             $status = $diasIntervalo;
                             if($diasIntervalo < 31){
-                                $status = "Verde";
+                                $status = "green"; //verde
                             }elseif($diasIntervalo < 45){
-                                $status = "Amarelo";
+                                $status = "#efd51d"; //amarelo
 
                             }elseif($diasIntervalo < 60){
-                                $status = "Laranja";
+                                $status = "#ef911d"; //laranja
 
                             }elseif($diasIntervalo > 60){
-                                $status = "Vermelho";
+                                $status = "#dc3545"; //vermelho
                             }
                         }else{
                             //Não existe doação
-                            $status = "Nunca";
+                            $status = "#6633FF"; //lilas
                             
                         }
                         //Verificando se Doador e cadastrado
@@ -246,48 +246,14 @@
                         // echo "</td>";
                         echo "<td class='d-none d-md-table-cell'>" . htmlspecialchars($doador['fone']) . "</td>";
                         if($cadastrado){
-
-                            if($status == 'Verde'){
-                                echo '<td>
-                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: green;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                                </svg>
-                                </a>';
-                            }elseif($status == 'Amarelo'){
-                                echo '<td>
-                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #efd51d;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                                </svg>
-                                </a>';
-                            }elseif($status == 'Laranja'){
-                                echo '<td>
-                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #ef911d;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                                </svg>
-                                </a>';
-                            }elseif($status == 'Vermelho'){
-                                echo '<td>
-                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #dc3545;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                                </svg>
-                                </a>';
-                            }elseif($status == 'Nunca'){
-                                echo '<td>
-                                <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: #6633FF;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                                </svg>
-                                </a>';
-                            }
+                            
+                            echo '<td>
+                            <a class="btn btn-ver btn-sm" href="verDoador.php?id='.$doador['id'].'" style="background-color: '.$status.';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                            </svg>
+                            </a>';
                             echo '
                             <a class="btn btn-primary btn-sm edit-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$doador['id'].'"">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
@@ -302,18 +268,22 @@
                             </a></td>';
                         }else{
                             $documento = verificarDocumento($doador['documento']);
+                            echo '<td>
+                                    <a class="btn btn-sm" href="historicoDoador.php?doc='.$doador['documento'].'" style="background-color: '.$status.';">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFF" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                                    <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
+                                    </svg>
+                                    </a>';
                             if($documento == "cpf"){
-                                echo '<td>
-                                        <a class="btn btn-success btn-sm" href="../formularioDoador.php?doc='.$doador["documento"].'&nome='.$doador['nome'].'">
+                                echo '  <a class="btn btn-success btn-sm" href="../formularioDoador.php?doc='.$doador["documento"].'&nome='.$doador['nome'].'">
                                             Cadastrar
                                         </a>
                                         </td>';
                             }else{
-                                echo '<td>
-                                <a class="btn btn-success btn-sm" href="../formularioDoadorPJ.php?doc='.$doador["documento"].'&nome='.$doador['nome'].'">
-                                    Cadastrar
-                                </a>
-                                </td>';
+                                echo '  <a class="btn btn-success btn-sm" href="../formularioDoadorPJ.php?doc='.$doador["documento"].'&nome='.$doador['nome'].'">
+                                        Cadastrar
+                                        </a>
+                                        </td>';
                             }
                         }
                             echo "</tr>";

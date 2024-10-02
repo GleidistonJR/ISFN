@@ -39,28 +39,27 @@
                         <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 '. $_SESSION['nome'] .'
-                            </a>kw
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
                                          
-                        <li><a class="" href="adm/transparencia.php">Transparência</a></li>
                         ';
+                        //<li><a class="" href="adm/transparencia.php">Transparência</a></li>
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                         //esta logado nivel 2
                         echo '
                         <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 '. $_SESSION['nome'] .'
-                            </a>kw
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item text-danger text-center" href="adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
-                                         
-                        <li><a class="" href="adm/transparencia.php">Transparência</a></li>
                         ';
+                        //<li><a class="" href="adm/transparencia.php">Transparência</a></li>
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                         //esta logado nivel 7 
                         echo '
