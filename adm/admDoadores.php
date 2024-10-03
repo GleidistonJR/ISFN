@@ -7,7 +7,7 @@
     
 
     // 1. Consulta para a tabela `pessoa`
-    $query_pessoa = "SELECT nome, doc AS documento, email, fone, id FROM pessoa";
+    $query_pessoa = "SELECT nome, doc AS documento, email, fone, id, data FROM pessoa";
     $result_pessoa = $conexao->query($query_pessoa);
     $pessoas = []; // Array para armazenar os dados da tabela pessoa
     if ($result_pessoa->num_rows > 0) {
@@ -22,7 +22,7 @@
     $documentos_pessoa = array_column($pessoas, 'documento'); // Extraindo os documentos
     $documentos_pessoa_imploded = "'" . implode("','", $documentos_pessoa) . "'"; // Preparando para uso no IN
 
-    $query_extrato = "SELECT DISTINCT nome, documento, NULL AS email, NULL AS fone, NULL AS id 
+    $query_extrato = "SELECT DISTINCT nome, documento, NULL AS email, NULL AS fone, NULL AS id, NULL AS data 
                     FROM extrato 
                     WHERE documento NOT IN ($documentos_pessoa_imploded)";
 
@@ -38,47 +38,96 @@
 
     
     // 3. Combina os resultados das duas consultas
-    $resultados_finais = array_merge($pessoas, $extratos);
-
-    // 4. Exibição dos resultados finais ordenados por nome
-    usort($resultados_finais, function($a, $b) {
-        return strcmp(strtolower($a['nome']), strtolower($b['nome']));
-    });
 
 
+    // // 4. Exibição dos resultados finais ordenados por nome
+    // usort($resultados_finais, function($a, $b) {
+    //     return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+    // });
 
 
+    //Ordem FILTROS
+    // Captura o parâmetro de ordenação da URL
+$ordem = isset($_GET['ordem']) ? $_GET['ordem'] : 'alfabetica_cadastrados';
 
-
-    // Preparando a consulta com UNION
-    $query = "
-    SELECT DISTINCT nome, documento, email, fone, id 
-    FROM (
-        SELECT nome, doc AS documento, email, fone, id 
-        FROM pessoa
-
-        UNION ALL
-
-        SELECT nome, documento, NULL AS email, NULL AS fone, NULL AS id 
-        FROM extrato
-    ) AS combined
-    WHERE documento IS NOT NULL
-    ORDER BY nome ASC";
+// Aplica a ordenação com base no parâmetro selecionado
+switch($ordem) {
+    case 'alfabetica_cadastrados':
+        // Ordenar alfabeticamente separando cadastrados de nao cadastrados (padrão)
         
-    //$stmt = $conexao->prepare("SELECT * FROM pessoa ORDER BY nome ASC");
-    $stmt = $conexao->prepare($query);
-    if ($stmt === false) {
-        die("Erro na preparação da consulta: " . $conexao->error);
-    }
+        usort($pessoas, function($a, $b) {
+            return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+        });
+        usort($extratos, function($a, $b) {
+            return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+        });
+        $resultados_finais = array_merge($pessoas, $extratos);
+        
+
+        break;
+        
+    case 'ultimos_cadastrados':
+        // Ordenar pela data de cadastro mais recente (últimos cadastrados primeiro)
+
+        usort($pessoas, function($a, $b) {
+            return strtotime($b['data']) - strtotime($a['data']);
+        });
+        usort($extratos, function($a, $b) {
+            return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+        });
+        $resultados_finais = $pessoas;
 
 
+        
+        break;
+        
+    case 'alfabetica_asc':
+        // Ordenar em ordem alfabética crescente
+        $resultados_finais = array_merge($pessoas, $extratos);
+        usort($resultados_finais, function($a, $b) {
+            return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+        });
+        break;
+        
+    case 'alfabetica_desc':
+        // Ordenar em ordem alfabética decrescente
+        $resultados_finais = array_merge($pessoas, $extratos);
+        usort($resultados_finais, function($a, $b) {
+            return strcmp(strtolower($b['nome']), strtolower($a['nome']));
+        });
+        break;
+        
+    case 'doacoes_mais':
+        // Ordenar por número de doações (supondo que você tenha uma chave 'doacoes' no array)
+        $resultados_finais = array_merge($pessoas, $extratos);
+        usort($resultados_finais, function($a, $b) {
+            return $b['doacoes'] - $a['doacoes'];
+        });
+        break;
+        
+    case 'doacoes_menos':
+        // Ordenar por número de doações em ordem crescente
+        $resultados_finais = array_merge($pessoas, $extratos);
+        usort($resultados_finais, function($a, $b) {
+            return $a['doacoes'] - $b['doacoes'];
+        });
+        break;
+        
+    default:
+        // Ordenar alfabeticamente separando cadastrados de nao cadastrados (padrão)
+        
+        usort($pessoas, function($a, $b) {
+            return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+        });
+        usort($extratos, function($a, $b) {
+            return strcmp(strtolower($a['nome']), strtolower($b['nome']));
+        });
+        $resultados_finais = array_merge($pessoas, $extratos);
+        
 
+        break;
+}
 
-
-
-
-    $stmt->execute();
-    $result = $stmt->get_result(); // Pegando o resultado da consulta
 
 ?>
 
@@ -134,12 +183,14 @@
                     <i class="bi bi-sort-up"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    <li><a class="dropdown-item" href="?ordem=alfabetica_cadastrados">Todos</a></li>
+                    <li><a class="dropdown-item" href="?ordem=ultimos_cadastrados">Ultimos Cadastrados</a></li>
+                    <li><a class="dropdown-item" href="?ordem=alfabetica_asc">Alfabetica +</a></li>
+                    <li><a class="dropdown-item" href="?ordem=alfabetica_desc">Alfabetica -</a></li>
+                <!--<li><a class="dropdown-item" href="?ordem=doacoes_mais">Doações +</a></li>
+                    <li><a class="dropdown-item" href="?ordem=doacoes_menos">Doações -</a></li>-->
                 </ul>
+
             </div>
 
             <div class="col-md-6 col-9 col-pesquisa">
@@ -163,7 +214,7 @@
             <tbody>
                 <?php
                 // Verifica se existem resultados
-                if ($result->num_rows > 0) {
+                if (!empty($resultados_finais)) {
                     $i = 1;
                     // Exibindo cada linha de resultado em uma nova linha da tabela
                     foreach ($resultados_finais as $doador) {
@@ -291,12 +342,11 @@
                         $i++;
                     }
                 } else {
-                    echo "<tr><td colspan='3'>Nenhum doador encontrado</td></tr>";
+                    echo "<tr><td colspan='5'>Nenhum doador encontrado</td></tr>";
                 }
 
                 // Fechando a conexão
                 $conn->close();
-                $stmt->close();
                 $conexao->close();
                 ?>
             </tbody>
