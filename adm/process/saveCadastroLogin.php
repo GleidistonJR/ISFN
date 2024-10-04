@@ -23,7 +23,23 @@
 
         }
 
-        
+        if(!empty($login)){
+            $stmt_verifica_login = $conexao->prepare("SELECT * FROM pessoa WHERE login = ?");
+            $stmt_verifica_login->bind_param("s", $login);
+            $stmt_verifica_login->execute();
+            $result_verifica_login = $stmt_verifica_login->get_result();
+            
+            if ($result_verifica_login->num_rows > 0) {
+                echo "<script>alert('Este login já está sendo utilizado!'); window.history.back();</script>";
+                $stmt_verifica_login->close();
+                $conexao->close();
+                exit();
+            }
+            $stmt_verifica_login->close();
+        }
+
+
+
         $stmt = $conexao->prepare("UPDATE pessoa SET login = ?,  nivel = ? WHERE id = ?");
 
         // Verifica se a preparação da consulta foi bem-sucedida
