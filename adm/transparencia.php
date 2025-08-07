@@ -7,7 +7,7 @@ verificarNivel($_SESSION['nivel'], [7]);
 <html lang="pt-br">
 <head>
     <title>ISFN | Transparencia</title>  
-    <?php include("Componentes/headBasic.html");?>
+    <?php include("../Componentes/headBasic.html");?>
 
     <style>
         section.transparencia {
@@ -34,7 +34,7 @@ verificarNivel($_SESSION['nivel'], [7]);
     </style>
 </head>
 <body>
-    <?php include("Componentes/menu.php");?>
+    <?php include("../Componentes/menu.php");?>
 
     <section class="transparencia container mb-5">
         <h1 class="text-center">Transparência</h1>
@@ -133,7 +133,7 @@ verificarNivel($_SESSION['nivel'], [7]);
 
     </section>    
 
-    <?php include("Componentes/footer.html");?>
+    <?php include("../Componentes/footer.html");?>
 
 </body>
 <script>

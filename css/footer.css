@@ -8,6 +8,7 @@
     --azulSecundario: #2886c5;
     --azulFraco: #fbfdff;
     --menu-color: #333;
+    --amarelo: #ffe600;
 
     --h1: #000;
     --h1-white: #fff;
@@ -28,8 +29,8 @@
 }
 
 ::selection {
-    background-color: var(--azulPrincipal);
-    color: var(--verdeSecundario);
+    background-color: var(--verdeSecundario);
+    color: var(--amarelo);
 }
 
 /*FOOTER*/

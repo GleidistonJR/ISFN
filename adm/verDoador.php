@@ -87,7 +87,7 @@
     <title>ISFN | Visualizar Doador</title>
 
     <?php
-    include("Componentes/headBasic.html");
+    include("../Componentes/headBasic.html");
     ?>
 
 <style>
@@ -121,7 +121,7 @@
 
 <body>
 
-    <?php include("Componentes/menu.php"); ?>
+    <?php include("../Componentes/menu.php"); ?>
 
 
     <section class="container" id="edit-formulario-colaborador">
@@ -228,7 +228,7 @@
       
     <?php
     
-    include("Componentes/footer.html");
+    include("../Componentes/footer.html");
     
     ?>
     <script>

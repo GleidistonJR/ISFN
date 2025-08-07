@@ -18,7 +18,7 @@
 <html lang="pt-br">
 <head>
 
-    <?php include("Componentes/headBasic.html"); ?>
+    <?php include("../Componentes/headBasic.html"); ?>
 
     <title>ADM | Lista de Doadores</title>
 
@@ -55,7 +55,7 @@
     </style>
 </head>
 <body>
-    <?php include_once("Componentes/menu.php"); ?>
+    <?php include_once("../Componentes/menu.php"); ?>
 
     <section class="Doadores mb-5 mx-md-5">
         <h1 class="text-center mb-5">Lista de Doadores</h1>
@@ -123,7 +123,7 @@
         </table>
         
     </section>
-    <?php include_once('Componentes/footer.html')?>
+    <?php include_once('../Componentes/footer.html')?>
 </body>
 
 <script>

@@ -13,7 +13,7 @@
     <title>ISFN | Login</title>
 
     <?php
-    include("Componentes/headBasic.html");
+    include("../Componentes/headBasic.html");
     ?>
 
 <style>
@@ -48,7 +48,7 @@
 
 <body>
 
-    <?php include("Componentes/menu.php"); ?>
+    <?php include("../Componentes/menu.php"); ?>
 
 
     <section class="container" id="formulario-login">
@@ -78,6 +78,6 @@
 
     </section>
       
-    <?php include("Componentes/footer.html"); ?>
+    <?php include("../Componentes/footer.html"); ?>
 
 </body>

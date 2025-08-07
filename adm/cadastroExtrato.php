@@ -8,7 +8,7 @@ verificarNivel($_SESSION['nivel'], [7]);
 <html lang="pt-br">
 <head>
 <title>ISFN | Cadastro Extrato</title>  
-    <?php include("Componentes/headBasic.html");?>
+    <?php include("../Componentes/headBasic.html");?>
 
     <style>
         section.cadastro-extrato{
@@ -25,7 +25,7 @@ verificarNivel($_SESSION['nivel'], [7]);
     </style>
 </head>
 <body>
-    <?php include("Componentes/menu.php");?>
+    <?php include("../Componentes/menu.php");?>
 
     <section class="cadastro-extrato container mb-5">
         <h1 class="text-center mb-5">Cadastro Extrato</h1>
@@ -41,6 +41,6 @@ verificarNivel($_SESSION['nivel'], [7]);
         
     </section>
 
-    <?php include("Componentes/footer.html");?>
+    <?php include("../Componentes/footer.html");?>
 </body>
 </html>
