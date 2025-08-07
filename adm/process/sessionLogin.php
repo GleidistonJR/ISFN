@@ -16,9 +16,9 @@
     }
     
     function verificarNivel($nivelUsuario, $niveisPermitidos) {
-        if (!in_array($nivelUsuario, $niveisPermitidos)) {
+        if (in_array(!$nivelUsuario, $niveisPermitidos)) {
             echo "<script>
-                alert('Você não possui permissão para acessar essa página'); 
+                alert('Você não possui permissão para acessar essa página. \n Seu nivel e (". $nivelUsuario .")'); 
                 window.history.back();
                 </script>";
             exit();

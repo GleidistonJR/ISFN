@@ -1,16 +1,19 @@
 <?php
 
-    /*
-    $dbHost = "Localhost";
-    $dbUsername = "isfn";
-    $dbPassword = "newISFN@2024";
-    $dbName = "isfn_isfn";
-    */
 
+    /* Xamp local 
+    */
     $dbHost = "Localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "isfn";
+    $dbUsername = "root"; //"Junior_isfn";
+    $dbPassword = ""; //"newISFN@2025";
+    $dbName = "junior_isfn"; //"Junior_isfn"; 
+    
+    /* Servidor Hestia
+    $dbHost = "localhost";
+    $dbUsername = "Junior_isfn";
+    $dbPassword = "newISFN@2025";
+    $dbName = "Junior_isfn";
+    */
 
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 

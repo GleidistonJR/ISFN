@@ -1,5 +1,4 @@
 <?php
-    
     include_once("process/sessionLogin.php");
     verificarNivel($_SESSION['nivel'], [7]);
     

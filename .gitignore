@@ -1,0 +1,14 @@
+# Arquivos de backup e compressão
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Backups do MySQL, SQLite etc
+*.sql
+*.db
+
+# Diretórios comuns para backups ou temporários
+backup/
+tmp/
