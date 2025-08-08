@@ -26,7 +26,7 @@
                                     Aluno
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -41,8 +41,8 @@
                                     Aluno
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Cadastros</a></li>
-                                    <li><a class="dropdown-item" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
+                                    <li><a class="dropdown-item" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -162,7 +162,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -180,7 +180,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -198,7 +198,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -217,8 +217,8 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Cadastros</a></li>
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>

@@ -6,8 +6,8 @@
 *.gz
 
 # Backups do MySQL, SQLite etc
-*.sql
-*.db
+# *.sql
+# *.db
 
 # Diretórios comuns para backups ou temporários
 backup/
