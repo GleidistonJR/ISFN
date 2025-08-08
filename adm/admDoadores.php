@@ -257,7 +257,7 @@ switch($ordem) {
                             }elseif($diasIntervalo < 60){
                                 $status = "#ef911d"; //laranja
 
-                            }elseif($diasIntervalo > 60){
+                            }elseif($diasIntervalo >= 60){
                                 $status = "#dc3545"; //vermelho
                             }
                         }else{

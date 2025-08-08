@@ -62,7 +62,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include_once('Componentes/headBasic.html'); ?>
+    <?php include_once('../Componentes/headBasic.html'); ?>
     <title>ISFN | Histórico Doador</title>
 
     <style>
@@ -127,7 +127,7 @@
     </style>
 </head>
 <body>
-    <?php include_once('Componentes/menu.php'); ?>
+    <?php include_once('../Componentes/menu.php'); ?>
     
     <section class="container historico-doador">
 
@@ -237,6 +237,6 @@
 
     </section>
     
-    <?php include_once('Componentes/footer.html'); ?>
+    <?php include_once('../Componentes/footer.html'); ?>
 </body>
 </html>

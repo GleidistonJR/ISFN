@@ -13,17 +13,43 @@
                     <li><a href="#">Projetos</a></li>
                     -->
                     <li><a href="/ISFN/Doacoes.php">Doações</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Aluno
-                            </a>
+                    
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    <?php 
+
+                    if(!isset($_SESSION['login'])){
+                        //nao esta logado
+                        echo '
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Aluno
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        ';
+                        
+                    }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
+                        //esta logado nivel 1
+                        echo '
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Aluno
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Cadastros</a></li>
+                                    <li><a class="dropdown-item" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        ';
+                    }
+                    ?>
+
 
                 </ul>
             </nav>
@@ -105,6 +131,11 @@
     </div>
 </div>
 
+
+                <!-- DISPLAY MOBILE -->
+
+
+
 <div class="container-fluid" id="menu-mobile">
     <div class="row">
         <div class="col-12" id="navbar-mobile">
@@ -142,6 +173,17 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
                             //esta logado nivel baixo
                             echo '
+                            <li>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Aluno
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><a href="/ISFN/adm/transparencia.php">Transparência</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="text-danger" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
@@ -149,6 +191,17 @@
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                            //esta logado nivel baixo
                            echo '
+                           <li>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Aluno
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                            <li><a href="/ISFN/adm/transparencia.php">Transparência</a></li>
                            <li><a href="/ISFN/adm/Doadores.php">Lista de Doadores</a></li>
                            <li><hr class="dropdown-divider"></li>
@@ -157,6 +210,18 @@
                        }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7
                             echo '
+                            <li>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Aluno
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Cadastros</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/ISFN/preCadastroAluno.php">Pré-Cadastro</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><a href="/ISFN/adm/transparencia.php">Transparência</a></li>
                             <li><a href="/ISFN/adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
                             <li><a href="/ISFN/formularioDoador.php">Cadastrar Doador</a></li>

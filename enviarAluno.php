@@ -35,8 +35,8 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Ver
     include_once("DAO.php");
 
     // Prepara a consulta para verificar se o documento já está cadastrado
-    $stmt = $conexao->prepare("SELECT id FROM preCadastro WHERE docResponsavel = ?");
-    $stmt->bind_param("s", $docResponsavel); // Vinculando o doc
+    $stmt = $conexao->prepare("SELECT id FROM preCadastro WHERE docResponsavel = ? AND nascAluno = ?");
+    $stmt->bind_param("ss", $docResponsavel, $nascAluno); // Vinculando o doc
     $stmt->execute();
     $stmt->store_result(); // Armazena o resultado
 
