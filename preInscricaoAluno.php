@@ -146,7 +146,7 @@
                 <!--
                 ----------------------------Periodo Escolhido------------------------------------------
                 -->
-                <div class="col-6 mb-4">
+                <div class="col-12 mb-4">
                     <label class="form-label" for="horarioAula">Período escolhido:</label>
                     <div class="form-check col-6">
                         <input class="form-check-input" type="radio" name="horarioAula" value="M" id="Matutino"

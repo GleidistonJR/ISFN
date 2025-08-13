@@ -60,7 +60,7 @@
 
 <head>
     
-    <title>ISFN | Editar Cadastro Doador</title>
+    <title>ISFN | Editar Pré-Inscrição</title>
 
     <?php
     include("../Componentes/headBasic.html");
@@ -102,7 +102,7 @@
 
     <section class="container" id="edit-formulario-colaborador">
         <article class="row d-flex flex-column jusify-content-center align-items-center">
-            <h2 class="text-center">Editar Cadastro Doador</h2>
+            <h2 class="text-center">Editar Pré-Inscrição </h2>
             
             <form class="col-12 col-lg-8 col-form my-5 p-0" method="POST" action="process/saveEditIncricao.php">
                 
@@ -179,7 +179,7 @@
                 </div>
 
 
-                <div class="col-6 mb-4">
+                <div class="col-12 mb-4">
                     <label class="form-label" for="horarioAula">Período escolhido:</label>
                     <div class="form-check col-6">
                         <input class="form-check-input" type="radio" name="horarioAula" value="<?php echo$horarioAula ?>" id="horarioAula"

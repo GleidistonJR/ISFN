@@ -20,7 +20,7 @@
 
     <?php include("../Componentes/headBasic.html"); ?>
 
-    <title>ADM | Lista de Pre-Candastros</title>
+    <title>ADM | Lista Pré-Inscrições</title>
 
     <style>
         .Doadores{
@@ -50,7 +50,7 @@
     <?php include_once("../Componentes/menu.php"); ?>
 
     <section class="Doadores mb-5 mx-md-5">
-        <h1 class="text-center mb-5">Lista Pré-Inscrição</h1>
+        <h1 class="text-center mb-5">Lista Pré-Inscrições</h1>
 
         <div class="mb-5 pesquisar row">
             <div class="btn-group col-1 col-filtro">
