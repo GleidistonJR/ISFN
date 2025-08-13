@@ -226,12 +226,12 @@
 
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
-                <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
+                <a class="btn btn-secondary btn-voltar px-5 mt-4" href="#" onclick="window.history.back()">Voltar</a>
                 <?php if(empty($login)): ?>
-                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Criar Login</a>
+                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="/adm/cadastroLogin.php?id=<?php echo $id?>">Criar Login</a>
                 <?php endif ?>
                 <?php if(!empty($login)): ?>
-                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="cadastroLogin.php?id=<?php echo $id?>">Editar Login</a>
+                <a class="btn btn-primary px-5 mt-4 btn-cadastro" href="/adm/cadastroLogin.php?id=<?php echo $id?>">Editar Login</a>
                 <?php endif ?>
                 <input class="btn btn-success btn-enviar px-5 mt-4" type="submit" name="update" value="Salvar Edição">
 
@@ -253,5 +253,5 @@
         $("#cpf").mask("000.000.000-00");
         $("#cnpj").mask("00.000.000/0000-00");
     </script>
-    <script type="text/javascript" src="js/cep.js"></script>
+    <script type="text/javascript" src="/js/cep.js?16"></script>
 </body>

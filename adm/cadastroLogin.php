@@ -109,7 +109,7 @@
 
                 <input type="hidden" name="id" value="<?php echo $id?>">
 
-                <a class="btn btn-secondary btn-voltar px-5 mt-4" href="admDoadores.php">Voltar</a>
+                <a class="btn btn-secondary btn-voltar px-5 mt-4" href="#" onclick="window.history.back()">Voltar</a>
                 <input class="btn btn-success btn-enviar px-5 mt-4" type="submit" name="update" value="Salvar Edição">
 
             </form>

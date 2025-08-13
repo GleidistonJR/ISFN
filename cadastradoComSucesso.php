@@ -44,9 +44,9 @@
         <h4 class="text-center">Em breve entraremos em contato</h4>
         <div class="row d-flex justify-content-center my-5">
             <div class="col-md-6 col-12 gap-5 mt-5">
-                <a class="btn btn-secondary col-md-5 col-12" href="index.php">Pagina Inicial</a>
+                <a class="btn btn-secondary col-md-5 col-12" href="/index.php">Pagina Inicial</a>
 
-                <a class="btn btn-primary col-md-5 col-12" href="Doacoes.php">Fazer Doação</a>
+                <a class="btn btn-primary col-md-5 col-12" href="/Doacoes.php">Fazer Doação</a>
             </div>
         </div>
 

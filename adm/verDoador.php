@@ -217,7 +217,7 @@
                 <a class="btn btn-secondary btn-voltar px-5 mt-4" href="#" onclick="window.history.back()">Voltar</a>
                 
                 <?php if ($_SESSION['nivel'] == 7): ?>
-                <a class="btn btn-success btn-doacoes px-5 mt-4" href="historicoDoador.php?doc=<?php echo $doc?>">Ver Doações</a>
+                <a class="btn btn-success btn-doacoes px-5 mt-4" href="/adm/historicoDoador.php?doc=<?php echo $doc?>">Ver Doações</a>
                 <?php endif; ?>
                
             </form>
@@ -238,5 +238,5 @@
         $("#cpfInp").mask("000.000.000-00");
         
     </script>
-    <script type="text/javascript" src="js/cep.js"></script>
+    <script type="text/javascript" src="/js/cep.js?16"></script>
 </body>

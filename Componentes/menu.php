@@ -1,5 +1,5 @@
 <!--------------------------------MENU------------------------------------->
-<div class="container-fluid" id="menu">
+<header class="container-fluid" id="menu">
     <div class="row align-items-center" id="row-menu">
 
 
@@ -7,12 +7,12 @@
         <div class="col-4 navbar ps-5" id="navbar">
             <nav>
                 <ul class="nav">
-                    <li><a href="/ISFN/index.php">O Instituto</a></li>
+                    <li><a href="/index.php">O Instituto</a></li>
                     <!-- 
                     <li><a href="#">Equipe</a></li>
                     <li><a href="#">Projetos</a></li>
                     -->
-                    <li><a href="/ISFN/Doacoes.php">Doações</a></li>
+                    <li><a href="/Doacoes.php">Doações</a></li>
                     
 
                     <?php 
@@ -26,7 +26,7 @@
                                     Aluno
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
+                                    <li><a class="dropdown-item" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -41,8 +41,8 @@
                                     Aluno
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
-                                    <li><a class="dropdown-item" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
+                                    <li><a class="dropdown-item" href="/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
+                                    <li><a class="dropdown-item" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -56,9 +56,9 @@
         </div>
 
         <div class="col-7 col-md-4" id="logo"><!--Logo -->
-            <a href="/ISFN/index.php">
-                <img class="img-logo-normal" src="/ISFN/img/img-logo/LOGO-AZUL-PNG.png" />
-                <img class="img-logo-mini" src="/ISFN/img/img-logo/EspiritoSantoAzul.png" />
+            <a href="/index.php">
+                <img class="img-logo-normal" src="/img/img-logo/LOGO-AZUL-PNG.png?16" />
+                <img class="img-logo-mini" src="/img/img-logo/EspiritoSantoAzul.png?16" />
             </a>
         </div>
 
@@ -69,8 +69,8 @@
                     if(!isset($_SESSION['login'])){
                         //nao esta logado
                         echo '
-                        <li><a class="" href="/ISFN/formularioDoador.php">Cadastro Doador</a></li>
-                        <li><a class="" href="/ISFN/adm/login.php">Administração</a></li>
+                        <li><a class="" href="/formularioDoador.php">Cadastro Doador</a></li>
+                        <li><a class="" href="/adm/login.php">Administração</a></li>
                         ';
                         
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
@@ -81,12 +81,12 @@
                                 '. $_SESSION['nome'] .'
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-danger text-center" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                                <li><a class="dropdown-item text-danger text-center" href="/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
                                          
                         ';
-                        //<li><a class="" href="adm/transparencia.php">Transparência</a></li>
+                        //<li><a class="" href="/adm/transparencia.php">Transparência</a></li>
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                         //esta logado nivel 2
                         echo '
@@ -95,11 +95,11 @@
                                 '. $_SESSION['nome'] .'
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-danger text-center" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                                <li><a class="dropdown-item text-danger text-center" href="/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
                         ';
-                        //<li><a class="" href="adm/transparencia.php">Transparência</a></li>
+                        //<li><a class="" href="/adm/transparencia.php">Transparência</a></li>
                     }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                         //esta logado nivel 7 
                         echo '
@@ -108,15 +108,15 @@
                                 '. $_SESSION['nome'] .'
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/ISFN/formularioDoador.php">Cadastrar Doador</a></li>
-                                <li><a class="dropdown-item" href="/ISFN/adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
+                                <li><a class="dropdown-item" href="/formularioDoador.php">Cadastrar Doador</a></li>
+                                <li><a class="dropdown-item" href="/adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger text-center" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                                <li><a class="dropdown-item text-danger text-center" href="/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             </ul>
                         </div>
 
-                        <li><a class="" href="/ISFN/adm/transparencia.php">Transparência</a></li>   
-                        <li><a class="" href="/ISFN/adm/admDoadores.php">Doadores</a></li>
+                        <li><a class="" href="/adm/transparencia.php">Transparência</a></li>   
+                        <li><a class="" href="/adm/admDoadores.php">Doadores</a></li>
                         ';
                     }
                 ?>
@@ -142,13 +142,13 @@
             <nav>
                 <ul>
                     <li><i onclick="fecharMenu()" class="bi bi-x-circle-fill" id="icone2"></i></li>
-                    <li><a href="/ISFN/index.php">Inicio</a></li>
+                    <li><a href="/index.php">Inicio</a></li>
                     <!--
                     <li><a href="#">O Instituto</a></li>
                     <li><a href="#">EQUIPE</a></li>
                     <li><a href="#">PROJETOS</a></li>
                     -->
-                    <li><a href="/ISFN/Doacoes.php">Doações</a></li>
+                    <li><a href="/Doacoes.php">Doações</a></li>
 
                     <?php 
 
@@ -162,12 +162,12 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="/ISFN/formularioDoador.php">Cadastro Doador</a></li>
-                            <li><a href="/ISFN/adm/login.php">Administração</a></li>
+                            <li><a href="/formularioDoador.php">Cadastro Doador</a></li>
+                            <li><a href="/adm/login.php">Administração</a></li>
                             ';
                             
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 1){
@@ -180,13 +180,13 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="/ISFN/adm/transparencia.php">Transparência</a></li>
+                            <li><a href="/adm/transparencia.php">Transparência</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="text-danger" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            <li><a class="text-danger" href="/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 2){
                            //esta logado nivel baixo
@@ -198,14 +198,14 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
-                           <li><a href="/ISFN/adm/transparencia.php">Transparência</a></li>
-                           <li><a href="/ISFN/adm/Doadores.php">Lista de Doadores</a></li>
+                           <li><a href="/adm/transparencia.php">Transparência</a></li>
+                           <li><a href="/adm/Doadores.php">Lista de Doadores</a></li>
                            <li><hr class="dropdown-divider"></li>
-                           <li><a class="text-danger" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                           <li><a class="text-danger" href="/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                            ';
                        }else if(isset($_SESSION['login']) && $_SESSION['nivel'] == 7){
                             //esta logado nivel 7
@@ -217,17 +217,17 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
-                                        <li><a class="dropdown-item text-dark" href="/ISFN/preInscricaoAluno.php">Pré-Inscrição</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="/ISFN/adm/transparencia.php">Transparência</a></li>
-                            <li><a href="/ISFN/adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
-                            <li><a href="/ISFN/formularioDoador.php">Cadastrar Doador</a></li>
-                            <li><a href="/ISFN/adm/admDoadores.php">Lista de Doadores ADM</a></li>
+                            <li><a href="/adm/transparencia.php">Transparência</a></li>
+                            <li><a href="/adm/cadastroExtrato.php">Cadastrar Extrato</a></li>
+                            <li><a href="/formularioDoador.php">Cadastrar Doador</a></li>
+                            <li><a href="/adm/admDoadores.php">Lista de Doadores ADM</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="text-danger" href="/ISFN/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
+                            <li><a class="text-danger" href="/adm/process/sair.php"><i class="bi bi-power text-danger"></i> Sair</a></li>
                             ';
                         }
                             
@@ -244,4 +244,4 @@
             </nav>
         </div>
     </div>
-</div>
+</header>

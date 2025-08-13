@@ -69,7 +69,7 @@
 
 
 
-                <a class="btn btn-secondary btn-voltar px-5 my-5" href="../index.php">Voltar</a>
+                <a class="btn btn-secondary btn-voltar px-5 my-5" href="/index.php">Voltar</a>
                 <input class="btn btn-primary btn-enviar px-5 my-5" type="submit" name="submit" value="Entrar">
 
             </form>

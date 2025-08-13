@@ -21,7 +21,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?14">
+    <link rel="stylesheet" href="/css/formularioDoador.css?16">
 </head>
 
 
@@ -300,11 +300,11 @@
             </form>
 
             <div class="col-12 p-0 col-md-5 col-img">
-                <img src="./img/img-banner/img-robotica01-azul.webp" class="w-75" alt="">
+                <img src="/img/img-banner/img-robotica01-azul.webp?16" class="w-75" alt="">
             </div>
             
             <div class="col-10 dificuldade-cadastro">
-                <a href="formularioDoador.php" class="btn btn-success text-white mb-3">Cadastro de Pessoa Física</a>
+                <a href="/formularioDoador.php" class="btn btn-success text-white mb-3">Cadastro de Pessoa Física</a>
                 <h5><a href="https://wa.me//5562992862544" target="_blank">Dificuldades com cadastro?</a></h5>
             </div>
         </article>
@@ -370,6 +370,6 @@
         return true; // Permite o envio do formulário
     }
 </script>
-<script type="text/javascript" src="js/cep.js"></script>
+<script type="text/javascript" src="/js/cep.js?16"></script>
 </html>
 

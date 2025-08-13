@@ -6,13 +6,13 @@
 
 <head>
 
-    <title>ISFN | Pré-Cadastro Aluno</title>
+    <title>ISFN | Pré-Inscrição Aluno</title>
 
     <?php
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="css/formularioDoador.css?14">
+    <link rel="stylesheet" href="/css/formularioDoador.css?16">
 </head>
 
 
@@ -25,7 +25,7 @@
 
 
         <div class="position-fixed z-index-img" id="modalImg">
-            <img class="img-fluid " src="img/aviso.png" alt="">
+            <img class="img-fluid " src="/img/aviso.png?16" alt="">
             <br>
             <button class="text-center btn btn-primary" onclick="fecharModal()">X</button>
         </div>
@@ -36,22 +36,26 @@
             <h2>Pré-Inscrição Aluno</h2>
             <form class="col-12 col-lg-8 col-form my-5 p-0" method="POST" action="enviarAluno.php">
 
-                <h3 class="fs-5">Dados do Responsavel:</h3>
+                <!--
+                ----------------------------Dados do Responsavel------------------------------------------
+                -->
+
+                <h3 class="fs-5">Dados do Responsável:</h3>
                 <div class="input-group">
                     <div class="col-12 col-md-8 mb-2 mb-md-1">
-                        <label for="nomeResponsavel" class="form-label" id="nomeResponsavel">Nome</label>
+                        <label for="nomeResponsavel" class="form-label">Nome</label>
                         <input type="text" class="form-control" placeholder="Nome Completo" name="nomeResponsavel"
                             id="nomeResponsavel" required>
                     </div>
                     <div class="col-5 col-md-4 mb-2 mb-md-1">
                         <label for="nascResponsavel" class="form-label">Nascimento</label>
                         <input type="text" class="form-control" placeholder="00/00/0000" name="nascResponsavel"
-                            id="nascResponsavel" required>
+                            id="nascResponsavel">
                     </div>
                     <div class="col-7 col-md-3 mb-2 mb-md-1">
                         <label for="docResponsavel" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpfInp" placeholder="000.000.000-00"
-                            name="docResponsavel" id="docResponsavel" required>
+                        <input type="text" class="form-control" placeholder="000.000.000-00"
+                            name="docResponsavel" id="docResponsavel">
                     </div>
 
                     <div class="col-6 col-md-4 mb-2 mb-md-1">
@@ -67,6 +71,10 @@
                     </div>
                 </div>
 
+                <!--
+                ----------------------------Sexo Responsavel------------------------------------------
+                -->
+
                 <div class="col-6 mb-4">
                     <label class="form-label" for="sexoResponsavel">Sexo*</label>
                     <div class="form-check col-6">
@@ -81,6 +89,11 @@
                     </div>
                 </div>
 
+
+                <!--
+                ----------------------------Dados do aluno------------------------------------------
+                -->
+
                 <h3 class="fs-5">Dados do Aluno:</h3>
                 <div class="input-group">
                     <div class="col-12 col-md-8 mb-2 mb-md-1">
@@ -94,7 +107,7 @@
                          required>
                     </div>
                     <div class="col-7 col-md-3 mb-2 mb-md-1">
-                        <label for="cpf" class="form-label" id="docAluno">CPF</label>
+                        <label for="docAluno" class="form-label">CPF</label>
                         <input type="text" class="form-control" placeholder="000.000.000-00" name="docAluno"
                             id="docAluno">
                     </div>
@@ -112,6 +125,11 @@
                     </div>
                 </div>
 
+
+                <!--
+                ----------------------------Sexo aluno------------------------------------------
+                -->
+
                 <div class="col-6 mb-4">
                     <label class="form-label" for="sexoAluno">Sexo*</label>
                     <div class="form-check col-6">
@@ -125,6 +143,27 @@
                     </div>
                 </div>
 
+                <!--
+                ----------------------------Periodo Escolhido------------------------------------------
+                -->
+                <div class="col-6 mb-4">
+                    <label class="form-label" for="horarioAula">Período escolhido:</label>
+                    <div class="form-check col-6">
+                        <input class="form-check-input" type="radio" name="horarioAula" value="M" id="Matutino"
+                            checked>
+                        <label class="form-check-label" for="Matutino">Matutino (Sábado das 8h às 11h)</label>
+                    </div>
+                    <div class="form-check  col-6">
+                        <input class="form-check-input" type="radio" name="horarioAula" value="V" id="Vespertino">
+                        <label class="form-check-label" for="Vespertino">Vespertino (Sábado das 14h às 17h)</label>
+                    </div>
+                </div>
+
+
+                <!--
+                ----------------------------Endereço------------------------------------------
+                -->
+
                 <h3 class="fs-5">Endereço:</h3>
                 <div class="input-group mb-4">
                     <div class="input-group">
@@ -132,27 +171,23 @@
                             <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required>
                         </div>
                         <div class="col-8 col-md-3 mb-2">
-                            <input type="text" class="form-control" name="pais" id="pais" placeholder="Pais" required>
+                            <input type="text" class="form-control" name="pais" id="pais" value="Brasil" placeholder="País" >
                         </div>
                         <div class="col-4 col-md-3 mb-2">
-                            <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado"
-                             required>
+                            <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
                         </div>
                         <div class="col-8 col-md-3 mb-2">
-                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade"
-                             required>
+                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
                         </div>
                         <div class="col-4 col-md-4 mb-2">
-                            <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua" required>
+                            <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
                         </div>
 
                         <div class="col-8 col-md-5 mb-2">
-                            <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor"
-                             required>
+                            <input type="text" class="form-control" name="setor" id="setor" placeholder="Setor">
                         </div>
                         <div class="col-3 col-md-3 mb-2">
-                            <input type="text" class="form-control" name="numero" id="numero" placeholder="Numero"
-                            >
+                            <input type="text" class="form-control" name="numero" id="numero" placeholder="Número">
                         </div>
                         <div class="col-9 col-md-12 mb-2">
                             <input type="text" class="form-control" name="complemento" id="complemento"
@@ -238,6 +273,6 @@
         
     }
 </script>
-<script type="text/javascript" src="js/cep.js"></script>
+<script type="text/javascript" src="/js/cep.js?16"></script>
 
 </html>

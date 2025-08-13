@@ -18,6 +18,7 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Ver
     $foneAluno = trim($_POST['foneAluno']);
     $emailAluno = trim($_POST['emailAluno'], FILTER_SANITIZE_EMAIL);
     $sexoAluno = trim($_POST['sexoAluno']);
+    $horarioAula = trim($_POST['horarioAula']);
 
     // Capturando dados do endereço (adicionando)
     $cep = trim($_POST['cep']);
@@ -35,15 +36,16 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Ver
     include_once("DAO.php");
 
     // Prepara a consulta para verificar se o documento já está cadastrado
-    $stmt = $conexao->prepare("SELECT id FROM preCadastro WHERE docResponsavel = ? AND nascAluno = ?");
+    $stmt = $conexao->prepare("SELECT id FROM precadastro WHERE docResponsavel = ? AND nascAluno = ?");
     $stmt->bind_param("ss", $docResponsavel, $nascAluno); // Vinculando o doc
     $stmt->execute();
     $stmt->store_result(); // Armazena o resultado
 
     // Verifica se o documento já existe
-    if ($stmt->num_rows > 0) {
-    // doc já cadastrado
-    echo "<script>alert('Este documento já está cadastrado!'); window.history.back();</script>";
+    //if ($stmt->num_rows > 0) {
+    if (false) {
+        // doc já cadastrado
+        echo "<script>alert('Este documento já está cadastrado!'); window.history.back();</script>";
     }else {
 
         // Iniciando uma transação
@@ -51,22 +53,22 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Ver
 
         try {
             // Inserir na tabela pessoa
-            $stmt = $conexao->prepare("INSERT INTO preCadastro (
+            $stmt = $conexao->prepare("INSERT INTO precadastro (
             nomeResponsavel, nascResponsavel, docResponsavel,
              foneResponsavel, emailResponsavel, sexoResponsavel,
               nomeAluno, nascAluno, docAluno, foneAluno, emailAluno,
-              sexoAluno, cep, pais, estado, cidade, rua, setor, numero, complemento 
-              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+              sexoAluno, horarioAula, cep, pais, estado, cidade, rua, setor, numero, complemento 
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             if ($stmt === false) {
                 throw new Exception("Erro na preparação da consulta: " . $conexao->error);
             }
 
             $stmt->bind_param(
-                "ssssssssssssssssssss", // 20 campos do tipo string
+                "sssssssssssssssssssss", // 21 campos do tipo string
                 $nomeResponsavel, $nascResponsavel, $docResponsavel,
-                $foneResponsavel, $emailResponsavel, $sexoResponsavel,
-                $nomeAluno, $nascAluno, $docAluno, $foneAluno, $emailAluno, $sexoAluno,
+                $foneResponsavel, $emailResponsavel, $sexoResponsavel, $nomeAluno,
+                $nascAluno, $docAluno, $foneAluno, $emailAluno, $sexoAluno, $horarioAula,
                 $cep, $pais, $estado, $cidade, $rua, $setor, $numero, $complemento
             );
 
@@ -74,6 +76,8 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Ver
 
             if (!$stmt->execute()) {
                 throw new Exception("Erro ao inserir na tabela pessoa: " . $stmt->error);
+                $stmt->close();
+                $conexao->close();
             }
 
            

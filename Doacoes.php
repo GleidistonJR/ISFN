@@ -9,7 +9,7 @@
     <?php
     include("Componentes/headBasic.html");
     ?>
-    <link rel="stylesheet" href="css/styleDoacoes.css?14">
+    <link rel="stylesheet" href="/css/styleDoacoes.css?16">
 
     <title>ISFN | Doações</title>
 
@@ -73,7 +73,7 @@
                 <div class="col-11 col-md-5 qrcode">
                     <h4>Seja a mão que auxilia a formação de novos líderes</h4>
 
-                    <img id="img_qrcode" src="./img/img-doacoes/QR/outro.png" alt="QrCode pix">
+                    <img id="img_qrcode" src="/img/img-doacoes/QR/outro.png?16" alt="QrCode pix">
 
                     <div class="div-copiar">
                         <p>PIX COPIA/COLA</p>

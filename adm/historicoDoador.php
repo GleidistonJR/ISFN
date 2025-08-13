@@ -35,17 +35,19 @@
             while ($row = $result->fetch_assoc()) {
                 $id = $row['id'];
                 $login = $row['login'];
+
+                if (empty($nomeDoador)){
+                    $nomeDoador = $row['nome'];
+                }
             }
             if(empty($login)){ //se o doador possuir cadastro mas não possuir login
                 $cadastroLogin = true;
                 $cadastroDoador = false;
                 $verDoador = true;
-            }else{ //se o doador possuir cadastro mas e tambem possuir login
+            }else{ //se o doador possuir cadastro e tambem possuir login
                 $cadastroLogin = false;
                 $cadastroDoador = false;
                 $verDoador = true;
-                
-                
             }
             
         }else{
@@ -220,18 +222,18 @@
         <a class="btn btn-secondary btn-voltar my-md-5 mb-3" href="#" onclick="window.history.back()">Voltar</a>
         <!-- verifica se esse doador tem ou nao login, para oferecer criar -->
         <?php if ($cadastroLogin): ?>
-        <a class="btn btn-primary my-md-5 mb-3 btn-login" href="cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
+        <a class="btn btn-primary my-md-5 mb-3 btn-login" href="/adm/cadastroLogin.php?id=<?php echo $id?>">Cadastrar Login</a>
         <?php endif; ?>
         <?php if ($cadastroDoador): ?>
             <?php if ($documento == 'cpf'): ?>
-                <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="../formularioDoador.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
+                <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="/formularioDoador.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>                
             <?php if ($documento == 'cnpj'): ?>
-                    <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="../formularioDoadorPJ.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
+                    <a class="btn btn-success my-md-5 mb-3 btn-cadastro" href="/formularioDoadorPJ.php?doc=<?php echo $doc?>&nome=<?php echo $nomeDoador?>">Cadastrar Doador</a>
             <?php endif; ?>
         <?php endif; ?>
         <?php if ($verDoador): ?>
-            <a class="btn btn-success my-md-5 mb-3 btn-ver-doador" href="verDoador.php?id=<?php echo $id?>">Ver Doador</a>
+            <a class="btn btn-success my-md-5 mb-3 btn-ver-doador" href="/adm/verDoador.php?id=<?php echo $id?>">Ver Doador</a>
         <?php endif; ?>
 
 
