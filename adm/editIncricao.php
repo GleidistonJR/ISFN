@@ -181,7 +181,7 @@
 
                 <div class="col-12 mb-4">
                     <label class="form-label" for="horarioAula">Período escolhido:</label>
-                    <div class="form-check col-6">
+                    <div class="form-check col-12">
                         <input class="form-check-input" type="radio" name="horarioAula" value="<?php echo$horarioAula ?>" id="horarioAula"
                             checked>
                         <label class="form-check-label" for="horarioAula"><?php echo($horarioAula == 'M') ? 'Matutino' : 'Vespertino' ?></label>
