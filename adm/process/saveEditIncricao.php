@@ -63,7 +63,7 @@
         
         
         if (!$stmt->execute()) {
-            echo "<script>alert('Erro ao atualizar dados: " . $stmt->error . "'); window.location.href = '../verPreCadastros.php';</script>";
+            echo "<script>alert('Erro ao atualizar dados: " . $stmt->error . "'); window.location.href = '../verPreInscricoes.php';</script>";
         }
         
         
@@ -72,7 +72,7 @@
         $stmt->close();
         $conexao->close();
         
-        echo "<script>alert('Dados do Doador atualizados com sucesso!'); window.location.href = '../verPreCadastros.php';</script>";
+        echo "<script>alert('Dados do Doador atualizados com sucesso!'); window.location.href = '../verPreInscricoes.php';</script>";
     } else {
         // Se não tiver acessado a página enviando dados do formulário
         retornarAdm();
@@ -80,7 +80,7 @@
     
     
     function retornarAdm(){
-        echo "<script>alert('Houve algo de errado ao acesar a pagina!'); window.location.href = '../verPreCadastros.php';</script>";
+        echo "<script>alert('Houve algo de errado ao acesar a pagina!'); window.location.href = '../verPreInscricoes.php';</script>";
         exit();
     }
     

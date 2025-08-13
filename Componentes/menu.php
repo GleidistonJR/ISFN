@@ -41,7 +41,7 @@
                                     Aluno
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
+                                    <li><a class="dropdown-item" href="/adm/verPreInscricoes.php"> Ver Pré-Inscrições</a></li>
                                     <li><a class="dropdown-item" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                 </ul>
                             </div>
@@ -217,7 +217,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-dark" href="/adm/verPreCadastros.php"> Ver Pré-Inscrições</a></li>
+                                        <li><a class="dropdown-item text-dark" href="/adm/verPreInscricoes.php"> Ver Pré-Inscrições</a></li>
                                         <li><a class="dropdown-item text-dark" href="/preInscricaoAluno.php">Pré-Inscrição</a></li>
                                     </ul>
                                 </div>

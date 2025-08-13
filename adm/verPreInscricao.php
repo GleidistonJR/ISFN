@@ -51,7 +51,7 @@
             
         }
         else{
-            echo "<script>alert('ID não encontrado!'); window.location.href = 'verPreCadastros.php';</script>";
+            echo "<script>alert('ID não encontrado!'); window.location.href = 'verPreInscricoes.php';</script>";
         }
     
     }

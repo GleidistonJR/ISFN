@@ -34,7 +34,7 @@
 
         <article class="row">
             <h2>Pré-Inscrição Aluno</h2>
-            <form class="col-12 col-lg-8 col-form my-5 p-0" method="POST" action="enviarAluno.php">
+            <form class="col-12 col-lg-8 col-form my-5 p-0" method="POST" action="enviarInscricao.php">
 
                 <!--
                 ----------------------------Dados do Responsavel------------------------------------------

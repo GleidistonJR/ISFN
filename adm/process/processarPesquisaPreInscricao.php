@@ -28,7 +28,7 @@ if (isset($_GET['search'])) {
             echo "<td class='d-table-cell'>" . htmlspecialchars($row['foneResponsavel']) . "</td>";
             echo "<td class='d-table-cell'>" . htmlspecialchars($row['horarioAula']) . "</td>";
             echo '<td class="ps-5">
-            <a class="btn btn-warning btn-sm" href="/adm/verPreCadastro.php?id='.$row['id'].'">
+            <a class="btn btn-warning btn-sm" href="/adm/verPreInscricao.php?id='.$row['id'].'">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>

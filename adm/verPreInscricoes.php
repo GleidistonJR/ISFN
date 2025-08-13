@@ -106,7 +106,7 @@
                         echo "<td class='d-table-cell'>" . htmlspecialchars($row['foneResponsavel']) . "</td>";
                         echo "<td class='d-table-cell'>" . htmlspecialchars($row['horarioAula']) . "</td>";
                         echo '<td class="ps-5">
-                            <a class="btn btn-warning btn-sm" href="/adm/verPreCadastro.php?id='.$row['id'].'">
+                            <a class="btn btn-warning btn-sm" href="/adm/verPreInscricao.php?id='.$row['id'].'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
@@ -143,22 +143,22 @@
 
     <!-- Modal -->
     <div class="modal fade" id="modalConfirmaSenha" tabindex="-1" aria-labelledby="modalConfirmaSenhaLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalConfirmaSenhaLabel">Confirme sua senha</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body my-4">
-            <label for="confirme-senha">Digite sua senha:</label>
-            <div class="input-group">
-                <input class="form-control" id="confirme-senha" type="password">
-                <button class="btn btn-primary" type="submit" id="btn-enviar-modal" >Enviar</button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalConfirmaSenhaLabel">Confirme sua senha</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body my-4">
+                <label for="confirme-senha">Digite sua senha:</label>
+                <div class="input-group">
+                    <input class="form-control" id="confirme-senha" type="password">
+                    <button class="btn btn-primary" type="submit" id="btn-enviar-modal">Enviar</button>
+                </div>
 
+            </div>
+            </div>
         </div>
-        </div>
-    </div>
     </div>
 
 
@@ -168,6 +168,15 @@
 <script>
     let id;
     let arquivo;
+
+
+    document.getElementById('confirme-senha').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // evita comportamento padrão
+            document.getElementById('btn-enviar-modal').click(); // simula clique
+        }
+    });
+
 
     
     function confirmarSenha(id, arquivo, senha) {

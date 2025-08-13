@@ -22,9 +22,9 @@
     
     // Executa a consulta
     if ($stmt->execute()) {
-        echo "<script>window.location.href = '../verPreCadastros.php';</script>";
+        echo "<script>window.location.href = '../verPreInscricoes.php';</script>";
     } else {
-        echo "<script>alert('Erro ao deletar registro! ". $stmt->erro ."'); window.location.href = '../verPreCadastros.php';</script>";
+        echo "<script>alert('Erro ao deletar registro! ". $stmt->erro ."'); window.location.href = '../verPreInscricoes.php';</script>";
     }
     
     
