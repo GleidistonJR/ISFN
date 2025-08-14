@@ -216,14 +216,14 @@
     //EDIT
     document.querySelectorAll('.edit-link').forEach(link => {
         link.addEventListener('click', function(event) {
-            id = this.getAttribute('data-id'); // Pega o id do link
-            arquivo = "editIncricao.php"
+            id = this.getAttribute('data-id'); // Pega o ID do elemento clicado
+            arquivo = "editIncricao.php"       // Define qual script será chamado
         });
     });
     document.querySelectorAll('.delete-link').forEach(link => {
         link.addEventListener('click', function(event) {
-            id = this.getAttribute('data-id'); // Pega o id do link
-            arquivo = "process/removeIncricao.php"
+            id = this.getAttribute('data-id');      // Pega o ID do elemento clicado
+            arquivo = "process/removeIncricao.php"  // Define qual script será chamado
         });
     });
 
