@@ -248,5 +248,5 @@
     $("#docAluno").mask("000.000.000-00");
 
     </script>
-    <script type="text/javascript" src="/js/cep.js?16"></script>
+    <script type="text/javascript" src="/js/cep.js?17"></script>
 </body>

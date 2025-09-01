@@ -57,8 +57,8 @@
 
         <div class="col-7 col-md-4" id="logo"><!--Logo -->
             <a href="/index.php">
-                <img class="img-logo-normal" src="/img/img-logo/LOGO-AZUL-PNG.png?16" />
-                <img class="img-logo-mini" src="/img/img-logo/EspiritoSantoAzul.png?16" />
+                <img class="img-logo-normal" src="/img/img-logo/LOGO-AZUL-PNG.png?17" />
+                <img class="img-logo-mini" src="/img/img-logo/EspiritoSantoAzul.png?17" />
             </a>
         </div>
 

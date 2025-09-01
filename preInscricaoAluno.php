@@ -12,7 +12,7 @@
     include("Componentes/headBasic.html");
     ?>
 
-    <link rel="stylesheet" href="/css/formularioDoador.css?16">
+    <link rel="stylesheet" href="/css/formularioDoador.css?17">
 </head>
 
 
@@ -24,10 +24,10 @@
 
 
 
-        <div class="position-fixed z-index-img" id="modalImg">
-            <img class="img-fluid " src="/img/aviso.png?16" alt="">
+        <div class="position-fixed z-index-img" id="modalImg" onclick="fecharModal()">
+            <img class="img-fluid " src="/img/aviso.png?17" alt="">
             <br>
-            <button class="text-center btn btn-primary" onclick="fecharModal()">X</button>
+            <button class="text-center btn btn-primary">X</button>
         </div>
 
 
@@ -273,6 +273,6 @@
         
     }
 </script>
-<script type="text/javascript" src="/js/cep.js?16"></script>
+<script type="text/javascript" src="/js/cep.js?17"></script>
 
 </html>
