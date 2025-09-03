@@ -148,13 +148,14 @@
                 -->
                 <div class="col-12 mb-4">
                     <label class="form-label" for="horarioAula">Período escolhido:</label>
+                    <!--
                     <div class="form-check col-12">
                         <input class="form-check-input" type="radio" name="horarioAula" value="M" id="Matutino"
                             checked>
                         <label class="form-check-label" for="Matutino">Matutino (Sábado das 8h às 11h)</label>
-                    </div>
+                    </div>-->
                     <div class="form-check  col-12">
-                        <input class="form-check-input" type="radio" name="horarioAula" value="V" id="Vespertino">
+                        <input class="form-check-input" type="radio" name="horarioAula" value="V" id="Vespertino" checked>
                         <label class="form-check-label" for="Vespertino">Vespertino (Sábado das 14h às 17h)</label>
                     </div>
                 </div>
