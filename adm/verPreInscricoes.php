@@ -5,8 +5,10 @@
 
     include_once("../DAO.php");
     
+    $ordem = isset($_GET['ordem']) ? $_GET['ordem'] : 'nomeAluno';
+
     // Preparando e executando a consulta para listar os dados
-    $stmt = $conexao->prepare("SELECT * FROM precadastro ORDER BY nomeAluno ASC");
+    $stmt = $conexao->prepare("SELECT * FROM precadastro ORDER BY $ordem ASC");
     $stmt->execute();
     
     // Pegando o resultado da consulta
@@ -76,20 +78,19 @@
         <h1 class="text-center mb-5">Lista Pré-Inscrições <span class="badge text-bg-primary"><?php echo $result->num_rows?></span></h1>
 
         <div class="mb-5 pesquisar row">
-            <!--
+
             <div class="btn-group col-1 col-filtro">
                 <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-sort-up"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    <li><a class="dropdown-item" href="?ordem=nomeAluno">Aluno</a></li>
+                    <li><a class="dropdown-item" href="?ordem=horarioAula">Periodo</a></li>
+                    <li><a class="dropdown-item" href="?ordem=dataCriacao">Data</a></li>
+                    <li><a class="dropdown-item" href="?ordem=nomeResponsavel">Responsanvel</a></li>
+
                 </ul>
             </div>
-            -->
             
             <div class="col-md-6 col-9 col-pesquisa">
                 <form class="input-group" id="search-form" onsubmit="return false;"> <!-- Formulário -->

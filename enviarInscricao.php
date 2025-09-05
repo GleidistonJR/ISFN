@@ -1,6 +1,6 @@
 <?php
-
-if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Verifica se foi enviado os dados
+//Verifica se foi enviado os dados
+if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { 
     
     // Capturando dados do formulário Responsavel
     // trim() serve para remover espaços em branco (e outros caracteres invisíveis) do início e do fim de uma string.
@@ -32,76 +32,60 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) { //Ver
 
 
  
-    // Incluindo conexão
+    // Incluindo conexão ao banco de dados
     include_once("DAO.php");
 
-    // Prepara a consulta para verificar se o documento já está cadastrado
-    $stmt = $conexao->prepare("SELECT id FROM precadastro WHERE docResponsavel = ? AND nascAluno = ?");
-    $stmt->bind_param("ss", $docResponsavel, $nascAluno); // Vinculando o doc
+    // Prepara a consulta para verificar se o Aluno ja esta cadastrado
+    $stmt = $conexao->prepare("SELECT id FROM precadastro WHERE nomeAluno = ?");
+    $stmt->bind_param("s", $nomeAluno); 
     $stmt->execute();
     $stmt->store_result(); // Armazena o resultado
 
     // Verifica se o documento já existe
-    //if ($stmt->num_rows > 0) {
-    if (false) {
-        // doc já cadastrado
-        echo "<script>alert('Este documento já está cadastrado!'); window.history.back();</script>";
+    if ($stmt->num_rows > 0) {
+        // Aluno já cadastrado
+        echo "<script>alert('Este aluno já foi cadastrado!'); window.history.back();</script>";
     }else {
 
-        // Iniciando uma transação
-        $conexao->begin_transaction();
+        // Inserir na tabela pessoa
+        $stmt = $conexao->prepare("INSERT INTO precadastro (
+        nomeResponsavel, nascResponsavel, docResponsavel,
+            foneResponsavel, emailResponsavel, sexoResponsavel,
+            nomeAluno, nascAluno, docAluno, foneAluno, emailAluno,
+            sexoAluno, horarioAula, cep, pais, estado, cidade, rua, setor, numero, complemento 
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        try {
-            // Inserir na tabela pessoa
-            $stmt = $conexao->prepare("INSERT INTO precadastro (
-            nomeResponsavel, nascResponsavel, docResponsavel,
-             foneResponsavel, emailResponsavel, sexoResponsavel,
-              nomeAluno, nascAluno, docAluno, foneAluno, emailAluno,
-              sexoAluno, horarioAula, cep, pais, estado, cidade, rua, setor, numero, complemento 
-              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        if ($stmt === false) {
+            throw new Exception("Erro na preparação da consulta: " . $conexao->error);
+        }
 
-            if ($stmt === false) {
-                throw new Exception("Erro na preparação da consulta: " . $conexao->error);
-            }
-
-            $stmt->bind_param(
-                "sssssssssssssssssssss", // 21 campos do tipo string
-                $nomeResponsavel, $nascResponsavel, $docResponsavel,
-                $foneResponsavel, $emailResponsavel, $sexoResponsavel, $nomeAluno,
-                $nascAluno, $docAluno, $foneAluno, $emailAluno, $sexoAluno, $horarioAula,
-                $cep, $pais, $estado, $cidade, $rua, $setor, $numero, $complemento
-            );
+        $stmt->bind_param(
+            "sssssssssssssssssssss", // 21 campos do tipo string
+            $nomeResponsavel, $nascResponsavel, $docResponsavel,
+            $foneResponsavel, $emailResponsavel, $sexoResponsavel, $nomeAluno,
+            $nascAluno, $docAluno, $foneAluno, $emailAluno, $sexoAluno, $horarioAula,
+            $cep, $pais, $estado, $cidade, $rua, $setor, $numero, $complemento
+        );
 
 
 
-            if (!$stmt->execute()) {
-                throw new Exception("Erro ao inserir na tabela pessoa: " . $stmt->error);
-                $stmt->close();
-                $conexao->close();
-            }
-
-           
-            // Commit da transação
-            $conexao->commit();
-
-            echo "<script>window.location.href = 'cadastradoComSucesso.php';</script>";
-
+        if (!$stmt->execute()) {
+            throw new Exception("Erro ao inserir na tabela precadastro: " . $stmt->error);
             $stmt->close();
             $conexao->close();
-        } catch (Exception $e) {
-            // Rollback em caso de erro
-            $conexao->rollback();
-            echo "Erro: " . $e->getMessage();
-            $conexao->close();
         }
+
+        echo "<script>window.location.href = 'cadastradoComSucesso.php';</script>";
+
+        $stmt->close();
+        $conexao->close();
     }
 }
 else {
-    retornarCadastro();
-}
-
-function retornarCadastro() {
-    echo "<script>alert('Preencha todos os campos!'); window.location.href = 'formularioDoador.php';</script>";
+    echo "<script>
+            alert('Preencha todos os campos!'); 
+            window.location.href = 'preInscricaoAluno.php';
+        </script>";
     exit();
 }
 ?>
