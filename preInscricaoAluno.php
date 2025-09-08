@@ -3,7 +3,7 @@
     include_once("DAO.php");
 
     // Limite de vagas por periodo
-    $limitMatutino = 18;
+    $limitMatutino = 15;
     $limitVespertino = 15;
 
     $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE horarioAula = 'M' ");

@@ -30,6 +30,16 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) {
     $numero = trim($_POST['numero']);
     $complemento = trim($_POST['complemento']);
 
+    $formNascimento = DateTime::createFromFormat('d/m/Y', $nascAluno);
+    $hoje = new DateTime();
+
+    $idadeAluno = $formNascimento->diff($hoje);
+    $anos = $idadeAluno->y;
+
+    if ($anos > 13 or $anos < 10) {
+        echo "<script>alert('O aluno deve ter entre 10 e 13 anos!'); window.history.back();</script>";
+        exit();
+    }
 
  
     // Incluindo conexão ao banco de dados

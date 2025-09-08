@@ -25,6 +25,9 @@
     <title>ADM | Lista Pré-Inscrições</title>
 
     <style>
+        *{
+            text-decoration: none !important;
+        }
         body{
             position: relative;
         }
@@ -41,6 +44,9 @@
         }
         .col-pesquisa{
             margin: auto;
+        }
+        .link-filter:hover{
+            background-color: #9fe2f1ff;
         }
         .modalConfirmaSenha2{
             position: absolute;
@@ -105,12 +111,12 @@
             <table class="table table-striped table-hover tabela overflow-x-auto" style="min-width: 800px;">
                 <thead class='table-info'>
                     <tr>
-                        <th class="d-table-cell" scope="col">Data</th>
-                        <th class="d-table-cell" scope="col">Aluno</th>
+                        <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=dataCriacao">Data</a></th>
+                        <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=nomeAluno">Aluno</a></th>
                         <th class="d-table-cell text-center" scope="col">Idade</th>
-                        <th class="d-table-cell" scope="col">Responsavel</th>
+                        <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=nomeResponsavel">Responsanvel</a></th>
                         <th class="d-table-cell" scope="col">Telefone</th>
-                        <th class="d-table-cell text-center" scope="col">Periodo</th>
+                        <th class="d-table-cell text-center link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=horarioAula">Periodo</a></th>
                         <th class="d-table-cell text-center" scope="col">Confirmado</th>
                         <th class="d-table-cell" scope="col">Visualizar</th>
                     </tr>

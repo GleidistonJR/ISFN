@@ -1,6 +1,7 @@
 <?php
+    ini_set('session.gc_maxlifetime', 7200);
     session_set_cookie_params([
-        'lifetime' => 3600,
+        'lifetime' => 7200,
         'path'     => '/',
         'domain'   => 'isfn.org.br',
         'secure'   => false,
