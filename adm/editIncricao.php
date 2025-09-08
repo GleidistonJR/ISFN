@@ -132,15 +132,21 @@
                     </div>
                 </div>
                 
-                <div class="input-group mb-2">
-                    <div class="col-6 mb-2">
-                        <label class="form-label" for="sexoResponsavel">Sexo</label>
-                        <div class="form-check col-6">
-                            <input class="form-check-input" type="radio" name="sexoResponsavel" value="M" id="sexoResponsavel" checked>
-                            <label class="form-check-label" for="sexoResponsavel"><?php echo($sexoResponsavel == 'M') ? 'Masculino' : 'Feminino' ?></label>
-                        </div>                        
+
+                 <div class="col-6 mb-4">
+                    <label class="form-label" for="sexoResponsavel">Sexo</label>
+                    <div class="form-check col-6">
+                        <input class="form-check-input" type="radio" name="sexoResponsavel" value="M"
+                            id="masculinoResponsavel"<?php echo($sexoResponsavel == 'M') ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="masculinoResponsavel">Masculino</label>
+                    </div>
+                    <div class="form-check  col-6">
+                        <input class="form-check-input" type="radio" name="sexoResponsavel" value="F"
+                            id="femininoResponsavel" <?php echo($sexoResponsavel == 'F') ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="femininoResponsavel">Feminino</label>
                     </div>
                 </div>
+
                 
                 <h3 class="fs-5">Dados do Aluno:</h3>
                 <div class="input-group">
@@ -168,13 +174,18 @@
                     </div>
                 </div>
 
-                <div class="input-group mb-2">
-                    <div class="col-6 mb-2">
-                        <label class="form-label" for="sexoAluno">Sexo</label>
-                        <div class="form-check col-6">
-                            <input class="form-check-input" type="radio" name="sexoAluno" value="<?php echo$sexoAluno ?>" id="sexoAluno" checked>
-                            <label class="form-check-label" for="sexoAluno"><?php echo($sexoAluno == 'M') ? 'Masculino' : 'Feminino' ?></label>
-                        </div>                        
+
+                <div class="col-6 mb-4">
+                    <label class="form-label" for="sexoAluno">Sexo*</label>
+                    <div class="form-check col-6">
+                        <input class="form-check-input" type="radio" name="sexoAluno" value="M" id="masculinoAluno"
+                            <?php echo($sexoAluno == 'M') ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="masculinoAluno">Masculino</label>
+                    </div>
+                    <div class="form-check  col-6">
+                        <input class="form-check-input" type="radio" name="sexoAluno" value="F" id="femininoAluno"
+                        <?php echo($sexoAluno == 'F') ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="femininoAluno">Feminino</label>
                     </div>
                 </div>
 
@@ -182,9 +193,14 @@
                 <div class="col-12 mb-4">
                     <label class="form-label" for="horarioAula">Período escolhido:</label>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="radio" name="horarioAula" value="<?php echo$horarioAula ?>" id="horarioAula"
-                            checked>
-                        <label class="form-check-label" for="horarioAula"><?php echo($horarioAula == 'M') ? 'Matutino' : 'Vespertino' ?></label>
+                        <input class="form-check-input" type="radio" name="horarioAula" value="M" id="Matutino"
+                            <?php echo($horarioAula == 'M') ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="Matutino">Matutino (Sábado das 8h às 11h)</label>
+                    </div>
+                    <div class="form-check  col-12">
+                        <input class="form-check-input" type="radio" name="horarioAula" value="V" id="Vespertino" 
+                        <?php echo($horarioAula == 'V') ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="Vespertino">Vespertino (Sábado das 14h às 17h)</label>
                     </div>
                 </div>
 

@@ -1,5 +1,30 @@
 <?php
     include_once("adm/process/sessionLogin.php");
+    include_once("DAO.php");
+
+    // Limite de vagas por periodo
+    $limitMatutino = 18;
+    $limitVespertino = 15;
+
+    $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE horarioAula = 'M' ");
+    // Executando a consulta
+    $stmt->execute();    
+    $result = $stmt->get_result();
+    $qtdMatutino = $result->num_rows;
+    $stmt->close();
+
+
+    $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE horarioAula = 'V' ");
+    // Executando a consulta
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $qtdVespertino = $result->num_rows;
+    $stmt->close();
+
+    if($qtdMatutino >= $limitMatutino && $qtdVespertino >= $limitVespertino){
+        echo "<script>alert('As vagas para os dois períodos já foram preenchidas. Entre em contato conosco para mais informações.'); window.location.href = 'index.php';</script>";
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -146,18 +171,30 @@
                 <!--
                 ----------------------------Periodo Escolhido------------------------------------------
                 -->
+                
                 <div class="col-12 mb-4">
                     <label class="form-label" for="horarioAula">Período escolhido:</label>
-                    <!--
-                    <div class="form-check col-12">
-                        <input class="form-check-input" type="radio" name="horarioAula" value="M" id="Matutino"
-                            checked>
-                        <label class="form-check-label" for="Matutino">Matutino (Sábado das 8h às 11h)</label>
-                    </div>-->
-                    <div class="form-check  col-12">
-                        <input class="form-check-input" type="radio" name="horarioAula" value="V" id="Vespertino" checked>
-                        <label class="form-check-label" for="Vespertino">Vespertino (Sábado das 14h às 17h)</label>
-                    </div>
+                    
+                    <?php if($qtdMatutino < $limitMatutino){ 
+                        echo '
+                            <div class="form-check col-12">
+                                <input class="form-check-input" type="radio" name="horarioAula" value="M" id="Matutino"
+                                    checked>
+                                <label class="form-check-label" for="Matutino">Matutino (Sábado das 8h às 11h)</label>
+                            </div>
+                        ';
+                    }
+                    ?>
+                    <?php if($qtdVespertino < $limitVespertino){ 
+                        echo '
+                            <div class="form-check  col-12">
+                                <input class="form-check-input" type="radio" name="horarioAula" value="V" id="Vespertino" checked>
+                                <label class="form-check-label" for="Vespertino">Vespertino (Sábado das 14h às 17h)</label>
+                            </div>
+                        ';
+                    }
+                    ?>
+                    
                 </div>
 
 
@@ -216,7 +253,6 @@
     ?>
 </body>
 
-
 <script>
     $("#nascResponsavel").mask("00/00/0000");
     $("#nascAluno").mask("00/00/0000");
@@ -274,6 +310,7 @@
         
     }
 </script>
+
 <script type="text/javascript" src="/js/cep.js?17"></script>
 
 </html>
