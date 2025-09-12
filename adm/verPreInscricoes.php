@@ -49,14 +49,14 @@
             background-color: #9fe2f1ff;
         }
         .modalConfirmaSenha2{
-            position: absolute;
+            position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             width: 100vw;
             height: 100vh;            
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 30;
             display: none;
         }
@@ -81,7 +81,7 @@
 <body>
     <?php include_once("../Componentes/menu.php"); ?>
 
-    <section class="Doadores mb-5 mx-md-5">
+    <section class="Doadores mb-5 mx-2 mx-xl-5">
         <h1 class="text-center mb-5">Lista Pré-Inscrições <span class="badge text-bg-primary"><?php echo $result->num_rows?></span></h1>
         
         <div class="mb-5 pesquisar row">
@@ -92,9 +92,9 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="?ordem=nomeAluno">Aluno</a></li>
-                    <li><a class="dropdown-item" href="?ordem=horarioAula">Periodo</a></li>
+                    <li><a class="dropdown-item" href="?ordem=horarioAula">Período</a></li>
                     <li><a class="dropdown-item" href="?ordem=dataCriacao">Data</a></li>
-                    <li><a class="dropdown-item" href="?ordem=nomeResponsavel">Responsanvel</a></li>
+                    <li><a class="dropdown-item" href="?ordem=nomeResponsavel">Responsável</a></li>
 
                 </ul>
             </div>
@@ -109,17 +109,17 @@
 
         <div class="overflow-x-auto">
 
-            <table class="table table-striped table-hover tabela overflow-x-auto" style="min-width: 800px;">
+            <table class="table table-striped table-hover tabela" style="min-width: 1000px;">
                 <thead class='table-info'>
                     <tr>
                         <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=dataCriacao">Data</a></th>
                         <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=nomeAluno">Aluno</a></th>
                         <th class="d-table-cell text-center" scope="col">Idade</th>
-                        <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=nomeResponsavel">Responsanvel</a></th>
+                        <th class="d-table-cell link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=nomeResponsavel">Responsável</a></th>
                         <th class="d-table-cell" scope="col">Telefone</th>
-                        <th class="d-table-cell text-center link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=horarioAula">Periodo</a></th>
+                        <th class="d-table-cell text-center link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=horarioAula">Período</a></th>
                         <th class="d-table-cell text-center" scope="col">Confirmado</th>
-                        <th class="d-table-cell text-center" scope="col">Desistencia</th>
+                        <th class="d-table-cell text-center" scope="col">Desistência</th>
                         <th class="d-table-cell" scope="col">Visualizar</th>
                     </tr>
                 </thead>
@@ -140,31 +140,33 @@
                         echo "<td class='d-table-cell'>" . htmlspecialchars($row['nomeAluno']) . "</td>";
                         echo "<td class='d-table-cell text-center'>" . htmlspecialchars($idade) . "</td>";
                         echo "<td class='d-table-cell'>" . htmlspecialchars($row['nomeResponsavel']) . "</td>";
-                        echo "<td class='d-table-cell'>" . htmlspecialchars($row['foneResponsavel']) . "</td>";
+                        echo "<td class='d-table-cell '>" . htmlspecialchars($row['foneResponsavel']) . "</td>";
                         echo "<td class='d-table-cell text-center'>" . htmlspecialchars($row['horarioAula']) . "</td>";
                         echo "<td class='d-table-cell text-center' ><input type='checkbox' onclick='pedirSenha(".$row['id'].", 1)' 
                         ". ($row['confirmado'] == 1 ? "checked" : "") . " ></td>";
                         echo "<td class='d-table-cell text-center' ><input type='checkbox' onclick='pedirSenha(".$row['id'].", 0)' 
                         ". ($row['desistencia'] == 1 ? "checked" : "") . " ></td>";
-                        echo '<td class="">
-                            <a class="btn btn-warning btn-sm" href="/adm/verPreInscricao.php?id='.$row['id'].'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
-                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
-                            </svg>
-                            </a>';
-                        echo '
-                            <a class="btn btn-primary btn-sm edit-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$row['id'].'"">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
-                                </svg>
-                            </a>';
-                        echo '
-                            <a class="btn btn-danger btn-sm delete-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$row['id'].'">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                                </svg>
-                            </a></td>';
+                        echo '<td class="d-table-cell">
+                                <div class="d-flex align-content-center gap-1">
+                                    <a class="btn btn-warning btn-sm" href="/adm/verPreInscricao.php?id='.$row['id'].'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                    </svg>
+                                    </a>
+                                    <a class="btn btn-primary btn-sm edit-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$row['id'].'"">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
+                                    </svg>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm delete-link" href="#" data-bs-toggle="modal" data-bs-target="#modalConfirmaSenha" data-id="'.$row['id'].'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                    </svg>
+                                    </a>
+                                </div>
+                            </td>';
+                        
                         echo "</tr>";
                     }
                     } else {

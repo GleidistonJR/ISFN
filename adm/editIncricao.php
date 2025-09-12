@@ -70,9 +70,6 @@
     #edit-formulario-colaborador{
         padding-top: 150px;
     }
-    #edit-formulario-colaborador .row{
-        max-width: 100%;
-    }
     .btn-voltar{
         margin-left: 15%;
         width: 33%;
@@ -83,12 +80,12 @@
     }
     @media (max-width: 992px) {
         .btn-voltar{
-            margin-left: 29%;
-            width: 100%;
+            margin-left: 3%;
+            width: 93%;
         }
         .btn-enviar{
-        margin-left: 5%;
-        width: 100%;
+        margin-left: 3%;
+        width: 93%;
         }
     }
 </style>
@@ -101,7 +98,7 @@
 
 
     <section class="container" id="edit-formulario-colaborador">
-        <article class="row d-flex flex-column jusify-content-center align-items-center">
+        <article class="row mx-1 d-flex flex-column jusify-content-center align-items-center">
             <h2 class="text-center">Editar Pré-Inscrição </h2>
             
             <form class="col-12 col-lg-8 col-form my-5 p-0" method="POST" action="process/saveEditIncricao.php">

@@ -102,7 +102,7 @@
     <?php include("../Componentes/menu.php"); ?>
 
 
-    <section class="container-fluid px-2 d-flex justify-content-center " id="edit-formulario-colaborador">
+    <section class="container-fluid px-3 d-flex justify-content-center " id="edit-formulario-colaborador">
         <article class="row d-flex flex-column jusify-content-center align-items-center p-0">
             
             <h2 class="text-center">Dados Pre-Inscrição</h2>
