@@ -5,7 +5,7 @@ if (isset($_GET['search'])) {
     $search = "%" . $_GET['search'] . "%"; // Adiciona os wildcards para a busca
 
     // Prepara a consulta com o termo de pesquisa
-    $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE nomeResponsavel LIKE ? OR nomeAluno LIKE ?
+    $stmt = $conexao->prepare("SELECT * FROM pre_inscricao WHERE nomeResponsavel LIKE ? OR nomeAluno LIKE ?
      ORDER BY nomeAluno ASC");
     $stmt->bind_param("ss", $search, $search);  // Usa prepared statement para evitar SQL Injection
     $stmt->execute();

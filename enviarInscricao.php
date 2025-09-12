@@ -46,7 +46,7 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) {
     include_once("DAO.php");
 
     // Prepara a consulta para verificar se o Aluno ja esta cadastrado
-    $stmt = $conexao->prepare("SELECT id FROM precadastro WHERE nomeAluno = ?");
+    $stmt = $conexao->prepare("SELECT id FROM pre_inscricao WHERE nomeAluno = ?");
     $stmt->bind_param("s", $nomeAluno); 
     $stmt->execute();
     $stmt->store_result(); // Armazena o resultado
@@ -58,7 +58,7 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) {
     }else {
 
         // Inserir na tabela pessoa
-        $stmt = $conexao->prepare("INSERT INTO precadastro (
+        $stmt = $conexao->prepare("INSERT INTO pre_inscricao (
         nomeResponsavel, nascResponsavel, docResponsavel,
             foneResponsavel, emailResponsavel, sexoResponsavel,
             nomeAluno, nascAluno, docAluno, foneAluno, emailAluno,
@@ -80,7 +80,7 @@ if (isset($_POST['nomeResponsavel']) && isset($_POST['docResponsavel'])) {
 
 
         if (!$stmt->execute()) {
-            throw new Exception("Erro ao inserir na tabela precadastro: " . $stmt->error);
+            throw new Exception("Erro ao inserir na tabela pre_inscricao: " . $stmt->error);
             $stmt->close();
             $conexao->close();
         }

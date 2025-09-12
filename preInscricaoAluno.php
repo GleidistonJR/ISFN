@@ -6,7 +6,7 @@
     $limitMatutino = 15;
     $limitVespertino = 15;
 
-    $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE horarioAula = 'M' ");
+    $stmt = $conexao->prepare("SELECT * FROM pre_inscricao WHERE horarioAula = 'M' ");
     // Executando a consulta
     $stmt->execute();    
     $result = $stmt->get_result();
@@ -14,7 +14,7 @@
     $stmt->close();
 
 
-    $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE horarioAula = 'V' ");
+    $stmt = $conexao->prepare("SELECT * FROM pre_inscricao WHERE horarioAula = 'V' ");
     // Executando a consulta
     $stmt->execute();
     $result = $stmt->get_result();
@@ -48,13 +48,13 @@
     <section class="position-relative formulario-colaborador container-fluid" id="formulario-colaborador">
 
 
-
+        <!--
         <div class="position-fixed z-index-img" id="modalImg" onclick="fecharModal()">
             <img class="img-fluid " src="/img/aviso.png?17" alt="">
             <br>
             <button class="text-center btn btn-primary">X</button>
         </div>
-
+        -->
 
 
         <article class="row">

@@ -9,7 +9,7 @@
         // Captura o valor do parâmetro 'id'
         $id = $_GET['id'];
         
-        $stmt = $conexao->prepare("SELECT * FROM precadastro WHERE id=?");
+        $stmt = $conexao->prepare("SELECT * FROM pre_inscricao WHERE id=?");
         
         // Vinculando o parâmetro à consulta (número inteiro)
         $stmt->bind_param("i", $id);

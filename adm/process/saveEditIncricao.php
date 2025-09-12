@@ -39,7 +39,7 @@
 
 
         // Atualiza os dados da tabela pessoa
-        $stmt = $conexao->prepare("UPDATE precadastro SET
+        $stmt = $conexao->prepare("UPDATE pre_inscricao SET
                 nomeResponsavel = ?, nascResponsavel = ?, docResponsavel = ?,
                 foneResponsavel = ?, emailResponsavel = ?, sexoResponsavel = ?,
                 nomeAluno = ?, nascAluno = ?, docAluno = ?, foneAluno = ?, emailAluno = ?,

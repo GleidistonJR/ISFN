@@ -10,7 +10,7 @@
     $id = $_GET['id'];
 
     // Prepara a consulta SQL com um placeholder
-    $stmt = $conexao->prepare("DELETE FROM precadastro WHERE id = ?");
+    $stmt = $conexao->prepare("DELETE FROM pre_inscricao WHERE id = ?");
     
     // Verifica se a consulta foi preparada corretamente
     if ($stmt === false) {

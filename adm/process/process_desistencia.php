@@ -37,8 +37,8 @@
             if (password_verify($senha, $row['senha'])) {
                 //Senha Correta
 
-                // Atualiza o status da inscrição para 'true'
-                $consulta = $conexao->prepare("UPDATE pre_inscricao SET confirmado = 1 - confirmado WHERE id = ?");
+                // Atualiza o status da Desistencia para 'true'
+                $consulta = $conexao->prepare("UPDATE pre_inscricao SET desistencia = 1 - desistencia WHERE id = ?");
 
                 // Verifica se a preparação da consulta foi bem-sucedida
                 if ($consulta === false) {
@@ -52,14 +52,14 @@
                 if ($consulta->execute()) {
                     echo "
                         <script> 
-                            alert('Inscrição confirmada com sucesso!');
+                            alert('Desistencia modificada com sucesso!');
                             window.location.href = '../verPreInscricoes.php'; 
                         </script>
                     ";
                 } else {
                     echo "
                         <script> 
-                            alert('Erro ao confirmar inscrição: " . $consulta->error . "');
+                            alert('Erro ao modificar desistencia: " . $consulta->error . "');
                             window.location.href = '../verPreInscricoes.php'; 
                         </script>
                     ";

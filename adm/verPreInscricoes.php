@@ -8,7 +8,7 @@
     $ordem = isset($_GET['ordem']) ? $_GET['ordem'] : 'nomeAluno';
 
     // Preparando e executando a consulta para listar os dados
-    $stmt = $conexao->prepare("SELECT * FROM precadastro ORDER BY $ordem ASC");
+    $stmt = $conexao->prepare("SELECT * FROM pre_inscricao ORDER BY $ordem ASC");
     $stmt->execute();
     
     // Pegando o resultado da consulta
@@ -76,13 +76,14 @@
         }
 
     </style>
+
 </head>
 <body>
     <?php include_once("../Componentes/menu.php"); ?>
 
     <section class="Doadores mb-5 mx-md-5">
         <h1 class="text-center mb-5">Lista Pré-Inscrições <span class="badge text-bg-primary"><?php echo $result->num_rows?></span></h1>
-
+        
         <div class="mb-5 pesquisar row">
 
             <div class="btn-group col-1 col-filtro">
@@ -118,6 +119,7 @@
                         <th class="d-table-cell" scope="col">Telefone</th>
                         <th class="d-table-cell text-center link-filter" scope="col"><a class="fw-bold text-dark" href="?ordem=horarioAula">Periodo</a></th>
                         <th class="d-table-cell text-center" scope="col">Confirmado</th>
+                        <th class="d-table-cell text-center" scope="col">Desistencia</th>
                         <th class="d-table-cell" scope="col">Visualizar</th>
                     </tr>
                 </thead>
@@ -140,8 +142,10 @@
                         echo "<td class='d-table-cell'>" . htmlspecialchars($row['nomeResponsavel']) . "</td>";
                         echo "<td class='d-table-cell'>" . htmlspecialchars($row['foneResponsavel']) . "</td>";
                         echo "<td class='d-table-cell text-center'>" . htmlspecialchars($row['horarioAula']) . "</td>";
-                        echo "<td class='d-table-cell text-center' ><input type='checkbox' onclick='pedirSenha(".$row['id'].")' 
+                        echo "<td class='d-table-cell text-center' ><input type='checkbox' onclick='pedirSenha(".$row['id'].", 1)' 
                         ". ($row['confirmado'] == 1 ? "checked" : "") . " ></td>";
+                        echo "<td class='d-table-cell text-center' ><input type='checkbox' onclick='pedirSenha(".$row['id'].", 0)' 
+                        ". ($row['desistencia'] == 1 ? "checked" : "") . " ></td>";
                         echo '<td class="">
                             <a class="btn btn-warning btn-sm" href="/adm/verPreInscricao.php?id='.$row['id'].'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -221,6 +225,7 @@
     let id;
     let arquivo;
     var idCheckbox;
+    var confirmado;
     
     //Função para confirmar Incrição do aluno
     // Fecha o modal se clicar fora do conteúdo
@@ -230,9 +235,10 @@
             window.location.reload();
         }
     }
-    function pedirSenha(id){    
+    function pedirSenha(id, isConfirmado) {    
         //alert("Ação confirmada para o ID: " + id);
         idCheckbox = id;
+        confirmado = isConfirmado;
         document.getElementById('modalConfirmaSenha2').style.display = 'block';
         document.getElementById('confirme-senha2').focus();
         
@@ -254,7 +260,11 @@
         // Enviar a senha via POST para a página de confirmação em PHP
         var form = document.createElement("form");
         form.method = "POST";
-        form.action = "process/process_confirmacao_inscricao.php";  // Página que processa a senha
+        if(confirmado){
+            form.action = "process/process_confirmacao_inscricao.php";  // Página que processa a senha
+        }else{
+            form.action = "process/process_desistencia.php";  // Página que processa a senha
+        }
 
         //Criando Input para enviar a senha
         var _senha = document.createElement("input");
